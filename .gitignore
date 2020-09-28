@@ -8,3 +8,4 @@ dist
 .env.*
 .idea
 fragebogen.txt
+/firebase-admin.json

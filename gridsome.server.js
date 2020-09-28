@@ -5,11 +5,57 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
-  api.loadSource(action => {
-    let workshops = action.getCollection("Workshop");
+const admin = require('firebase-admin');
 
-    workshops.addReference("uid", "User");
+const app = admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+});
+
+const firestore = app.firestore();
+
+const docToData = doc => {
+  return {... (doc.data()), id: doc.id}
+}
+
+module.exports = function (api) {
+  api.loadSource(async action => {
+
+    let workshopsCollection = action.addCollection("Workshops");
+
+    // get workshops
+    let workshops = (await firestore.collection("workshops").get()).docs.map(docToData);
+
+    // load organizer details
+    workshops = await Promise.all(workshops.map(async workshop => {
+
+      let organizer = await (await firestore.collection("users").doc(workshop.organizer).get()).data()
+      workshop.organizer = {name: organizer.name, id: workshop.organizer};
+
+      return workshop;
+    }));
+
+    // load daterows
+    workshops = await Promise.all(workshops.map(async workshop => {
+
+      let daterows = await (await firestore.collection("workshops").doc(workshop.id).collection("daterows").get()).docs.map(docToData);
+
+      daterows = await Promise.all(daterows.map(async daterow => {
+
+        daterow.dates = await (await firestore.collection("workshops").doc(workshop.id).collection("daterows").doc(daterow.id).collection("dates").get()).docs.map(docToData);
+
+        return daterow;
+      }))
+
+      workshop.daterows = daterows;
+
+      return workshop;
+    }))
+
+    workshops.forEach(workshop => {
+      workshopsCollection.addNode({
+        ...workshop
+      });
+    });
   })
 
   api.createPages(({ createPage }) => {

@@ -8,7 +8,7 @@ module.exports = {
     siteName: 'SEF Workshops',
 
     templates: {
-        Workshop: "/w/:id"
+        Workshops: "/w/:id"
     },
 
     plugins: [{
@@ -19,28 +19,6 @@ module.exports = {
             shouldPurge: false,
             shouldImport: true,
             shouldTimeTravel: false
-        }
-    }, {
-        use: '@gridsome/source-filesystem',
-        options: {
-            path: 'src/assets/user/*.md',
-            typeName: 'User',
-        }
-    }, {
-        use: '@gridsome/source-filesystem',
-        options: {
-            path: 'src/assets/timeslot/*.md',
-            typeName: 'Timeslot',
-        }
-    }, {
-        use: '@gridsome/source-filesystem',
-        options: {
-            path: 'src/assets/workshop/*.md',
-            typeName: 'Workshop',
-            refs: {
-                creator: 'User',
-                timeslot: "Timeslot"
-            }
         }
     }],
 }

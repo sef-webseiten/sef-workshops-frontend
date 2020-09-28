@@ -22,14 +22,15 @@ export default {
 </script>
 <static-query>
 query {
-  workshops: allWorkshop(sortBy: "id", order: ASC) {
+  workshops: allWorkshops(sortBy: "id", order: ASC) {
     edges {
       node {
         title
         id
-        short
-        img
-        content
+description
+thumbnail
+path
+
       }
     }
   }
