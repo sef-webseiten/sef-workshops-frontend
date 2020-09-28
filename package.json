@@ -1,0 +1,21 @@
+{
+  "name": "sef-workshops",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.3",
+    "clipboardy": "^2.3.0",
+    "esm": "^3.2.25",
+    "gridsome": "^0.7.0"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^3.0.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2"
+  }
+}
