@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <div class="md:grid grid-cols-3 gap-4" v-for="({node}) in $static.workshops.edges">
+    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4" v-for="({node}) in $static.workshops.edges">
 
       <WorkshopCard :workshop="node"/>
 

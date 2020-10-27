@@ -3,10 +3,13 @@ module.exports = {
         extend: {
             borderRadius: {
                 "default": "1rem"
+            },
+            boxShadow: {
+                "2xl": "0 0 50px -10px rgba(0, 0, 0, 0.25)",
             }
         },
         fontFamily: {
-
+            "display": ["Poppins", "sans-serif"],
         },
         container: {
             center: true,
@@ -17,8 +20,7 @@ module.exports = {
             },
         },
     },
-    variants: {
-    },
+    variants: {},
     plugins: [],
     purge: [
         './src/**/*.html',

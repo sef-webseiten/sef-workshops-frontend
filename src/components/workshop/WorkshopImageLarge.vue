@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-auto shadow md:shadow-xl">
-    <g-image :src="img" width="630" class="shadow-2xl w-full object-cover" draggable="false" :alt="title"/>
+  <div class="mx-auto">
+    <g-image :src="img" width="630" height="120" class=" h-24 object-cover" draggable="false" :alt="title"/>
   </div>
 </template>
 <script>

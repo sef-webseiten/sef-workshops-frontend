@@ -9,3 +9,4 @@ dist
 .idea
 fragebogen.txt
 /firebase-admin.json
+/src/firebase-api.js

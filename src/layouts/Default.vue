@@ -1,23 +1,27 @@
 <template>
-  <div>
+  <div class="font-display">
     <header class="bg-red-500 py-12 text-white">
-      <div class="lg:flex flex-row justify-between container">
+      <div class="lg:flex flex-row justify-between xl:container px-6">
         <div class="text-2xl">
           <g-link to="/">{{ $static.metadata.siteName }}</g-link>
         </div>
         <Navbar/>
       </div>
     </header>
-    <div class="container my-6">
+    <div class="xl:container ">
       <slot/>
     </div>
   </div>
 </template>
 <script>
 import Navbar from "../components/Navbar";
+import "animate.css/animate.min.css"
 
 export default {
-  components: {Navbar}
+  components: {Navbar},
+  mounted() {
+    this.$store.dispatch("subscribeUserChanges")
+  }
 }
 </script>
 <static-query>
