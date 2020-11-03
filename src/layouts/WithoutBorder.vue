@@ -8,7 +8,7 @@
         <Navbar/>
       </div>
     </header>
-    <div class="xl:container container p-6">
+    <div class="md:container">
       <slot/>
     </div>
   </div>

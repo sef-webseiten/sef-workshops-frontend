@@ -6,6 +6,9 @@ module.exports = {
             },
             boxShadow: {
                 "2xl": "0 0 50px -10px rgba(0, 0, 0, 0.25)",
+            },
+            width: {
+                "fit": "fit-content"
             }
         },
         fontFamily: {

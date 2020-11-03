@@ -104,7 +104,7 @@ export default {
   },
   computed: {
     paypalUrl() {
-      return `https://www.paypal.com/sdk/js?client-id=${process.env.GRIDSOME_PAYPAL_CLIENT_ID}&currency=EUR&disable-funding=giropay,card,sofort` //sepa,
+      return `https://www.paypal.com/sdk/js?client-id=${process.env.GRIDSOME_PAYPAL_CLIENT_ID}&currency=EUR` //sepa,
     }
   }
 }

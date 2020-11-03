@@ -10,7 +10,6 @@
   </nav>
 </template>
 <script>
-
 import {auth} from "../firebase-client";
 
 export default {
@@ -21,3 +20,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+.nav-element:hover {
+  @apply border-white;
+}
+
+.nav-element {
+  @apply py-2 px-4 inline-block border-b-2 border-red-500 transition-all duration-200;
+}
+
+</style>
