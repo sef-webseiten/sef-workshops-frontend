@@ -6,12 +6,12 @@ import Vuex from 'vuex';
 import {store} from "./stores";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
-import {faPlus, faMinus, faUserFriends, faTags, faCalendarDay, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar} from "@fortawesome/free-solid-svg-icons"
+import {faPlus, faMinus, faUserFriends, faTags, faCalendarDay, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar} from "@fortawesome/free-solid-svg-icons"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 require("typeface-poppins");
 config.autoAddCss = false;
-library.add(faPlus, faMinus, faUserFriends, faCalendarDay, faTags, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
+library.add(faPlus, faMinus, faUserFriends, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component('Layout', DefaultLayout);

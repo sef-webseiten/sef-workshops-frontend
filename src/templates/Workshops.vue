@@ -4,7 +4,7 @@
 
       <WorkshopImageLarge :img="$page.workshop.thumbnail" :title="$page.workshop.title"/>
 
-      <div class="p-6 md:p-10">
+      <div class="p-6 md:p-10 pb-0 md:pb-0">
 
         <!-- subtitle -->
         <div class="text-md">
@@ -60,59 +60,60 @@
 
         <h2 class="heading my-8">Veranstaltungen</h2>
 
-        <!-- list of all events -->
-        <div v-for="daterow in $page.workshop.daterows" >
+      </div>
 
-          <!-- ToDo: Hintergrundfarbe passend machen -->
+      <!-- events -->
+      <div v-for="(daterow, id) in $page.workshop.daterows" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5 text-lg text-center">
+        <!-- ToDo: Hintergrundfarbe passend machen -->
 
-            <div class="box p-2">
-              <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
-              5/15
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-3 text-lg text-center">
 
-            <div class="box p-2">
-              <fa :icon="['fas', 'map-marker-alt']" class="mr-2" size="lg"/>
-              {{ daterow.publicLocation }}
-            </div>
-
-            <div class="box p-2">
-              <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
-              {{ daterow.price }} EURO
-            </div>
-
-            <!-- dates -->
-            <div class="box flex flex-row justify-center md:col-span-2">
-              <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
-              <div class="p-2">
-
-                <span v-for="date in daterow.dates" class="block">{{ timeString(date) }}</span>
-
-              </div>
-            </div>
-
-            <!-- cta -->
-            <button class=" p-4 text-white bg-red-500 font-lg font-bold rounded-sm"
-                    @click="$root.$emit('openCheckoutProcess')">
-              <fa :icon="['fas', 'angle-double-right']"/>
-              Teilnehmen
-              <fa :icon="['fas', 'angle-double-left']"/>
-            </button>
-
+          <div class="box p-2">
+            <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
+            5/15
           </div>
+
+          <div class="box p-2">
+            <fa :icon="['fas', 'map-marker-alt']" class="mr-2" size="lg"/>
+            {{ daterow.publicLocation }}
+          </div>
+
+          <div class="box p-2">
+            <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
+            {{ daterow.price }} EURO
+          </div>
+
+          <!-- dates -->
+          <div class="box flex flex-row justify-center md:col-span-2">
+            <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
+            <div class="p-2">
+
+              <span v-for="date in daterow.dates" class="block">{{ timeString(date) }}</span>
+
+            </div>
+          </div>
+
+          <!-- cta -->
+          <button class=" p-4 text-white bg-red-500 font-lg font-bold rounded-sm"
+                  @click="$root.$emit('openCheckoutProcess')">
+            <fa :icon="['fas', 'angle-double-right']"/>
+            Teilnehmen
+            <fa :icon="['fas', 'angle-double-left']"/>
+          </button>
 
         </div>
 
-        <h2 class="heading my-8 hidden">
-          Bewertungen
-          <div class="inline-block md:float-right"><fa v-for="i in [1,2,3,4,5]" :icon="['fas', 'star']" class="mr-1" size="lg"></fa></div>
-        </h2>
-
-
-
       </div>
 
+      <div class="p-6 md:p-10">
+        <h2 class="heading">
+          Bewertungen
+          <div class="inline-block md:float-right"><fa v-for="i in [1,2,3,4,5]" :key="i" :icon="['fas', 'star']" class="mr-1" size="lg"></fa></div>
+        </h2>
+      </div>
+
+      <!-- ToDo: nicht angemeldet? -->
       <PaymentButtons/>
     </div>
   </WithoutBorderLayout>
