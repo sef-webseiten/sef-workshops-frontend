@@ -9,13 +9,16 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "animate.css": "^4.1.1",
+    "apollo-boost": "^0.4.9",
     "babel-runtime": "^6.26.0",
     "dayjs": "^1.9.1",
     "esm": "^3.2.25",
     "firebase": "^7.23.0",
     "firebase-admin": "^9.2.0",
     "firebaseui": "^4.6.1",
+    "graphql-tag": "^2.11.0",
     "gridsome": "^0.7.0",
+    "node-fetch": "^2.6.1",
     "typeface-poppins": "^1.1.13",
     "vue-markdown": "^2.2.4",
     "vuex": "^3.5.1"
