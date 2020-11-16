@@ -8,7 +8,7 @@ module.exports = {
     siteName: 'SEF Workshops',
 
     templates: {
-        Workshops: "/w/:id"
+        Workshops: "/w/:_id"
     },
 
     plugins: [{
@@ -19,6 +19,6 @@ module.exports = {
             shouldPurge: false,
             shouldImport: true,
             shouldTimeTravel: false
-        }
+        },
     }],
 }

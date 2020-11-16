@@ -5,60 +5,83 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const admin = require('firebase-admin');
+const dayjs = require("dayjs");
 
-const app = admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
+const gql = require("graphql-tag");
+const { default: ApolloClient } = require("apollo-boost");
+const fetch = require("node-fetch").default;
+
+const client = new ApolloClient({
+    fetch,
+    uri: process.env.GRIDSOME_BACKEND_URL
 });
 
-const firestore = app.firestore();
-
-const docToData = doc => {
-  return {... (doc.data()), id: doc.id}
-}
-
 module.exports = function (api) {
-  api.loadSource(async action => {
+    api.loadSource(async action => {
 
-    let workshopsCollection = action.addCollection("Workshops");
+        let { data: { workshops: workshops } } = await client.query({
+            query: gql`
+                query workshops {
+                    workshops {
+                        _id
+                        title
+                        subTitle
+                        description
+                        # organizer
+                        material
+                        requirements
+                        categories
+                        thumbnail
+                        events {
+                            _id
+                            price
+                            notes
+                            publicLocation
+                            privateLocation
+                            maxParticipants
+                            dates {
+                                startTime
+                                endTime
+                            }
+                        }
+                    }
+                }
+            `
+        });
 
-    // get workshops
-    let workshops = (await firestore.collection("workshops").get()).docs.map(docToData);
+        let workshopsCollection = action.addCollection("Workshops");
 
-    // load organizer details
-    workshops = await Promise.all(workshops.map(async workshop => {
+        workshops.forEach(workshop => {
 
-      let organizer = await (await firestore.collection("users").doc(workshop.organizer).get()).data()
-      workshop.organizer = {name: organizer.name, id: workshop.organizer};
+            workshop.events.forEach(event => {
+                event.dates = event.dates.map(date => {
+                    let formatTemplate = "DD.MM.YYYY HH:mm";
+                    let dates = [dayjs(date.startTime), dayjs(date.endTime)]
+                    let sameDay = dates[0].isSame(dates[1], "day");
 
-      return workshop;
-    }));
+                    let timeString;
 
-    // load daterows
-    workshops = await Promise.all(workshops.map(async workshop => {
+                    if (sameDay)
+                        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format("HH:mm")}`
+                    else
+                        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format(formatTemplate)}`
 
-      let daterows = await (await firestore.collection("workshops").doc(workshop.id).collection("daterows").get()).docs.map(docToData);
+                    timeString = "12.3.2020 8-16 Uhr" // ToDo: Parse TimeString
 
-      daterows = await Promise.all(daterows.map(async daterow => {
+                    return {
+                        ...date,
+                        timeString: timeString
+                    }
+                });
+            })
 
-        daterow.dates = await (await firestore.collection("workshops").doc(workshop.id).collection("daterows").doc(daterow.id).collection("dates").get()).docs.map(docToData);
+            workshopsCollection.addNode({
+                ...workshop
+            });
+        });
+    })
 
-        return daterow;
-      }))
-
-      workshop.daterows = daterows;
-
-      return workshop;
-    }))
-
-    workshops.forEach(workshop => {
-      workshopsCollection.addNode({
-        ...workshop
-      });
-    });
-  })
-
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  })
+    api.createPages(({ createPage }) => {
+        // Use the Pages API here: https://gridsome.org/docs/pages-api/
+    })
 }
