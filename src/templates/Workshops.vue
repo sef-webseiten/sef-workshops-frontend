@@ -63,7 +63,7 @@
       </div>
 
       <!-- events -->
-      <div v-for="(daterow, id) in $page.workshop.daterows" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
+      <div v-for="(event, id) in $page.workshop.events" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
 
         <!-- ToDo: Hintergrundfarbe passend machen -->
 
@@ -76,12 +76,12 @@
 
           <div class="box p-2">
             <fa :icon="['fas', 'map-marker-alt']" class="mr-2" size="lg"/>
-            {{ daterow.publicLocation }}
+            {{ event.publicLocation }}
           </div>
 
           <div class="box p-2">
             <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
-            {{ daterow.price }} EURO
+            {{ event.price }} EURO
           </div>
 
           <!-- dates -->
@@ -89,14 +89,14 @@
             <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
             <div class="p-2">
 
-              <span v-for="date in daterow.dates" class="block">{{ timeString(date) }}</span>
+              <span v-for="date in event.dates" class="block">{{ date.timeString }}</span>
 
             </div>
           </div>
 
           <!-- cta -->
           <button class=" p-4 text-white bg-red-500 font-lg font-bold rounded-sm"
-                  @click="$root.$emit('openCheckoutProcess')">
+                  @click="$root.$emit('openCheckoutProcess', {workshop: $page.workshop, event: event})">
             <fa :icon="['fas', 'angle-double-right']"/>
             Teilnehmen
             <fa :icon="['fas', 'angle-double-left']"/>
@@ -129,20 +129,6 @@ export default {
   components: {WorkshopImageLarge, VueMarkdown, PaymentButtons, WithoutBorderLayout},
   metaInfo: {
     title: 'Startseite'
-  },
-  methods: {
-    timeString(date) {
-      let formatTemplate = "DD.MM.YYYY HH:mm";
-      let dates = [dayjs(date.startTime), dayjs(date.endTime)]
-      let sameDay = dates[0].isSame(dates[1], "day");
-
-      return "12.3.2020 8-16 Uhr"
-
-      if (sameDay)
-        return `${dates[0].format(formatTemplate)} - ${dates[1].format("HH:mm")}`
-      else
-        return `${dates[0].format(formatTemplate)} - ${dates[1].format(formatTemplate)}`
-    }
   }
 }
 </script>
@@ -162,19 +148,18 @@ export default {
 <page-query>
 query Workshop ($id: ID!){
 workshop: workshops(id: $id) {
+_id
 title
 description
 thumbnail
-organizer {name}
 categories
-daterows {
+events {
+_id
 maxParticipants
-minParticipants
 price
 publicLocation
 dates {
-startTime
-endTime
+timeString
 }
 }
 }

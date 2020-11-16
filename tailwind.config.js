@@ -24,7 +24,11 @@ module.exports = {
             },
         },
     },
-    variants: {},
+    variants: {
+        backgroundColor: ['responsive', 'active', 'disabled'],
+        cursor: ['responsive', 'disabled'],
+
+    },
     plugins: [],
     purge: [
         './src/**/*.html',

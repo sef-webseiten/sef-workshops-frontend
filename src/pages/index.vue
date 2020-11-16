@@ -1,12 +1,11 @@
 <template>
   <Layout>
 
-    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4" v-for="({node}) in $static.workshops.edges">
+    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4" >
 
-      <WorkshopCard :workshop="node"/>
+      <WorkshopCard v-for="({node: workshop}) in $static.workshops.edges" :workshop="workshop" :key="workshop"/>
 
     </div>
-
 
   </Layout>
 </template>
