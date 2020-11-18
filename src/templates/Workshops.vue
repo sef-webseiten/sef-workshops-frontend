@@ -2,19 +2,18 @@
   <WithoutBorderLayout>
     <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl rounded icons-red">
 
-      <WorkshopImageLarge :img="$page.workshop.thumbnail" :title="$page.workshop.title"/>
+      <WorkshopImageLarge :img="workshop.thumbnail" :title="workshop.title"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
 
         <!-- subtitle -->
         <div class="text-md">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium at corporis dolorem eveniet magni rerum
-          sequi sit voluptate. Esse illo impedit magni maxime nulla numquam tenetur! Enim eveniet fugit molestias!
+          {{ workshop.subTitle }}
         </div>
 
         <!-- categories -->
         <div class="-ml-1 mt-8">
-          <span v-for="category in $page.workshop.categories"
+          <span v-for="category in workshop.categories"
                 class="m-1 px-4 py-1 bg-red-400 text-white rounded inline-block">{{ category }}</span>
         </div>
 
@@ -26,13 +25,13 @@
         <!-- "starting at" price box -->
         <div class="mt-8 p-2 box w-fit inline-block mr-4">
           <fa :icon="['fas', 'tags']" class="mr-1" size="lg"/>
-          ab 15 EURO
+          ab {{ workshop.minPrice }} EURO
         </div>
 
         <!-- first event date -->
         <div class="mt-8 p-2 box w-fit inline-block">
           <fa :icon="['fas', 'calendar-day']" class="mr-1" size="lg"/>
-          ab 17.11.2020
+          ab {{ nextDate }}
         </div>
 
         <!-- organizer box -->
@@ -44,34 +43,38 @@
           </div>
         </div>
 
+        <!-- ToDo: Configure vue-markdown correctly -->
+
         <!-- description -->
         <div class="box mt-8 w-full p-4">
           <h2 class="text-lg mb-4">Beschreibung</h2>
-          <vue-markdown :source="$page.workshop.description" class="text-justify"/>
+          <vue-markdown :source="workshop.description" class="text-justify"/>
         </div>
 
-        <div class="box mt-8 w-full p-4">
+        <!-- requirements -->
+        <div v-if="workshop.requirements" class="box mt-8 w-full p-4">
           <h2 class="text-lg mb-4">Vorraussetzungen</h2>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.         </div>
+          <vue-markdown :source="workshop.requirements" class="text-justify"/>
+        </div>
 
-        <div class="box mt-8 w-full p-4">
+        <!-- material -->
+        <div v-if="workshop.material" class="box mt-8 w-full p-4">
           <h2 class="text-lg mb-4">Material</h2>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.         </div>
+          <vue-markdown :source="workshop.material" class="text-justify"/>
+        </div>
 
         <h2 class="heading my-8">Veranstaltungen</h2>
 
       </div>
 
       <!-- events -->
-      <div v-for="(event, id) in $page.workshop.events" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
-
-        <!-- ToDo: Hintergrundfarbe passend machen -->
+      <div v-for="(event, id) in workshop.events" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-3 text-lg text-center">
 
           <div class="box p-2">
             <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
-            5/15
+            5/{{ event.maxParticipants }}
           </div>
 
           <div class="box p-2">
@@ -96,7 +99,7 @@
 
           <!-- cta -->
           <button class=" p-4 text-white bg-red-500 font-lg font-bold rounded-sm"
-                  @click="$root.$emit('openCheckoutProcess', {workshop: $page.workshop, event: event})">
+                  @click="$root.$emit('openCheckoutProcess', {workshop: workshop, event: event})">
             <fa :icon="['fas', 'angle-double-right']"/>
             Teilnehmen
             <fa :icon="['fas', 'angle-double-left']"/>
@@ -109,7 +112,9 @@
       <div class="p-6 md:p-10">
         <h2 class="heading">
           Bewertungen
-          <div class="inline-block md:float-right"><fa v-for="i in [1,2,3,4,5]" :key="i" :icon="['fas', 'star']" class="mr-1" size="lg"></fa></div>
+          <div class="inline-block md:float-right">
+            <fa v-for="i in [1,2,3,4,5]" :key="i" :icon="['fas', 'star']" class="mr-1" size="lg"></fa>
+          </div>
         </h2>
       </div>
 
@@ -126,9 +131,17 @@ import PaymentButtons from "@/components/PaymentButtons";
 import WithoutBorderLayout from "../layouts/WithoutBorder";
 
 export default {
-  components: {WorkshopImageLarge, VueMarkdown, PaymentButtons, WithoutBorderLayout},
+  components: { WorkshopImageLarge, VueMarkdown, PaymentButtons, WithoutBorderLayout },
   metaInfo: {
     title: 'Startseite'
+  },
+  computed: {
+    workshop() {
+      return this.$page.workshop;
+    },
+    nextDate() {
+      return dayjs(this.workshop.nextDate).format("DD.MM.YYYY")
+    }
   }
 }
 </script>
@@ -151,9 +164,17 @@ workshop: workshops(id: $id) {
 _id
 title
 subTitle
+
 description
+material
+requirements
+
+minPrice
+nextDate
+
 thumbnail
 categories
+
 events {
 _id
 maxParticipants
