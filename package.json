@@ -11,7 +11,7 @@
     "animate.css": "^4.1.1",
     "apollo-boost": "^0.4.9",
     "babel-runtime": "^6.26.0",
-    "dayjs": "^1.9.1",
+    "dayjs": "^1.9.6",
     "esm": "^3.2.25",
     "firebase": "^7.23.0",
     "firebase-admin": "^9.2.0",

@@ -150,6 +150,7 @@ query Workshop ($id: ID!){
 workshop: workshops(id: $id) {
 _id
 title
+subTitle
 description
 thumbnail
 categories

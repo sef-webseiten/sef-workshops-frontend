@@ -32,6 +32,10 @@ module.exports = function (api) {
                         requirements
                         categories
                         thumbnail
+                        minPrice
+                        nextDate
+                        nextParticipants
+                        nextDuration
                         events {
                             _id
                             price
