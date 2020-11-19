@@ -110,15 +110,16 @@ export default {
     },
     createOrder() {
       let mutation = gql`
-            mutation createOrder ($workshopID: String!, $eventID: String!, $participants: Int!) {
-              createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants)
+            mutation createOrder ($workshopID: String!, $eventID: String!, $participants: Int!, $affiliate: String) {
+              createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants, affiliate: $affiliate)
             }`;
 
       this.$apollo.mutate({
         mutation, variables: {
           participants: this.participants,
           workshopID: this.workshop._id,
-          eventID: this.event._id
+          eventID: this.event._id,
+          affiliate: document.cookie.split(";").filter(cookie => cookie.match(/a=.*/))[0].replace("a=", "")
         }
       }).then((data) => this.setupPaypalButtons(data.data.createOrder));
     },
