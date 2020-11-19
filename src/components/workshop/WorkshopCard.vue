@@ -25,7 +25,7 @@
         <!-- duration -->
         <div class="box">
           <fa :icon="['fas', 'clock']" class="mr-2"/>
-          <span class="highlight">{{ duration }}h</span>
+          <span class="highlight">{{ workshop.nextDuration }}h</span>
         </div>
 
         <!-- participants -->
@@ -71,9 +71,6 @@ export default {
         return date.format("D. MMMM")
       else
         return date.format("D. MMMM YYYY")
-    },
-    duration() {
-      return Math.floor(this.workshop.nextDuration / 1000 / 60);
     }
   }
 }
