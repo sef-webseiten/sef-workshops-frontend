@@ -8,7 +8,7 @@
         <div>
 
           <!-- minus icon -->
-          <div v-show="participants > 1" class="p-1 inline-block" @click="participants--" v-if="step === 1">
+          <div v-if="step === 1" v-show="participants > 1" class="p-1 inline-block" @click="participants--">
             <fa :icon="['fas', 'minus']"/>
           </div>
 
@@ -18,7 +18,7 @@
           </span>
 
           <!-- plus icon -->
-          <div class="p-1 inline-block" @click="participants++" v-if="step === 1">
+          <div v-if="step === 1" class="p-1 inline-block" @click="participants++">
             <fa :icon="['fas', 'plus']"/>
           </div>
 
@@ -44,14 +44,15 @@
       </div>
 
       <!-- next button -->
-      <button class="w-full bg-red-500 p-2 font-bold text-white active:bg-red-400 disabled:bg-gray-400 disabled:cursor-default rounded-sm"
-              @click="step++" v-if="[1,2].includes(step)" :disabled="step === 2">
+      <button
+          v-if="[1,2].includes(step)"
+          :disabled="step === 2" class="w-full bg-red-500 p-2 font-bold text-white active:bg-red-400 disabled:bg-gray-400 disabled:cursor-default rounded-sm" @click="step++">
         <span v-show="step === 1">Weiter</span>
         <Spinner v-show="step === 2" class="mx-auto"/>
       </button>
 
       <!-- paypal buttons -->
-      <div id="paypal-button-container" v-show="step === 3"></div>
+      <div v-show="step === 3" id="paypal-button-container"></div>
 
       <div class="text-blue-800 text-center mt-2">
         <g-link target="_blank" title="AGB" to="/agb">AGB</g-link>
@@ -109,19 +110,22 @@ export default {
       document.querySelector("#paypal-button-container").innerHTML = "";
     },
     createOrder() {
-      let mutation = gql`
+      let mutation = `
             mutation createOrder ($workshopID: String!, $eventID: String!, $participants: Int!, $affiliate: String) {
               createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants, affiliate: $affiliate)
             }`;
 
-      this.$apollo.mutate({
-        mutation, variables: {
-          participants: this.participants,
-          workshopID: this.workshop._id,
-          eventID: this.event._id,
-          affiliate: document.cookie.split(";").filter(cookie => cookie.match(/a=.*/))[0].replace("a=", "")
-        }
-      }).then((data) => this.setupPaypalButtons(data.data.createOrder));
+      let affiliateCookies = document.cookie.split(";").filter(cookie => cookie.match(/a=.*/));
+      let affiliateCode = affiliateCookies.length > 0 ? affiliateCookies[0].replace("a=", "") : null;
+
+      this.$backend.request(
+          mutation, {
+            participants: this.participants,
+            workshopID: this.workshop._id,
+            eventID: this.event._id,
+            affiliate: affiliateCode
+          }
+      ).then(({ createOrder: orderNumber }) => this.setupPaypalButtons(orderNumber));
     },
     setupPaypalButtons(orderID) {
 
