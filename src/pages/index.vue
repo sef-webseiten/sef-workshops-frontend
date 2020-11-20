@@ -3,7 +3,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <WorkshopCard v-for="({node: workshop}) in $static.workshops.edges" :key="workshop" :workshop="workshop"/>
+      <WorkshopCard v-for="({node: workshop}) in $static.workshops.edges" :key="workshop._id" :workshop="workshop"/>
 
     </div>
 
