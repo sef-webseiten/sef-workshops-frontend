@@ -2,7 +2,7 @@ module.exports = {
     theme: {
         extend: {
             borderRadius: {
-                "default": "1rem"
+                DEFAULT: "1rem"
             },
             boxShadow: {
                 "2xl": "0 0 50px -10px rgba(0, 0, 0, 0.25)",
@@ -29,7 +29,6 @@ module.exports = {
         cursor: ['responsive', 'disabled'],
 
     },
-    plugins: [],
     purge: [
         './src/**/*.html',
         './src/**/*.vue',

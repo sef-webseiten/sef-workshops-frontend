@@ -16,9 +16,11 @@
     "firebase": "^7.23.0",
     "firebase-admin": "^9.2.0",
     "firebaseui": "^4.6.1",
+    "graphql-request": "^3.3.0",
     "graphql-tag": "^2.11.0",
     "gridsome": "^0.7.0",
     "node-fetch": "^2.6.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "typeface-poppins": "^1.1.13",
     "vue-markdown": "^2.2.4",
     "vuex": "^3.5.1"
@@ -27,7 +29,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/vue-fontawesome": "^2.0.0",
-    "gridsome-plugin-tailwindcss": "^3.0.1",
+    "gridsome-plugin-tailwindcss": "^4.1.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2"
   }

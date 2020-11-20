@@ -14,11 +14,7 @@ module.exports = {
     plugins: [{
         use: 'gridsome-plugin-tailwindcss',
         options: {
-            tailwindConfig: 'tailwind.config.js',
-            presetEnvConfig: {},
-            shouldPurge: false,
-            shouldImport: true,
-            shouldTimeTravel: false
+            tailwindConfig: 'tailwind.config.js'
         },
     }],
 }

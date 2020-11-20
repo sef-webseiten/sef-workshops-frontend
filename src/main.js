@@ -4,7 +4,7 @@ import { store } from "./stores";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { setupFontAwesome } from "./fontAwesome";
-import { client } from "./apolloClient";
+import { client } from "./graphql-client";
 import { initAffiliate } from "./plugins/affiliate";
 
 require("typeface-poppins");
@@ -19,6 +19,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   initAffiliate(router);
 
-  Vue.prototype.$apollo = client;
+  Vue.prototype.$backend = client;
+
   appOptions.store = new Vuex.Store(store);
 }
