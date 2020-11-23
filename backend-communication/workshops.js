@@ -44,7 +44,7 @@ module.exports = {
             // add time strings
             workshop.events.forEach(event => {
                 event.dates = event.dates.map(date => {
-                    let formatTemplate = "DD.MM.YYYY HH:mm";
+                    let formatTemplate = "dddd, DD.MM.YYYY HH:mm";
                     let dates = [dayjs(date.startTime), dayjs(date.endTime)]
                     let sameDay = dates[0].isSame(dates[1], "day");
 
