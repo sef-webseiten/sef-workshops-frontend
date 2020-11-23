@@ -1,5 +1,6 @@
 const client = require("./graphql-init");
 const dayjs = require("dayjs");
+require("dayjs/locale/de");
 const gql = require("graphql-tag");
 
 function minValue(array, attribute) {
@@ -38,6 +39,8 @@ module.exports = {
                 }
             `
         });
+
+        dayjs.locale('de');
 
         workshops = workshops.map(workshop => {
 
