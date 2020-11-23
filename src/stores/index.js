@@ -1,4 +1,3 @@
-import {auth} from "../firebase-client";
 import { refreshToken } from "../graphql-client";
 
 export const store = {
@@ -12,12 +11,18 @@ export const store = {
     },
     actions: {
         subscribeUserChanges(store) {
-            auth.onAuthStateChanged(async user => {
-                store.commit("setUser", user);
+            import("../firebase-client").then(({ auth }) => {
+                auth.onAuthStateChanged(async user => {
+                    store.commit("setUser", user);
 
-                let token = await user.getIdToken();
-                refreshToken(token);
-            })
+                    if (!user)
+                        return;
+
+                    let token = await user.getIdToken();
+                    refreshToken(token);
+                });
+            });
+
         }
     }
-};
+}

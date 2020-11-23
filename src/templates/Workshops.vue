@@ -13,13 +13,13 @@
 
         <!-- categories -->
         <div class="-ml-1 mt-8">
-          <span v-for="category in workshop.categories"
+          <span v-for="category in workshop.categories" :key="category"
                 class="m-1 px-4 py-1 bg-red-400 text-white rounded inline-block">{{ category }}</span>
         </div>
 
         <!-- ratings -->
         <div class="mt-8 p-2 box w-fit inline-block mr-4">
-          <fa v-for="i in [1,2,3,4,5]" :icon="['fas', 'star']" class="mr-1" size="lg"></fa>
+          <fa v-for="i in [1,2,3,4,5]" :icon="['fas', 'star']" :key="i" class="mr-1" size="lg"></fa>
         </div>
 
         <!-- "starting at" price box -->
@@ -68,7 +68,7 @@
       </div>
 
       <!-- events -->
-      <div v-for="(event, id) in workshop.events" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
+      <div v-for="(event, id) in workshop.events" :key="id" class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl ">
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-3 text-lg text-center">
 
@@ -92,7 +92,7 @@
             <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
             <div class="p-2">
 
-              <span v-for="date in event.dates" class="block">{{ date.timeString }}</span>
+              <span v-for="date in event.dates" :key="date.startTime" class="block">{{ date.timeString }}</span>
 
             </div>
           </div>

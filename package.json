@@ -14,7 +14,6 @@
     "dayjs": "^1.9.6",
     "esm": "^3.2.25",
     "firebase": "^7.23.0",
-    "firebase-admin": "^9.2.0",
     "firebaseui": "^4.6.1",
     "graphql-request": "^3.3.0",
     "graphql-tag": "^2.11.0",
@@ -31,6 +30,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "gridsome-plugin-tailwindcss": "^4.1.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^10.0.2",
+    "webpack-merge": "^5.4.0"
   }
 }
