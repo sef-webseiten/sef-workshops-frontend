@@ -46,7 +46,7 @@
         <div class="mt-8 flex box p-4">
           <img
             class="w-16 h-16 md:w-24 md:h-24 rounded-full inline-block"
-            src="https://images.erichier.tech/u/iowpku36.jpg"
+            src="https://images.erichier.tech/u/mrClKEep.jpg"
           />
           <div class="block ml-6 pt-6">
             <span class="text-xl"
