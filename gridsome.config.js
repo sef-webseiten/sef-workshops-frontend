@@ -6,7 +6,7 @@
 const { merge } = require('webpack-merge')
 
 module.exports = {
-    siteName: 'SEF Workshops',
+    siteName: 'Workshops',
 
     templates: {
         Workshops: "/w/:_id"

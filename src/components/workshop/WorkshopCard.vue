@@ -13,7 +13,7 @@
 
       <div class="p-4 pb-0">
         <!-- title -->
-        <h2 class="text-lg mb-4">{{ workshop.title }}</h2>
+        <h2 class="text-base font-medium mb-4">{{ workshop.title }}</h2>
 
         <!-- subtitle -->
         <p
@@ -31,29 +31,32 @@
       <!-- stars -->
       <p>
         <fa :icon="['fas', 'calendar-day']" class="mr-1" />
-        ab <span class="highlight">{{ nextDate }}</span>
+        ab <span>{{ nextDate }}</span>
       </p>
 
       <!-- rating -->
       <div>
-        <fa
-          v-for="i in [1, 2, 3, 4, 5]"
-          :key="i"
-          :icon="['fas', 'star']"
-          class="mr-1"
-        />
+        <fa v-for="i in stars" :key="i" :icon="['fas', 'star']" class="mr-1" />
+        <div class="icons-gray inline">
+          <fa
+            v-for="i in 5 - stars"
+            :key="i"
+            :icon="['fas', 'star']"
+            class="mr-1 icons-gray"
+          />
+        </div>
       </div>
 
       <!-- duration -->
       <div>
         <fa :icon="['fas', 'clock']" class="mr-2" />
-        <span class="highlight">{{ workshop.nextDuration }} Stunden</span>
+        <span>{{ workshop.nextDuration }} Stunden</span>
       </div>
 
       <!-- min price -->
       <div>
         <fa :icon="['fas', 'tags']" class="mr-2" />
-        <span class="highlight">ab {{ workshop.minPrice }},-</span>
+        <span>ab {{ workshop.minPrice }},-</span>
       </div>
     </div>
   </a>
@@ -71,6 +74,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      stars: Math.round(Math.random() * 2) + 3,
+    };
+  },
   computed: {
     nextDate() {
       let date = dayjs(this.workshop.nextDate);
@@ -82,11 +90,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.highlight {
-  @apply text-lg;
-}
-
 .icons-red svg {
   @apply text-red-400;
+}
+.icons-gray svg {
+  @apply text-gray-400;
 }
 </style>

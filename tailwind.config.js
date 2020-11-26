@@ -22,10 +22,10 @@ module.exports = {
                 lg: '4rem',
                 xl: '5rem',
             },
-        },
+        }
     },
     variants: {
-        backgroundColor: ['responsive', 'active', 'disabled'],
+        backgroundColor: ['responsive', 'active', 'disabled', 'hover'],
         cursor: ['responsive', 'disabled'],
 
     },

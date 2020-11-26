@@ -1,28 +1,30 @@
 <template>
   <div class="font-display">
     <header class="bg-red-500 py-12 text-white">
-      <div class="lg:flex flex-row justify-between xl:container px-6">
+      <div
+        class="lg:flex flex-row justify-between items-center xl:container px-6"
+      >
         <div class="text-2xl">
           <g-link to="/">{{ $static.metadata.siteName }}</g-link>
         </div>
-        <Navbar/>
+        <Navbar />
       </div>
     </header>
     <div class="md:container">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 <script>
 import Navbar from "../components/Navbar";
-import "animate.css/animate.min.css"
+import "animate.css/animate.min.css";
 
 export default {
-  components: {Navbar},
+  components: { Navbar },
   mounted() {
-    this.$store.dispatch("subscribeUserChanges")
-  }
-}
+    this.$store.dispatch("subscribeUserChanges");
+  },
+};
 </script>
 <static-query>
 query {
@@ -39,5 +41,13 @@ html {
 }
 
 .header-transition {
-  background-image: linear-gradient(to right, #e53e3e, #ef6b19, #e99800, #d2c300, #a8eb12);}
+  background-image: linear-gradient(
+    to right,
+    #e53e3e,
+    #ef6b19,
+    #e99800,
+    #d2c300,
+    #a8eb12
+  );
+}
 </style>

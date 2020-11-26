@@ -83,10 +83,10 @@
       <div
         v-for="(event, id) in workshop.events"
         :key="id"
-        class="p-4 my-8 mx-4 md:mx-6 rounded shadow-xl"
+        class="my-8 mx-4 md:mx-6 rounded shadow-xl flex flex-row"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-3 text-lg text-center"
+          class="p-4 grid grid-cols-1 md:grid-cols-3 gap-y-3 text-lg text-center flex-grow"
         >
           <div class="box p-2">
             <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg" />
@@ -105,7 +105,7 @@
           </div>
 
           <!-- dates -->
-          <div class="box flex flex-row justify-center md:col-span-2">
+          <div class="box flex flex-row justify-center md:col-span-3">
             <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg" />
             <div class="p-2">
               <span
@@ -116,22 +116,20 @@
               >
             </div>
           </div>
-
-          <!-- cta -->
-          <button
-            class="p-4 text-white bg-red-500 font-lg font-bold rounded-sm"
-            @click="
-              $root.$emit('openCheckoutProcess', {
-                workshop: workshop,
-                event: event,
-              })
-            "
-          >
-            <fa :icon="['fas', 'angle-double-right']" />
-            Teilnehmen
-            <fa :icon="['fas', 'angle-double-left']" />
-          </button>
         </div>
+
+        <!-- cta -->
+        <button
+          class="p-4 text-white bg-red-500 font-lg font-bold rounded-r w-1/5"
+          @click="
+            $root.$emit('openCheckoutProcess', {
+              workshop: workshop,
+              event: event,
+            })
+          "
+        >
+          Teilnehmen
+        </button>
       </div>
 
       <div class="p-6 md:p-10">

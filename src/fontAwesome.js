@@ -8,10 +8,12 @@ import {
     faMinus,
     faPlus, faStar,
     faTags,
-    faUserFriends
+    faUserFriends,
+    faSearch,
+    faFilter
 } from "@fortawesome/free-solid-svg-icons";
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
-    library.add(faPlus, faMinus, faUserFriends, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
+    library.add(faPlus, faMinus, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
 }

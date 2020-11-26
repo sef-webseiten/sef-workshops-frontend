@@ -47,7 +47,7 @@ module.exports = {
             // add time strings
             workshop.events.forEach(event => {
                 event.dates = event.dates.map(date => {
-                    let formatTemplate = "dddd, DD.MM.YYYY HH:mm";
+                    let formatTemplate = "ddd, DD.MM.YYYY HH:mm";
                     let dates = [dayjs(date.startTime), dayjs(date.endTime)]
                     let sameDay = dates[0].isSame(dates[1], "day");
 
@@ -82,7 +82,7 @@ module.exports = {
                 ...workshop, minPrice, nextDate, nextDuration, nextParticipants
             };
         });
-        
+
         return workshops;
     }
 }

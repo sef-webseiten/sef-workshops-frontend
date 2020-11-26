@@ -5,8 +5,8 @@ export function initAffiliate(router) {
         if (typeof affiliateCode === "undefined")
             return;
 
-        // generate expiration time one day from now
-        let date = new Date(Date.now() + 86400e3);
+        // generate expiration time three days from now
+        let date = new Date(Date.now() + 25920e4);
         date = date.toUTCString();
 
         document.cookie = `a=${affiliateCode}; expires=${date};`
