@@ -12,25 +12,6 @@ module.exports = {
         Workshops: "/w/:_id"
     },
 
-    /*configureWebpack(config) {
-        if(process.env["npm_lifecycle_event"] === "develop")
-            return config;
-
-        return merge({
-            // resolve: {
-            //     mainFields: ['main', 'browser', 'module']
-            //  },
-            node: {
-                fs: 'empty',
-                child_process: 'empty',
-                dns: 'empty',
-                http2: "empty",
-                net: "empty",
-                tls: "empty"
-            }
-        }, config)
-    },*/
-
     plugins: [{
         use: 'gridsome-plugin-tailwindcss',
         options: {
