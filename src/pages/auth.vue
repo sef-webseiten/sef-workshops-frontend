@@ -4,12 +4,12 @@
   </Layout>
 </template>
 <script>
-import "firebaseui/dist/firebaseui.css";
 
 export default {
   mounted() {
     if (process.isServer) return;
 
+    import("firebaseui/dist/firebaseui.css")
     import("../firebase-ui").then(({ ui, uiConfig }) => {
       ui.start("#firebaseui-auth-container", uiConfig);
     });
