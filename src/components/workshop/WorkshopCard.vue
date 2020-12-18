@@ -1,6 +1,6 @@
 <template>
-  <a
-    :href="workshop.path"
+  <g-link
+    :to="workshop.path"
     class="rounded shadow-lg bg-white transition duration-200 hover:shadow-2xl flex flex-col justify-between"
   >
     <div>
@@ -59,7 +59,7 @@
         <span>ab {{ workshop.minPrice }},-</span>
       </div>
     </div>
-  </a>
+  </g-link>
 </template>
 <script>
 import dayjs from "dayjs";
