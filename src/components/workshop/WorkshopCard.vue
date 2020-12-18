@@ -1,14 +1,15 @@
 <template>
   <g-link
-    :to="workshop.path"
-    class="rounded shadow-lg bg-white transition duration-200 hover:shadow-2xl flex flex-col justify-between"
+      :to="workshop.path"
+      class="rounded shadow-lg bg-white transition duration-200 hover:shadow-2xl flex flex-col justify-between"
   >
     <div>
       <!-- thumbnail -->
       <img
-        :src="workshop.thumbnail"
-        class="rounded-t w-full h-48 object-cover"
-        draggable="false"
+          :src="workshop.thumbnail"
+          class="rounded-t w-full h-48 object-cover"
+          alt="Thumbnail"
+          draggable="false"
       />
 
       <div class="p-4 pb-0">
@@ -17,8 +18,8 @@
 
         <!-- subtitle -->
         <p
-          v-if="workshop.subTitle"
-          class="my-4 text-sm border-l-2 border-red-400 pl-4 rounded-sm"
+            v-if="workshop.subTitle"
+            class="my-4 text-sm border-l-2 border-red-400 pl-4 rounded-sm"
         >
           {{ workshop.subTitle }}
         </p>
@@ -26,36 +27,36 @@
     </div>
 
     <div
-      class="p-4 pt-3 z-20 bg-gray-100 text-center rounded-b-2xl grid grid-cols-2 gap-2 icons-red"
+        class="p-4 pt-3 z-20 bg-gray-100 text-center rounded-b-2xl grid grid-cols-2 gap-2 icons-red"
     >
       <!-- stars -->
       <p>
-        <fa :icon="['fas', 'calendar-day']" class="mr-1" />
+        <fa :icon="['fas', 'calendar-day']" class="mr-1"/>
         ab <span>{{ nextDate }}</span>
       </p>
 
       <!-- rating -->
       <div>
-        <fa v-for="i in stars" :key="i" :icon="['fas', 'star']" class="mr-1" />
+        <fa v-for="i in stars" :key="i" :icon="['fas', 'star']" class="mr-1"/>
         <div class="icons-gray inline">
           <fa
-            v-for="i in 5 - stars"
-            :key="i"
-            :icon="['fas', 'star']"
-            class="mr-1 icons-gray"
+              v-for="i in 5 - stars"
+              :key="i"
+              :icon="['fas', 'star']"
+              class="mr-1 icons-gray"
           />
         </div>
       </div>
 
       <!-- duration -->
       <div>
-        <fa :icon="['fas', 'clock']" class="mr-2" />
+        <fa :icon="['fas', 'clock']" class="mr-2"/>
         <span>{{ workshop.nextDuration }} Stunden</span>
       </div>
 
       <!-- min price -->
       <div>
-        <fa :icon="['fas', 'tags']" class="mr-2" />
+        <fa :icon="['fas', 'tags']" class="mr-2"/>
         <span>ab {{ workshop.minPrice }},-</span>
       </div>
     </div>
@@ -93,6 +94,7 @@ export default {
 .icons-red svg {
   @apply text-red-400;
 }
+
 .icons-gray svg {
   @apply text-gray-400;
 }
