@@ -10,15 +10,20 @@ function minValue(array, attribute) {
 module.exports = {
     async getWorkshops() {
 
-        let { data: { workshops: workshops } } = await client.query({
+        let { data: { allWorkshops: workshops } } = await client.query({
             query: gql`
                 query workshops {
-                    workshops {
+                    allWorkshops {
                         _id
                         title
                         subTitle
                         description
-                        # organizer
+                        organizer {
+                            firstName
+                            profilePicture
+                            occupation
+                            birthday
+                        }
                         material
                         requirements
                         categories
@@ -86,4 +91,3 @@ module.exports = {
         return workshops;
     }
 }
-
