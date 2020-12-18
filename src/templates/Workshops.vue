@@ -1,6 +1,6 @@
 <template>
   <WithoutBorderLayout>
-    <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl rounded icons-red">
+    <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red">
       <WorkshopImageLarge :img="workshop.thumbnail" :title="workshop.title" />
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
