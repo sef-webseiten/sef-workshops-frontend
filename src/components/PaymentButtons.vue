@@ -111,7 +111,7 @@ export default {
     },
     createOrder() {
       let mutation = `
-            mutation createOrder ($workshopID: String!, $eventID: String!, $participants: Int!, $affiliate: String) {
+            mutation createOrder ($workshopID: ObjectId!, $eventID: ObjectId!, $participants: Int!, $affiliate: String) {
               createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants, affiliate: $affiliate)
             }`;
 
