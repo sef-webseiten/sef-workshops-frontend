@@ -1,13 +1,13 @@
 <template>
   <div class="font-display">
-    <header class="bg-red-500 py-12 text-white">
+    <header class="bg-red-500 py-4 md:py-12 text-white">
       <div
         class="lg:flex flex-row justify-between items-center xl:container px-6"
       >
-        <div class="text-2xl">
+        <div class="text-2xl text-center md:text-left">
           <g-link to="/">{{ $static.metadata.siteName }}</g-link>
         </div>
-        <Navbar />
+        <Navbar class="hidden" />
       </div>
     </header>
     <div class="md:container">
