@@ -7,6 +7,26 @@ function minValue(array, attribute) {
     return Math.min.apply(Math, array.map(event => event[attribute]));
 }
 
+const formatTemplate = "ddd, DD.MM.YYYY HH:mm";
+
+function addDateTimeString(date) {
+    let dates = [dayjs(date.startTime), dayjs(date.endTime)]
+    let sameDay = dates[0].isSame(dates[1], "day");
+
+    let timeString;
+
+    if (sameDay)
+        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format("HH:mm")}`
+    else
+        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format(formatTemplate)}`
+
+    return {
+        startTime: +dayjs(date.startTime),
+        endTime: +dayjs(date.endTime),
+        timeString: timeString
+    }
+}
+
 module.exports = {
     async getWorkshops() {
 
@@ -51,26 +71,7 @@ module.exports = {
 
             // add time strings
             workshop.events.forEach(event => {
-                event.dates = event.dates.map(date => {
-                    let formatTemplate = "ddd, DD.MM.YYYY HH:mm";
-                    let dates = [dayjs(date.startTime), dayjs(date.endTime)]
-                    let sameDay = dates[0].isSame(dates[1], "day");
-
-                    let timeString;
-
-                    if (sameDay)
-                        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format("HH:mm")}`
-                    else
-                        timeString = `${dates[0].format(formatTemplate)} - ${dates[1].format(formatTemplate)}`
-
-                    // timeString = "12.3.2020 8-16 Uhr" // ToDo: Parse TimeString
-
-                    return {
-                        startTime: +dayjs(date.startTime),
-                        endTime: +dayjs(date.endTime),
-                        timeString: timeString
-                    }
-                });
+                event.dates = event.dates.map(addDateTimeString);
             })
 
             let notStartedEvents = workshop.events.filter(event => event.dates.every(date => date.startTime > Date.now()));
@@ -89,5 +90,7 @@ module.exports = {
         });
 
         return workshops;
-    }
+    },
+    addDateTimeString,
+    formatTemplate
 }

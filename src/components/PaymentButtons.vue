@@ -46,7 +46,7 @@
       <!-- next button -->
       <button
           v-if="[1,2].includes(step)"
-          :disabled="step === 2" class="w-full bg-red-500 p-2 font-bold text-white active:bg-red-400 disabled:bg-gray-400 disabled:cursor-default rounded-sm" @click="step++">
+          :disabled="step === 2" class="w-full bg-primary p-2 font-bold text-white active:bg-light disabled:bg-gray-400 disabled:cursor-default rounded-sm" @click="step++">
         <span v-show="step === 1">Weiter</span>
         <Spinner v-show="step === 2" class="mx-auto"/>
       </button>
@@ -67,7 +67,6 @@
 </template>
 <script>
 import Default from "../layouts/Default";
-import gql from "graphql-tag";
 import Spinner from "./Spinner";
 
 export default {
@@ -152,7 +151,7 @@ export default {
           console.error(error)
         },
 
-        onCancel: (data) => {
+        onCancel: () => {
           alert("Cancel")
         }
 

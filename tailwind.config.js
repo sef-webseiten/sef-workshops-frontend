@@ -1,3 +1,8 @@
+const customColors = {
+    primary: "#fa6638",
+    light: "#fb845f"
+};
+
 module.exports = {
     theme: {
         extend: {
@@ -10,7 +15,10 @@ module.exports = {
             },
             width: {
                 "fit": "fit-content"
-            }
+            },
+            backgroundColor: customColors,
+            textColor: customColors,
+            borderColor: customColors
         },
         fontFamily: {
             "display": ["Poppins", "sans-serif"],

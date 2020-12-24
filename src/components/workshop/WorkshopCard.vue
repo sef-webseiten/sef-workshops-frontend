@@ -8,7 +8,7 @@
         <!-- thumbnail -->
         <img
             :src="workshop.thumbnail"
-            class="rounded-t w-full h-48 object-cover"
+            class="rounded-t w-full h-32 object-cover"
             alt="Thumbnail"
             draggable="false"
         />
@@ -20,7 +20,7 @@
           <!-- subtitle -->
           <p
               v-if="workshop.subTitle"
-              class="my-4 text-sm border-l-2 border-red-400 pl-4 rounded-sm"
+              class="my-4 text-sm border-l-2 border-light pl-4 rounded-sm"
           >
             {{ workshop.subTitle }}
           </p>
@@ -87,14 +87,14 @@ export default {
       let date = dayjs(this.workshop.nextDate);
 
       if (date.isSame(dayjs(), "year")) return date.format("D. MMMM");
-      else return date.format("D. MMM YYYY");
+      else return date.format("D. MMM YY");
     },
   },
 };
 </script>
 <style lang="scss" scoped>
 .icons-red svg {
-  @apply text-red-400;
+  @apply text-light;
 }
 
 .icons-gray svg {

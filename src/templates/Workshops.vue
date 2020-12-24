@@ -1,5 +1,5 @@
 <template>
-  <WithoutBorderLayout>
+  <Layout withoutBorder>
     <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red">
       <WorkshopImageLarge :img="workshop.thumbnail" :title="workshop.title" />
 
@@ -14,7 +14,7 @@
           <span
             v-for="category in workshop.categories"
             :key="category"
-            class="m-1 px-4 py-1 bg-red-400 text-white rounded inline-block"
+            class="m-1 px-4 py-1 bg-light text-white rounded inline-block"
             >{{ category }}</span
           >
         </div>
@@ -47,6 +47,7 @@
           <img
             class="w-16 h-16 md:w-24 md:h-24 rounded-full inline-block"
             src="https://images.erichier.tech/u/mrClKEep.jpg"
+            alt="Profilbild"
           />
           <div class="block ml-6 pt-6">
             <span class="text-xl"
@@ -120,7 +121,7 @@
 
         <!-- cta -->
         <button
-          class="p-4 text-white bg-red-500 font-lg font-bold rounded-r w-1/5"
+          class="p-4 text-white bg-primary font-lg font-bold rounded-r w-1/5"
           @click="
             $root.$emit('openCheckoutProcess', {
               workshop: workshop,
@@ -150,21 +151,19 @@
       <!-- ToDo: nicht angemeldet? -->
       <PaymentButtons />
     </div>
-  </WithoutBorderLayout>
+  </Layout>
 </template>
 <script>
 import WorkshopImageLarge from "../components/workshop/WorkshopImageLarge";
 import VueMarkdown from "vue-markdown";
 import dayjs from "dayjs";
 import PaymentButtons from "@/components/PaymentButtons";
-import WithoutBorderLayout from "../layouts/WithoutBorder";
 
 export default {
   components: {
     WorkshopImageLarge,
     VueMarkdown,
     PaymentButtons,
-    WithoutBorderLayout,
   },
   metaInfo: {
     title: "Startseite",
@@ -179,13 +178,11 @@ export default {
   },
 };
 </script>
-<style scoped>
-.box {
-  @apply bg-gray-200 rounded-sm;
-}
+<style scoped lang="scss">
+@import "src/assets/css/main";
 
 .icons-red svg {
-  @apply text-red-400;
+  @apply text-light;
 }
 
 .heading {
