@@ -1,3 +1,7 @@
 .box {
   @apply bg-gray-200 rounded-sm transition-all duration-200;
 }
+
+.hr {
+  @apply w-full h-px bg-gray-400 bg-opacity-25;
+}
