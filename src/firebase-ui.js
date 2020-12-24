@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import * as firebaseui from "firebaseui";
-import { auth, emulator } from "./firebase-client";
+import { auth } from "./firebase-client";
 
 export const uiConfig = {
     signInOptions: [
