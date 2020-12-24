@@ -3,19 +3,33 @@
     <g-link class="nav-element" v-if="user" to="/orders">Bestellungen</g-link>
 
     <!-- Auth section -->
-    <a
-      class="nav-element"
-      v-if="user"
-      href="/logout"
-      title="Logout"
-      @click.prevent="signOut"
-      >Angemeldet als: {{ user.displayName || "Gast" }}</a
-    >
-    <g-link class="nav-element" to="/auth" v-else>Anmelden</g-link>
+    <span class="relative">
+      <button
+          class="nav-element"
+          v-if="user"
+          @click="signOut"
+      >Angemeldet als: {{ user.displayName || "Gast" }}</button
+      >
+      <button class="nav-element" @click.prevent="loginVisible = !loginVisible"
+              v-else>Anmelden</button>
+
+      <AuthPopup v-show="loginVisible"/>
+    </span>
   </nav>
 </template>
 <script>
+import AuthPopup from "./AuthPopup"
+
 export default {
+  components: { AuthPopup },
+  comments: {
+    AuthPopup
+  },
+  data() {
+    return {
+      loginVisible: false
+    }
+  },
   computed: {
     user() {
       return this.$store.state.authentication.currentUser;
@@ -34,6 +48,6 @@ export default {
 }
 
 .nav-element {
-  @apply py-2 px-4 inline-block border-b-2 border-light transition-all duration-200;
+  @apply py-2 px-4 inline-block border-b-2 border-light transition-all duration-200 cursor-pointer;
 }
 </style>
