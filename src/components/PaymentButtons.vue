@@ -67,7 +67,7 @@
 </template>
 <script>
 import Default from "../layouts/Default";
-import Spinner from "./Spinner";
+import Spinner from "./gui-elements/Spinner";
 import { getAffiliateCode } from "../plugins/affiliate";
 
 export default {
