@@ -12,7 +12,4 @@ export const uiConfig = {
     privacyPolicyUrl: '/privacy'
 };
 
-if(!emulator)
-    uiConfig.signInSuccessUrl = '/';
-
 export const ui = new firebaseui.auth.AuthUI(auth);
