@@ -6,17 +6,17 @@
       <button
           class="nav-element"
           v-if="user"
-          @click="accountVisible = !accountVisible"
+          @click="delayedSet('accountVisible')"
       >Angemeldet als: {{ user.displayName || "Gast" }}</button
       >
       <button class="nav-element"
-              @click.prevent="loginVisible = !loginVisible"
+              @click="delayedSet('loginVisible')"
               v-else>Anmelden</button>
 
       <!-- Navbar popup content -->
-      <NavbarPopup v-show="accountContent || loginContent">
+      <NavbarPopup v-show="popup && (loginContent || accountContent)">
 
-        <AuthContent v-show="loginContent"/>
+        <AuthContent v-show="loginContent" v-if="renderAuth"/>
         <AccountContent v-show="accountContent"/>
 
       </NavbarPopup>
@@ -34,12 +34,34 @@ export default {
   data() {
     return {
       loginVisible: false,
-      accountVisible: false
+      accountVisible: false,
+      popup: false,
+      renderAuth: true
+    }
+  },
+  methods: {
+    delayedSet(what) {
+      const self = this;
+
+      if(self[what]) {
+        self.popup = false;
+        setTimeout(() => self[what] = false, 500);
+      } else {
+        self.popup = true;
+        self[what] = true;
+      }
     }
   },
   computed: {
     user() {
-      return this.$store.state.authentication.currentUser;
+      const user = this.$store.state.authentication.currentUser;
+
+      if(!user) {
+        this.renderAuth = false;
+        this.$nextTick(() => this.renderAuth = true);
+      }
+
+      return user;
     },
     loginContent() {
       return this.loginVisible && !this.user;
