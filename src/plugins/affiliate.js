@@ -15,3 +15,8 @@ export function initAffiliate(router) {
 
     })
 }
+
+export function getAffiliateCode() {
+    let affiliateCookies = document.cookie.split(";").filter(cookie => cookie.match(/a=.*/));
+    return affiliateCookies.length > 0 ? affiliateCookies[0].replace("a=", "") : null
+}

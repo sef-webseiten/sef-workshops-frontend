@@ -27,7 +27,7 @@
 
       <!-- price -->
       <div class="between mb-4">
-        <p>Gesammtbetrag </p>
+        <p>Gesamtbetrag </p>
         <p class="font-bold text-lg">{{ event.price * participants }} EUR</p>
       </div>
 
@@ -68,6 +68,7 @@
 <script>
 import Default from "../layouts/Default";
 import Spinner from "./Spinner";
+import { getAffiliateCode } from "../plugins/affiliate";
 
 export default {
   components: { Spinner, Default },
@@ -81,8 +82,7 @@ export default {
     }
   },
   mounted() {
-    // ToDo: implement with idle callback
-
+    // wait for openCheckoutProcess event
     this.$root.$on("openCheckoutProcess", (options) => {
       this.visible = true;
       this.workshop = options.workshop;
@@ -94,10 +94,10 @@ export default {
       if (this.step !== 2)
         return;
 
-      let paypaylScript = document.createElement('script')
-      paypaylScript.onload = this.createOrder
-      paypaylScript.src = this.paypalUrl
-      document.body.appendChild(paypaylScript)
+      let paypalScript = document.createElement('script');
+      paypalScript.onload = this.createOrder;
+      paypalScript.src = this.paypalUrl;
+      document.body.appendChild(paypalScript);
     }
   },
   methods: {
@@ -114,15 +114,12 @@ export default {
               createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants, affiliate: $affiliate)
             }`;
 
-      let affiliateCookies = document.cookie.split(";").filter(cookie => cookie.match(/a=.*/));
-      let affiliateCode = affiliateCookies.length > 0 ? affiliateCookies[0].replace("a=", "") : null;
-
       this.$backend.request(
           mutation, {
             participants: this.participants,
             workshopID: this.workshop._id,
             eventID: this.event._id,
-            affiliate: affiliateCode
+            affiliate: getAffiliateCode()
           }
       ).then(({ createOrder: orderNumber }) => this.setupPaypalButtons(orderNumber));
     },
@@ -151,7 +148,7 @@ export default {
           console.error(error)
         },
 
-        onCancel: () => {
+        onCancel: (data) => {
           alert("Cancel")
         }
 
