@@ -1,14 +1,31 @@
 <template>
   <div>
-    <div id="firebaseui-auth-container" lang="de"></div>
+    <div ref="firebaseui"></div>
+    <p class="text-black p-1" v-if="badInitialized">Seite bitte neuladen, es ist ein Fehler aufgetreten</p>
   </div>
 </template>
 <script>
+import { smallBreakpoint } from "../../plugins/responsive";
+
 export default {
+  props: {
+    desktop: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    badInitialized() {
+      return (this.desktop && smallBreakpoint()) || (!this.desktop && !smallBreakpoint());
+    },
+  },
   mounted() {
+    if (this.badInitialized)
+      return;
+
     import("firebaseui/dist/firebaseui.css")
     import("../../firebase-ui").then(({ ui, uiConfig }) => {
-      ui.start("#firebaseui-auth-container", uiConfig);
+      ui.start(this.$refs.firebaseui, uiConfig);
     });
   },
 };

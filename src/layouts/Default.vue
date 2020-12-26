@@ -1,55 +1,53 @@
 <template>
   <div class="font-display">
+
+    <!-- header -->
     <header class="bg-primary p-4 md:p-10 text-white lg:flex flex-row justify-between items-center">
 
-      <div class="text-xl md:text-2xl mr-2 text-center md:text-left">
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </div>
-      <div class="lg:mx-16 mt-4 lg:mt-0 flex-grow flex flex-row items-center">
-        <div class="text-black rounded shadow relative flex-grow">
-          <div class="absolute left-0 py-2 pl-4 z-20">
-            <fa :icon="['fas', 'search']" class="text-light"/>
-          </div>
-          <input
-              class="bg-white pl-12 py-2 opacity-90 placeholder-opacity-75 rounded text-base w-full focus:outline-none"
-              placeholder="Suche..."
-              type="text"
-          />
-          <button
-              class="border-l border-gray-300 pl-4 pr-6 py-2 absolute right-0 rounded-r focus:outline-none hover:bg-gray-200 select-none"
-          >
-              <span class="hidden md:inline ">
-                <fa
-                    :icon="['fas', 'angle-double-right']"
-                    class="mr-2 text-light"
-                />
-              </span>
-
-            Suchen
-          </button>
-        </div>
-        <div class="hidden md:block ml-4 p-2 cursor-pointer">
-          <fa :icon="['fas', 'filter']" size="lg"/>
-        </div>
+      <!-- title and burger menu -->
+      <div class="text-xl relative md:text-2xl md:mr-2 text-center md:text-left">
+        <BurgerIcon class="absolute left-0 md:hidden" @click="navbarMobileVisible = true"/>
+        <g-link to="/" class="justify-self-start">{{ $static.metadata.siteName }}</g-link>
       </div>
 
-      <Navbar class="hidden md:block"/>
+      <!-- search bar -->
+      <Searchbar/>
+
+      <!-- mobile and desktop navbar navbar -->
+      <NavbarMobile class="block md:hidden" v-show="navbarMobileVisible" @close="navbarMobileVisible = false"/>
+      <NavbarDesktop class="hidden md:block"/>
+
     </header>
+
+    <!-- actual page content -->
     <div class="xl:container" :class="{'p-6' : !withoutBorder}">
       <slot/>
     </div>
+
+    <!-- footer on desktop, hidden on mobile -->
+    <DesktopFooter class="hidden md:block"/>
+
   </div>
 </template>
 <script>
-import Navbar from "../components/navigation/Navbar";
+import NavbarDesktop from "../components/navigation/NavbarDesktop";
 import "animate.css/animate.min.css";
+import Searchbar from "../components/navigation/Searchbar";
+import NavbarMobile from "../components/navigation/NavbarMobile";
+import BurgerIcon from "../components/navigation/BurgerIcon";
+import DesktopFooter from "../components/navigation/DesktopFooter";
 
 export default {
-  components: { Navbar },
+  components: { DesktopFooter, BurgerIcon, NavbarMobile, Searchbar, NavbarDesktop },
   props: {
     withoutBorder: {
       type: Boolean,
       default: false
+    }
+  },
+  data() {
+    return {
+      navbarMobileVisible: false
     }
   },
   mounted() {
@@ -68,6 +66,10 @@ siteName
 @import "src/assets/css/main";
 
 html {
+  @apply bg-gray-200;
+}
+
+body {
   @apply bg-gray-100;
 }
 

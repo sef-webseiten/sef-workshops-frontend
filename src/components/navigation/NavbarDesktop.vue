@@ -16,7 +16,7 @@
       <!-- Navbar popup content -->
       <NavbarPopup v-show="popup && (loginContent || accountContent)">
 
-        <AuthContent v-show="loginContent" v-if="renderAuth"/>
+        <AuthContent v-show="loginContent" v-if="renderAuth" desktop/>
         <AccountContent v-show="accountContent"/>
 
       </NavbarPopup>
@@ -43,7 +43,7 @@ export default {
     delayedSet(what) {
       const self = this;
 
-      if(self[what]) {
+      if (self[what]) {
         self.popup = false;
         setTimeout(() => self[what] = false, 500);
       } else {
@@ -56,7 +56,7 @@ export default {
     user() {
       const user = this.$store.state.authentication.currentUser;
 
-      if(!user) {
+      if (!user) {
         this.renderAuth = false;
         this.$nextTick(() => this.renderAuth = true);
       }
