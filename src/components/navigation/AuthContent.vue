@@ -14,12 +14,14 @@ export default {
       default: false
     }
   },
-  computed: {
-    badInitialized() {
-      return (this.desktop && smallBreakpoint()) || (!this.desktop && !smallBreakpoint());
-    },
+  data() {
+    return {
+      badInitialized: false
+    }
   },
   mounted() {
+    this.badInitialized = (this.desktop && smallBreakpoint()) || (!this.desktop && !smallBreakpoint());
+
     if (this.badInitialized)
       return;
 
