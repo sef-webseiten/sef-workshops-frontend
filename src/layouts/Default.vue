@@ -66,7 +66,7 @@ siteName
 @import "src/assets/css/main";
 
 html {
-  @apply bg-gray-200;
+  @apply bg-gray-200 overflow-x-hidden;
 }
 
 body {
