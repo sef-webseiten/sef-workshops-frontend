@@ -2,34 +2,33 @@
   <div class="lg:mx-16 mt-4 lg:mt-0 flex-grow flex flex-row items-center">
 
     <!-- round search bar -->
-    <div class="text-black rounded shadow relative flex-grow">
+    <div class="text-black rounded shadow relative flex-grow flex flex-row bg-white">
 
       <!-- search icon -->
-      <div class="absolute left-0 py-2 pl-4 z-20">
+      <div class="py-2 pl-4 z-20">
         <fa :icon="['fas', 'search']" class="text-light"/>
       </div>
 
       <!-- input field with placeholder -->
-      <label>
-        <input
-            class="bg-white pl-12 py-2 opacity-90 placeholder-opacity-75 rounded text-base w-full focus:outline-none"
-            placeholder="Suche..."
-            type="text"
-        />
-      </label>
+      <input
+          class="bg-white pl-4 py-2 opacity-90 placeholder-opacity-75 rounded text-base w-full focus:outline-none flex-grow"
+          placeholder="Suche..."
+          type="text"
+      />
 
       <!-- search button -->
       <button
-          class="border-l border-gray-300 pl-4 pr-6 py-2 absolute right-0 rounded-r focus:outline-none hover:bg-gray-200 select-none"
+          class="border-l border-gray-300 pl-4 pr-6 py-2 rounded-r focus:outline-none hover:bg-gray-200 select-none flex"
       >
-              <span class="hidden md:inline ">
-                <fa
-                    :icon="['fas', 'angle-double-right']"
-                    class="mr-2 text-light"
-                />
-              </span>
 
-        Suchen
+        <span class="hidden md:block">
+          <fa
+              :icon="['fas', 'angle-double-right']"
+              class="mr-2 text-light"
+          />
+        </span>
+        <span>Suchen</span>
+
       </button>
     </div>
 
