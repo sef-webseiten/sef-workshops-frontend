@@ -5,7 +5,7 @@
         leave-active-class="animate__animated animate__faster animate__fadeOut"
     >
       <div class="fixed top-0 left-0 z-30 w-screen h-screen w-full h-full w-full h-full bg-black bg-opacity-70"
-           v-show="navbarMobileVisible" @click="navbarMobileVisible = false & $emit('close')"/>
+           v-show="navbarMobileVisible" @click="$emit('close')"/>
     </transition>
 
     <transition
