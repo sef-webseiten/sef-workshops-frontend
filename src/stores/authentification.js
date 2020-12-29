@@ -1,4 +1,4 @@
-import { loadUserDetails, refreshToken } from "../graphql-client";
+import { loadInitialData, refreshToken } from "../graphql-client";
 
 export const authenticationStore = {
     state: {
@@ -21,14 +21,10 @@ export const authenticationStore = {
                         return;
 
                     let token = await user.getIdToken();
+
                     refreshToken(token);
-                    store.dispatch("loadBackendData")
+                    loadInitialData(store).then(() => store.commit("setInitialized", true));
                 });
-            });
-        },
-        loadBackendData(store) {
-            loadUserDetails().then(me => {
-                store.commit("setUserDetails", me)
             });
         }
     }

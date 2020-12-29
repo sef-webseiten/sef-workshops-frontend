@@ -7,8 +7,8 @@ export function refreshToken(token) {
     client.setHeader("Authorization", `Bearer ${token}`)
 }
 
-export async function loadUserDetails() {
-    const { me } = await client.request(gql`
+export async function loadInitialData(store) {
+    const { me, orders } = await client.request(gql`
         query {
             me {
                 firstName
@@ -17,14 +17,6 @@ export async function loadUserDetails() {
                 profilePicture
 
             }
-        }
-    `);
-    return me;
-}
-
-export async function loadOrders() {
-    const { orders } = await client.request(gql`
-        query {
             orders: myOrders {
                 _id
                 status
@@ -43,7 +35,10 @@ export async function loadOrders() {
                 }
                 timestamp
             }
+            
         }
     `);
-    return orders;
+
+    store.commit("setOrders", orders);
+    store.commit("setUserDetails", me);
 }

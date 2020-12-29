@@ -1,5 +1,3 @@
-import { client, loadOrders } from "../graphql-client";
-import gql from "graphql-tag";
 import { addDateTimeString, formatTemplate } from "../../backend-communication/workshops";
 import dayjs from "dayjs";
 import "dayjs/locale/de";
@@ -16,15 +14,8 @@ export const ordersStore = {
     },
     mutations: {
         setOrders(state, orders) {
+            orders = orders.map(prepareOrder);
             state.orders = orders;
-        }
-    },
-    actions: {
-        loadBackendData(store) {
-            loadOrders().then(orders => {
-                orders = orders.map(prepareOrder);
-                store.commit("setOrders", orders);
-            });
         }
     }
 }
