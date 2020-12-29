@@ -7,7 +7,7 @@
           class="nav-element"
           v-if="user"
           @click="delayedSet('accountVisible')"
-      >Angemeldet als: {{ user.displayName || "Gast" }}</button
+      >Angemeldet als: {{ username }}</button
       >
       <button class="nav-element"
               @click="delayedSet('loginVisible')"
@@ -28,6 +28,7 @@
 import AuthContent from "./AuthContent"
 import NavbarPopup from "./NavbarPopup";
 import AccountContent from "./AccountContent";
+import { authenticationStoreComputers } from "../../stores/authentification";
 
 export default {
   components: { AccountContent, NavbarPopup, AuthContent },
@@ -53,16 +54,7 @@ export default {
     }
   },
   computed: {
-    user() {
-      const user = this.$store.state.authentication.currentUser;
-
-      if (!user) {
-        this.renderAuth = false;
-        this.$nextTick(() => this.renderAuth = true);
-      }
-
-      return user;
-    },
+    ...authenticationStoreComputers,
     loginContent() {
       return this.loginVisible && !this.user;
     },

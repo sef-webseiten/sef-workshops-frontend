@@ -1,4 +1,4 @@
-import { client } from "../graphql-client";
+import { client, loadOrders } from "../graphql-client";
 import gql from "graphql-tag";
 import { addDateTimeString, formatTemplate } from "../../backend-communication/workshops";
 import dayjs from "dayjs";
@@ -20,33 +20,11 @@ export const ordersStore = {
         }
     },
     actions: {
-        async loadBackendData(store) {
-            let { myOrders: orders } = await client.request(gql`
-                query {
-                    myOrders {
-                        _id
-                        status
-                        price
-                        workshop {
-                            _id
-                            title
-                            thumbnail
-                        }
-                        event {
-                            dates {
-                                startTime
-                                endTime
-                            }
-                            privateLocation
-                        }
-                        timestamp
-                    }
-                }
-            `);
-
-            orders = orders.map(prepareOrder);
-
-            store.commit("setOrders", orders);
+        loadBackendData(store) {
+            loadOrders().then(orders => {
+                orders = orders.map(prepareOrder);
+                store.commit("setOrders", orders);
+            });
         }
     }
 }

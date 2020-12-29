@@ -14,7 +14,7 @@
       <Searchbar/>
 
       <!-- mobile and desktop navbar navbar -->
-      <NavbarMobile class="block md:hidden" v-show="navbarMobileVisible" @close="navbarMobileVisible = false"/>
+      <NavbarMobile class="block md:hidden" :navbarMobileVisible="navbarMobileVisible" @close="navbarMobileVisible = false"/>
       <NavbarDesktop class="hidden md:block"/>
 
     </header>
