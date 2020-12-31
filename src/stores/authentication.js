@@ -8,7 +8,7 @@ export const authenticationStore = {
     },
     mutations: {
         setFirebaseUser: (state, user) => state.firebaseUser = user,
-        setUserDetails: (state, user) => state.user = user,
+        setUserDetails: (state, user) => state.user = { ...user },
         setAccessToken: (state, token) => state.accessToken = token
     },
     actions: {

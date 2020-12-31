@@ -1,7 +1,7 @@
 <template>
   <div class="relative border-b-2 focus-within:border-blue-500 mt-8 mb-2">
-    <input :id="id" :type="type" name="username" placeholder=" " :value="value" @input="$emit('input', $event.target.value)" class="block w-full appearance-none focus:outline-none bg-transparent" />
-    <label :for="id" class="absolute top-0 duration-300 origin-0 pointer-events-none">{{ label }}</label>
+    <input :id="id" :type="type" :required="required" name="username" placeholder=" " :value="value" @input="$emit('input', $event.target.value)" class="block w-full appearance-none focus:outline-none bg-transparent" />
+    <label :for="id" class="absolute top-0 duration-300 origin-0 pointer-events-none">{{ `${label.trim()}${required ? "*" : ""}` }}</label>
   </div>
 </template>
 <script>
@@ -23,6 +23,10 @@ export default {
     type: {
       type: String,
       default: "text"
+    },
+    required: {
+      type: Boolean,
+      default: false
     }
   }
 }

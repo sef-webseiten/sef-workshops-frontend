@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <form @submit.prevent="save">
 
     <!-- first name -->
-    <InputTemplate v-model="user.firstName" label="Vorname"/>
+    <InputTemplate v-model="user.firstName" label="Vorname" required/>
 
     <!-- last name -->
-    <InputTemplate v-model="user.lastName" label="Nachname"/>
+    <InputTemplate v-model="user.lastName" label="Nachname" required/>
 
     <!-- occupation -->
-    <InputTemplate v-model="user.occupation" label="Beschäftigung"/>
+    <InputTemplate v-model="user.occupation" label="Beschäftigung" required/>
 
     <!-- birthday -->
-    <InputTemplate v-model="user.birthday" label="Geburtstag" type="date"/>
+    <InputTemplate v-model="user.birthday" label="Geburtstag" type="date" required/>
 
     <p v-if="!user.organizer" class="mt-4">Du bist kein angemeldeter Kursleiter.
       <button class="text-primary" @click="$root.$emit('organizerPopup')">Klicke hier zum aktivieren.</button>
@@ -23,12 +23,12 @@
     <OrganizerPopup v-if="user && !user.organizer" @organizer="user.organizer = true"/>
 
     <!-- disable button if currently saving or no changes have been done -->
-    <button-template @click="save" class="mt-4 h-fit" :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)">
+    <button-template submit class="mt-4 h-fit" :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)">
       <span v-if="!saving">Speichern</span>
       <Spinner v-else class="mx-auto"/>
     </button-template>
 
-  </div>
+  </form>
 </template>
 <script>
 import InputTemplate from "../../gui-elements/InputTemplate";
