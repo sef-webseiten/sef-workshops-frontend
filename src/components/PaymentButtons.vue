@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-0 left-0 w-screen md:w-1/2 lg:w-1/3 select-none z-30">
+  <div class="fixed bottom-0 right-0 w-screen md:w-1/2 lg:w-1/3 select-none z-30">
     <div v-if="visible"
          class="relative bg-white rounded-t p-6 md:mx-6 shadow-2xl animate__animated animate__slideInUp">
 
