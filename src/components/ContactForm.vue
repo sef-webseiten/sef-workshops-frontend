@@ -34,7 +34,7 @@ export default {
       }
     }
   },
-  mounted() {
+  /*mounted() {
     const self = this;
     this.$root.$on('openContactForm', data => {
       self.visible = true
@@ -46,9 +46,9 @@ export default {
       self.form.content = data.content;
       self.form.email = this.firebaseUser.email;
     });
-  },
+  },*/
   methods: {
-    submit() {
+    /*submit() {
       function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -65,7 +65,7 @@ export default {
           userid: this.user._id
         })
       })//.then(() => ).catch(error => alert(error))
-    }
+    }*/
   },
   computed: {
     ...authenticationStoreComputers
