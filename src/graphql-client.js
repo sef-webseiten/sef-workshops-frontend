@@ -27,6 +27,7 @@ export async function loadInitialData(store) {
     const { me, orders } = await client.request(gql`
         query {
             me {
+                _id
                 firstName
                 lastName
                 organizer

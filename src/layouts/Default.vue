@@ -27,6 +27,8 @@
     <!-- footer on desktop, hidden on mobile -->
     <DesktopFooter class="hidden md:block"/>
 
+    <ContactForm />
+
   </div>
 </template>
 <script>
@@ -36,9 +38,10 @@ import Searchbar from "../components/navigation/Searchbar";
 import NavbarMobile from "../components/navigation/NavbarMobile";
 import BurgerIcon from "../components/navigation/BurgerIcon";
 import DesktopFooter from "../components/navigation/DesktopFooter";
+import ContactForm from "../components/ContactForm";
 
 export default {
-  components: { DesktopFooter, BurgerIcon, NavbarMobile, Searchbar, NavbarDesktop },
+  components: { ContactForm, DesktopFooter, BurgerIcon, NavbarMobile, Searchbar, NavbarDesktop },
   props: {
     withoutBorder: {
       type: Boolean,
