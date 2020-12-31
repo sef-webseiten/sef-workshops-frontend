@@ -19,41 +19,46 @@
           >
         </div>
 
-        <!-- ratings -->
-        <div class="mt-8 p-2 box w-fit inline-block mr-4">
-          <fa
-              v-for="i in [1, 2, 3, 4, 5]"
-              :icon="['fas', 'star']"
-              :key="i"
-              class="mr-1"
-              size="lg"
-          ></fa>
-        </div>
+        <!-- container -->
+        <div class="mt-6">
 
-        <!-- "starting at" price box -->
-        <div class="mt-8 p-2 box w-fit inline-block mr-4">
-          <fa :icon="['fas', 'tags']" class="mr-1" size="lg"/>
-          ab {{ workshop.minPrice }} EURO
-        </div>
+          <!-- ratings -->
+          <div class="mt-2 p-2 box w-fit inline-block mr-4">
+            <fa
+                v-for="i in [1, 2, 3, 4, 5]"
+                :icon="['fas', 'star']"
+                :key="i"
+                class="mr-1"
+                size="lg"
+            ></fa>
+          </div>
 
-        <!-- first event date -->
-        <div class="mt-8 p-2 box w-fit inline-block">
-          <fa :icon="['fas', 'calendar-day']" class="mr-1" size="lg"/>
-          ab {{ nextDate }}
+          <!-- "starting at" price box -->
+          <div class="mt-2 p-2 box w-fit inline-block mr-4">
+            <fa :icon="['fas', 'tags']" class="mr-1" size="lg"/>
+            ab {{ workshop.minPrice }} EURO
+          </div>
+
+          <!-- first event date -->
+          <div class="mt-2 p-2 box w-fit inline-block">
+            <fa :icon="['fas', 'calendar-day']" class="mr-1" size="lg"/>
+            ab {{ nextDate }}
+          </div>
+
         </div>
 
         <!-- organizer box -->
         <div class="mt-8 flex box p-4">
           <img
               class="w-16 h-16 md:w-24 md:h-24 rounded-full inline-block"
-              src="https://images.erichier.tech/u/mrClKEep.jpg"
+              :src="workshop.organizer.profilePicture"
               alt="Profilbild"
           />
-          <div class="block ml-6 pt-6">
-            <span class="text-xl"
-            >Eric Feltgen, 19 {{ "" /*$page.workshop.organizer.name*/ }}</span
+          <div class="block ml-6 md:pt-6">
+            <span class="text-xl">
+              {{workshop.organizer.firstName }}, {{ age }}</span
             ><br/>
-            <span>Informatik Student an der RWTH Aachen</span>
+            <span>{{ workshop.organizer.occupation }}</span>
           </div>
         </div>
 
@@ -124,12 +129,13 @@
             class="p-4 text-white bg-primary font-lg font-bold rounded-r w-1/5"
             @click="
             $root.$emit('openCheckoutProcess', {
-              workshop: workshop,
-              event: event,
+              workshop,
+              event,
             })
           "
         >
-          <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline" style="">Teilnehmen</span>
+          <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline"
+                style="">Teilnehmen</span>
         </button>
       </div>
 
@@ -175,6 +181,9 @@ export default {
     nextDate() {
       return dayjs(this.workshop.nextDate).format("DD.MM.YYYY");
     },
+    age() {
+      return dayjs().diff(dayjs(this.workshop.organizer.birthday), "year");
+    }
   },
 };
 </script>
@@ -195,6 +204,13 @@ workshop: workshops(id: $id) {
 _id
 title
 subTitle
+
+organizer {
+firstName
+birthday
+occupation
+profilePicture
+}
 
 description
 material
