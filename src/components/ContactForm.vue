@@ -1,5 +1,5 @@
 <template>
-  <Popup v-if="visible" @close="visible = false">
+  <Popup v-show="visible" @close="visible = false">
     <form netlify name="general" @submit.prevent="submit">
 
       <Heading2>Kontaktieren Sie uns</Heading2>
@@ -9,7 +9,7 @@
       <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
 
       <p class="mt-4">Wir kontaktieren dich zu deiner Anfrage unter <span
-          class="text-primary">{{ firebaseUser.email }}</span>.</p>
+          class="text-primary">{{ form.email }}</span>.</p>
 
       <!-- button -->
       <button-template class="mt-4">Abschicken</button-template>
@@ -30,15 +30,21 @@ export default {
       form: {
         subject: "",
         content: "",
+        email: ""
       }
     }
   },
   mounted() {
     const self = this;
-    this.$root.$on('openContactForm', ({ subject, content }) => {
+    this.$root.$on('openContactForm', data => {
       self.visible = true
-      self.form.subject = subject;
-      self.form.content = content;
+
+      if (!data)
+        return;
+
+      self.form.subject = data.subject;
+      self.form.content = data.content;
+      self.form.email = this.firebaseUser.email;
     });
   },
   methods: {
