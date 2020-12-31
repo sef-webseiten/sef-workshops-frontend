@@ -4,6 +4,7 @@ const customColors = {
 };
 
 module.exports = {
+    customColors,
     theme: {
         extend: {
             borderRadius: {
@@ -16,6 +17,15 @@ module.exports = {
             width: {
                 "fit": "fit-content"
             },
+            height: {
+                "fit": "fit-content"
+            },
+
+            // Material Design Input field
+            transformOrigin: {
+                "0": "0%",
+            },
+
             backgroundColor: customColors,
             textColor: customColors,
             borderColor: customColors
@@ -35,7 +45,7 @@ module.exports = {
     variants: {
         backgroundColor: ['responsive', 'active', 'disabled', 'hover'],
         cursor: ['responsive', 'disabled'],
-
+        borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
     },
     purge: [
         './src/**/*.html',

@@ -30,6 +30,11 @@ export const authenticationStore = {
     }
 };
 
+export function updateUserDetails(user) {
+    console.log(user)
+    this.$store.commit("setUserDetails", { ...this.$store.state.authentication.user, ...user })
+}
+
 export const authenticationStoreComputers = {
     firebaseUser() {
         return this.$store.state.authentication.firebaseUser;
@@ -38,9 +43,7 @@ export const authenticationStoreComputers = {
         get() {
             return this.$store.state.authentication.user;
         },
-        set(user) {
-            this.$store.commit("setUserDetails", { ...this.$store.state.authentication.user, ...user })
-        }
+        set: updateUserDetails
     },
     username() {
         const s = this.$store.state.authentication;

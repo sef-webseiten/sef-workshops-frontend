@@ -1,24 +1,37 @@
 <template>
-  <div class="lds-dual-ring"></div>
+  <div class="lds-dual-ring" :style="style"></div>
 </template>
+<script>
+export default {
+  props: {
+    color: {
+      type: String,
+      default: "white"
+    }
+  },
+  computed: {
+    style() {
+      return { "--accent": `${this.color}` }
+    }
+  }
+}
+</script>
 <style scoped lang="scss">
-$accent: white;
-
 .lds-dual-ring {
   display: block;
-  width: 2rem;
-  height: 2rem;
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .lds-dual-ring:after {
   content: " ";
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 0.25rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.125rem;
   border-radius: 50%;
-  border: 3px solid $accent;
-  border-color: $accent transparent $accent transparent;
+  border: 3px solid var(--accent);
+  border-color: var(--accent) transparent var(--accent) transparent;
   animation: lds-dual-ring 1s linear infinite;
 }
 

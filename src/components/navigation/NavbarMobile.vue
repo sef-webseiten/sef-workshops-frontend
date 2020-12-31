@@ -40,7 +40,7 @@
 import AuthContent from "./AuthContent";
 import AccountContent from "./AccountContent";
 import FooterContent from "./FooterContent";
-import { authenticationStoreComputers } from "../../stores/authentification";
+import { authenticationStoreComputers } from "../../stores/authentication";
 
 export default {
   components: { FooterContent, AccountContent, AuthContent },

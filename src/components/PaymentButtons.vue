@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       visible: false,
-      step: 1, // 1 if showing selection; 2 if waiting for order creation; 3 when buttons are shown
+      step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown
       participants: 1,
       workshop: null,
       event: null

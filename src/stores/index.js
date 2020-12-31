@@ -1,5 +1,5 @@
 import { ordersStore } from "./orders";
-import { authenticationStore } from "./authentification";
+import { authenticationStore } from "./authentication";
 
 export const store = {
     state: {

@@ -19,6 +19,7 @@
     "graphql-tag": "^2.11.0",
     "gridsome": "^0.7.0",
     "node-fetch": "^2.6.1",
+    "randomstring": "^1.1.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "typeface-poppins": "^1.1.13",
     "vue-markdown": "^2.2.4",

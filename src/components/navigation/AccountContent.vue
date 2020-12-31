@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import { authenticationStoreComputers } from "../../stores/authentification";
+import { authenticationStoreComputers } from "../../stores/authentication";
 
 export default {
   computed: {

@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { setupFontAwesome } from "./fontAwesome";
 import { client } from "./graphql-client";
 import { initAffiliate } from "./plugins/affiliate";
+import Popup from "./components/gui-elements/Popup";
 
 require("typeface-poppins");
 
@@ -14,6 +15,7 @@ setupFontAwesome();
 export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component('Layout', DefaultLayout);
   Vue.component('fa', FontAwesomeIcon);
+  Vue.component('Popup', Popup);
 
   Vue.use(Vuex);
 

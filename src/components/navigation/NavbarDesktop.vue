@@ -28,7 +28,7 @@
 import AuthContent from "./AuthContent"
 import NavbarPopup from "./NavbarPopup";
 import AccountContent from "./AccountContent";
-import { authenticationStoreComputers } from "../../stores/authentification";
+import { authenticationStoreComputers } from "../../stores/authentication";
 
 export default {
   components: { AccountContent, NavbarPopup, AuthContent },

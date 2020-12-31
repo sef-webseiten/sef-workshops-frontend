@@ -11,7 +11,7 @@
       Datum: {{order.timestamp}}
     </div>
     <div>
-      <button-template content="Stornierung anfragen" />
+      <button-template>Stornierung anfragen</button-template>
     </div>
   </div>
 </template>

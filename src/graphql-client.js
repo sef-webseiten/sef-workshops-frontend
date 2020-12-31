@@ -7,6 +7,22 @@ export function refreshToken(token) {
     client.setHeader("Authorization", `Bearer ${token}`)
 }
 
+export async function updateUserData(user) {
+    await client.request(gql`
+        mutation ($firstName: String, $lastName: String, $occupation: String, $birthday: Date, $organizer: Boolean) {
+            updateUserData (
+                user: {
+                    firstName: $firstName
+                    lastName: $lastName
+                    occupation: $occupation
+                    birthday: $birthday
+                    organizer: $organizer
+                }
+            ) { firstName }
+        }
+    `, user);
+}
+
 export async function loadInitialData(store) {
     const { me, orders } = await client.request(gql`
         query {
@@ -14,8 +30,9 @@ export async function loadInitialData(store) {
                 firstName
                 lastName
                 organizer
+                occupation
+                birthday
                 profilePicture
-
             }
             orders: myOrders {
                 _id
@@ -35,7 +52,7 @@ export async function loadInitialData(store) {
                 }
                 timestamp
             }
-            
+
         }
     `);
 
