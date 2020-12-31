@@ -129,7 +129,7 @@
             })
           "
         >
-          Teilnehmen
+          <span class="md:transform origin-bottom-right -translate-x-1/4 -rotate-90 block" style="">Teilnehmen</span>
         </button>
       </div>
 
