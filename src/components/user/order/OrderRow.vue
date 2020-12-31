@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import ButtonTemplate from "../gui-elements/ButtonTemplate";
+import ButtonTemplate from "../../gui-elements/ButtonTemplate";
 
 export default {
   components: { ButtonTemplate },
@@ -29,5 +29,5 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import "src/assets/css/main";
+@import "../../../assets/css/main";
 </style>

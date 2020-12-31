@@ -7,7 +7,7 @@
   </Layout>
 </template>
 <script>
-import OrderRow from "../../components/order/OrderRow";
+import OrderRow from "../../components/user/order/OrderRow";
 import Heading from "../../components/gui-elements/Heading";
 
 export default {
