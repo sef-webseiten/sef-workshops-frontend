@@ -12,7 +12,12 @@
           class="text-primary">{{ form.email }}</span>.</p>
 
       <!-- button -->
-      <button-template class="mt-4">Abschicken</button-template>
+      <button-template class="mt-4" :disabled="saving">
+        <span v-if="!saving">Abschicken</span>
+        <Spinner v-else class="mx-auto"/>
+      </button-template>
+
+      <p v-if="error" class="mt-4 text-center font-bold">Es ist ein Fehler entstanden, bitte probier es nochmal. </p>
     </form>
   </Popup>
 </template>
@@ -21,12 +26,15 @@ import InputTemplate from "./gui-elements/InputTemplate";
 import Heading2 from "./gui-elements/Heading2";
 import { authenticationStoreComputers } from "../stores/authentication";
 import ButtonTemplate from "./gui-elements/ButtonTemplate";
+import Spinner from "./gui-elements/Spinner";
 
 export default {
-  components: { ButtonTemplate, Heading2, InputTemplate },
+  components: { ButtonTemplate, Heading2, InputTemplate, Spinner },
   data() {
     return {
       visible: false,
+      saving: false,
+      error: false,
       form: {
         subject: "",
         content: "",
@@ -48,23 +56,38 @@ export default {
     });
   },
   methods: {
-    submit() {
+    async submit() {
       function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&")
       }
 
-      fetch("/forms/general", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "general",
-          ...this.form,
-          email: this.firebaseUser.email,
-          userid: this.user._id
-        })
-      })//.then(() => ).catch(error => alert(error))
+      const self = this;
+
+      self.saving = true;
+      self.error = false;
+
+      try {
+        const data = await fetch("/forms/general", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": "general",
+            ...this.form,
+            email: this.firebaseUser.email,
+            userid: this.user._id
+          })
+        });
+
+        if(!data.ok)
+          throw new Error();
+
+        self.saving = false;
+      } catch (e) {
+        self.saving = false;
+        self.error = true;
+      }
     }
   },
   computed: {
