@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     submit() {
-      function encode(data) {
+      /*function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&")
@@ -64,7 +64,7 @@ export default {
           email: this.firebaseUser.email,
           userid: this.user._id
         })
-      })//.then(() => ).catch(error => alert(error))
+      })//.then(() => ).catch(error => alert(error))*/
     }
   },
   computed: {
