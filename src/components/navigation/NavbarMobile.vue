@@ -13,7 +13,7 @@
         leave-active-class="animate__animated animate__faster animate__slideOutLeft"
     >
         <div
-            class="w-66vw h-screen absolute top-0 left-0 shadow-2xl z-40 bg-white"
+            class="w-66vw h-screen fixed top-0 left-0 shadow-2xl z-40 bg-white"
             v-show="navbarMobileVisible">
 
           <!-- orange section with username -->
