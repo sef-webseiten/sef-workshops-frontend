@@ -37,14 +37,14 @@ export default {
   mounted() {
     const self = this;
     this.$root.$on('openContactForm', data => {
-      self.visible = true
+      self.visible = true;
+      self.form.email = this.firebaseUser.email;
 
       if (!data)
         return;
 
       self.form.subject = data.subject;
       self.form.content = data.content;
-      self.form.email = this.firebaseUser.email;
     });
   },
   methods: {
