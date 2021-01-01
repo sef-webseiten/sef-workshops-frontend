@@ -1,15 +1,15 @@
 <template>
   <Popup v-show="visible" @close="visible = false">
-    <form netlify name="general" @submit.prevent="submit">
+    <form netlify name="general" >
 
       <Heading2>Kontaktieren Sie uns</Heading2>
 
       <!-- visible form fields -->
-      <InputTemplate v-model="form.subject" label="Betreff" required/>
-      <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
+      <InputTemplate label="Betreff" required/>
+      <InputTemplate label="Inhalt" type="textarea" required/>
 
       <p class="mt-4">Wir kontaktieren dich zu deiner Anfrage unter <span
-          class="text-primary">{{ form.email }}</span>.</p>
+          class="text-primary">{{ "a" }}</span>.</p>
 
       <!-- button -->
       <button-template class="mt-4">Abschicken</button-template>
@@ -19,12 +19,11 @@
 <script>
 import InputTemplate from "./gui-elements/InputTemplate";
 import Heading2 from "./gui-elements/Heading2";
-import { authenticationStoreComputers } from "../stores/authentication";
 import ButtonTemplate from "./gui-elements/ButtonTemplate";
 
 export default {
   components: { ButtonTemplate, Heading2, InputTemplate },
-  data() {
+  /*data() {
     return {
       visible: false,
       form: {
@@ -64,11 +63,11 @@ export default {
           email: this.firebaseUser.email,
           userid: this.user._id
         })
-      })//.then(() => ).catch(error => alert(error))*/
+      })//.then(() => ).catch(error => alert(error))
     }
   },
   computed: {
     ...authenticationStoreComputers
-  }
+  }*/
 }
 </script>
