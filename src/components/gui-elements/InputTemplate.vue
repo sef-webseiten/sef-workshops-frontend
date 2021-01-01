@@ -12,9 +12,9 @@
               class="block w-full appearance-none focus:outline-none bg-transparent"/>
 
     <!-- label -->
-    <label :for="id" class="absolute top-0 duration-300 origin-0 pointer-events-none">{{
-        `${label.trim()} ${required ? "*" : ""}`
-      }}</label>
+    <label :for="id" class="absolute top-0 duration-300 origin-0 pointer-events-none">
+      {{ `${label} ${required ? "*" : ""}` }}
+    </label>
 
   </div>
 </template>
