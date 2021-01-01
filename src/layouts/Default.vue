@@ -2,7 +2,7 @@
   <div class="font-display">
 
     <!-- header -->
-    <header class="bg-primary p-4 md:p-10 text-white lg:flex flex-row justify-between items-center">
+    <header class="bg-primary p-4 md:p-10 text-white md:flex flex-row justify-between items-center">
 
       <!-- title and burger menu -->
       <div class="text-xl relative md:text-2xl md:mr-2 text-center md:text-left">

@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:mx-16 mt-4 lg:mt-0 flex-grow flex flex-row items-center">
+  <div class="md:mx-16 mt-4 lg:mt-0 flex-grow flex flex-row items-center">
 
     <!-- round search bar -->
     <div class="text-black rounded shadow relative flex-grow flex flex-row bg-white">
@@ -33,7 +33,7 @@
     </div>
 
     <!-- desktop filter button -->
-    <button class="hidden md:block ml-4 p-2 cursor-pointer">
+    <button class="hidden lg:block ml-4 p-2 cursor-pointer">
       <fa :icon="['fas', 'filter']" size="lg"/>
     </button>
 
