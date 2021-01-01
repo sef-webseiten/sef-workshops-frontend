@@ -55,7 +55,7 @@ export default {
             .join("&")
       }
 
-      fetch("/", {
+      fetch("/forms/general", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
