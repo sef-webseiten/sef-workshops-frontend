@@ -1,6 +1,6 @@
 <template>
   <Popup v-show="visible" @close="visible = false">
-    <form name="general" @submit.prevent="submit">
+    <form name="general" data-netlify="true" @submit.prevent="submit">
 
       <Heading2>Kontaktieren Sie uns</Heading2>
 
