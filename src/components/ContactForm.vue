@@ -56,6 +56,16 @@ export default {
     });
   },
   methods: {
+    close() {
+      self.form = {
+        subject: "",
+        content: "",
+        email: ""
+      };
+      self.visible = false;
+      self.error = false;
+      self.saving = false;
+    },
     async submit() {
       function encode(data) {
         return Object.keys(data)
@@ -83,7 +93,7 @@ export default {
         if(!data.ok)
           throw new Error();
 
-        self.saving = false;
+        this.close();
       } catch (e) {
         self.saving = false;
         self.error = true;
