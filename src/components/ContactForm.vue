@@ -1,6 +1,6 @@
 <template>
   <Popup v-show="visible" @close="visible = false">
-    <form netlify name="general" >
+    <form name="general" >
 
       <Heading2>Kontaktieren Sie uns</Heading2>
 
