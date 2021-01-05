@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <heading class="mb-6">Bestellungen</heading>
+    <heading class="mb-6">Buchungenn</heading>
     <div v-for="order in orders">
       <order-row :order="order" />
     </div>
