@@ -7,7 +7,9 @@
       <!-- title and burger menu -->
       <div class="text-xl relative md:text-2xl md:mr-2 text-center md:text-left">
         <BurgerIcon class="absolute left-0 md:hidden" @click="navbarMobileVisible = true"/>
-        <g-link to="/" class="justify-self-start">{{ $static.metadata.siteName }}</g-link>
+        <g-link to="/">
+          <img src="../assets/img/logo/logo.svg" class="h-6 md:h-8 mx-auto" alt="Logo"/>
+        </g-link>
       </div>
 
       <!-- search bar -->
@@ -69,11 +71,11 @@ siteName
 @import "src/assets/css/main";
 
 html {
-  @apply bg-gray-200 overflow-x-hidden;
+  @apply bg-gray-100 overflow-x-hidden;
 }
 
 body {
-  @apply bg-gray-100;
+  @apply bg-gray-50;
 }
 
 .header-transition {

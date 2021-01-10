@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen bg-gray-200">
+  <div class="w-screen bg-gray-100">
     <div class="xl:container p-4">
       <FooterContent/>
     </div>

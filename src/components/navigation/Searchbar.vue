@@ -18,7 +18,7 @@
 
       <!-- search button -->
       <button
-          class="border-l border-gray-300 pl-4 pr-6 py-2 rounded-r focus:outline-none hover:bg-gray-200 select-none flex"
+          class="border-l border-gray-300 pl-4 pr-6 py-2 rounded-r focus:outline-none hover:bg-gray-100 select-none flex"
       >
 
         <span class="hidden md:block">
