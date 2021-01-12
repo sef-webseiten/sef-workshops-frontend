@@ -42,15 +42,15 @@
           :key="workshop._id"
           :workshop="workshop"
       />
-      <g-link to="/workshops" class="p-6 text-lg text-center w-full h-full flex flex-col justify-center items-center">
-        <fa :icon="['fas', 'ellipsis-h']" size="2x" class="text-primary mb-4"></fa>
-        Suche weitere Kurse in der Suchleiste oder klicke hier
+      <g-link to="/workshops" class="p-6 rounded-2xl shadow-inner text-lg text-center w-full h-full flex flex-col justify-center items-center">
+        <fa :icon="['fas', 'angle-double-right']" size="2x" class="text-primary mb-4"></fa>
+        Weitere Kurse
       </g-link>
     </div>
 
-    <full-width-section class="bg-primary">
-      <heading>Hi</heading>
-    </full-width-section>
+    <!--full-width-section class="bg-primary">
+      <heading class="text-white">Hi</heading>
+    </full-width-section-->
 
   </Layout>
 </template>
