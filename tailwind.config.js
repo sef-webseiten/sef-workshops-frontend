@@ -5,6 +5,7 @@ const customColors = {
 };
 
 module.exports = {
+    customColors,
     theme: {
         extend: {
             borderRadius: {
