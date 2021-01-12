@@ -1,11 +1,10 @@
 const customColors = {
     primary: "#60A5FA",
     light: "#93C5FD",
-    gray: "#1F2937"
+    "dark-gray": "#1F2937"
 };
 
 module.exports = {
-    customColors,
     theme: {
         extend: {
             borderRadius: {
