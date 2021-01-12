@@ -1,7 +1,6 @@
 <template>
-  <button @click="$emit('click')">
-    <span class="line mt-1"/>
-    <span class="line space"/>
+  <button @click="$emit('click')" class="px-1 pb-1">
+    <span class="line first"/>
     <span class="line space"/>
     <span class="line space"/>
   </button>
@@ -9,8 +8,12 @@
 <style scoped lang="scss">
 .line {
   height: 0.125rem;
-  width: 1.75rem;
+  width: 1.4rem;
   @apply bg-white rounded-full block;
+}
+
+.first {
+  margin-top: .3rem;
 }
 
 .space {
