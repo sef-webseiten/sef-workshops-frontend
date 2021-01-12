@@ -1,7 +1,7 @@
 const customColors = {
     primary: "#60A5FA",
     light: "#93C5FD",
-    "dark-gray": "#1F2937"
+    "text-gray": "#1F2937"
 };
 
 module.exports = {

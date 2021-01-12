@@ -7,7 +7,7 @@
       Die Plattform für Live-Kurse und Workshops.
     </Heading>
 
-    <p class="mb-10 md:mb-20 text-center text-3xl md:text-5xl leading-relaxed">
+    <p class="mb-10 md:mb-20 text-center text-3xl md:text-5xl leading-relaxed text-text-gray">
       Neue Möglichkeiten Neues zu lernen.
     </p>
 
@@ -16,17 +16,17 @@
     <full-width-section class="bg-gray-100 mb-10 md:mb-20">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-custom-gray" icon-primary>
+        <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-text-gray" icon-primary>
           Live-Kurse zu allen Themen und Interessen an einem Ort. Mit der bequemen Suche genau das richtige
           finden und dank unserem einheitlichen Bewertungssystem immer die richtige Wahl treffen.
         </icon-section>
 
-        <icon-section :icon="['fas', 'fire']" title="Mit echten Menschen" class="text-custom-gray" icon-primary>
+        <icon-section :icon="['fas', 'fire']" title="Mit echten Menschen" class="text-text-gray" icon-primary>
           Echte Interaktion statt stundenlangem Zuhören. Gemeinsam mit kompetenten Trainern beim Lernen
           schnell Hürden überwinden und damit sicher zum Lernerfolg kommen.
         </icon-section>
 
-        <icon-section :icon="['fas', 'tags']" title="Preiswert" class="text-custom-gray" icon-primary>
+        <icon-section :icon="['fas', 'tags']" title="Preiswert" class="text-text-gray" icon-primary>
           Zum fairen Preis zu echten Lernerfolgen. Unkompliziert hochwertiges Wissen von Trainern
           ohne große Umwege auf of.courz.de finden.
         </icon-section>
