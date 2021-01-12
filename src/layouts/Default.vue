@@ -74,10 +74,6 @@ html {
   @apply bg-gray-100 overflow-x-hidden;
 }
 
-body {
-  @apply bg-gray-50;
-}
-
 .header-transition {
   background-image: linear-gradient(
           to right,
