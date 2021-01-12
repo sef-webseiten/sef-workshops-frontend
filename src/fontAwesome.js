@@ -7,6 +7,7 @@ import {
     faClock,
     faMapMarkerAlt,
     faMinus,
+    faEllipsisH,
     faPlus, faStar,
     faTags,
     faUserFriends,
@@ -16,5 +17,5 @@ import {
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
-    library.add(faPlus, faMinus, faFire, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
+    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
 }

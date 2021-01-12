@@ -1,6 +1,8 @@
 <template>
-  <section class="full-width" :class="{'xl:container p-6': !withoutBorder}">
-    <slot/>
+  <section class="full-width" >
+    <div :class="{'xl:container mx-auto p-6': !withoutBorder}">
+      <slot/>
+    </div>
   </section>
 </template>
 <script>
