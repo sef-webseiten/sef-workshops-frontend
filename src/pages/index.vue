@@ -2,7 +2,7 @@
   <Layout>
 
     <!-- introduction -->
-    <img src="../assets/img/logo/logo-normal-colors.svg" class="mx-auto w-64 mt-5 md:mt-14 mb-4">
+    <img src="../assets/img/logo/logo-normal-colors.svg" class="mx-auto w-64 mt-5 md:mt-14 mb-4" alt="Logo">
     <Heading class="mb-10 md:mb-20 text-center tracking-wide">
       Die Plattform für Live-Kurse und Workshops.
     </Heading>
@@ -52,6 +52,8 @@
       <heading class="text-white">Hi</heading>
     </full-width-section-->
 
+    <newsletter-signup-section class="mb-20" />
+
   </Layout>
 </template>
 <script>
@@ -60,9 +62,10 @@ import FullWidthSection from "../components/gui-elements/FullWidthSection";
 import Heading2 from "../components/gui-elements/Heading2";
 import IconSection from "../components/gui-elements/IconSection";
 import WorkshopCard from "../components/workshop/WorkshopCard";
+import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 
 export default {
-  components: { IconSection, FullWidthSection, Heading, Heading2, WorkshopCard },
+  components: { NewsletterSignupSection, IconSection, FullWidthSection, Heading, Heading2, WorkshopCard },
   metaInfo: {
     title: "Startseite",
   },
