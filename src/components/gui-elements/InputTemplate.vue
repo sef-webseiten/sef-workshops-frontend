@@ -2,9 +2,15 @@
   <div class="relative border-b-2 focus-within:border-blue-500 mt-8 mb-2">
 
     <!-- input -->
-    <input v-if="type !== 'textarea'" :id="id" :type="type" :required="required" :name="label" placeholder=" "
+    <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :type="type" :required="required" :name="label"
+           placeholder=" "
            :value="value" @input="$emit('input', $event.target.value)"
            class="block w-full appearance-none focus:outline-none bg-transparent"/>
+
+    <!-- checkbox -->
+    <input v-else-if="type === 'checkbox'" :id="id" :type="type" :required="required" :name="label"
+           :value="value" @input="$emit('input', $event.target.value)"
+           class="mr-1">
 
     <!-- textarea -->
     <textarea v-else :id="id" :required="required" placeholder=" " :name="label" :value="value"
@@ -12,8 +18,8 @@
               class="block w-full appearance-none focus:outline-none bg-transparent"/>
 
     <!-- label -->
-    <label :for="id" class="absolute top-0 duration-300 origin-0 pointer-events-none">
-      {{ `${label.trim()} ${required ? "*" : ""}` }}
+    <label :for="id" :class="labelClasses">
+      {{ `${label.trim()}${required ? "*" : ""}` }}
     </label>
 
   </div>
@@ -25,6 +31,14 @@ export default {
   data() {
     return {
       id: generate(12)
+    }
+  },
+  computed: {
+    labelClasses() {
+      return {
+        'absolute top-0 duration-300 origin-0 pointer-events-none': this.type !== 'checkbox',
+        'text-center': this.type === 'checkbox'
+      }
     }
   },
   props: {
