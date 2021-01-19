@@ -1,9 +1,12 @@
 <template>
   <Layout>
-    <Heading2 class="mb-6 text-center">Alle Workshops</Heading2>
+    <Heading2 class="mb-6 text-center">
+      <span v-if="this.$store.state.search.searchTerm">Ergebnisse für die Suche <span class="italic text-primary">{{this.$store.state.search.searchTerm}}</span></span>
+      <span v-else>Alle Kurse</span>
+    </Heading2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
       <WorkshopCard
-          v-for="{ node: workshop } in $static.workshops.edges"
+          v-for="{ node: workshop } in searchResults"
           :key="workshop._id"
           :workshop="workshop"
       />
@@ -19,6 +22,13 @@ export default {
   metaInfo: {
     title: "Startseite",
   },
+  computed: {
+    searchResults() {
+      return this.$static.workshops.edges.filter(({ node: workshop }) => {
+        return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())
+      })
+    }
+  }
 };
 </script>
 <static-query>

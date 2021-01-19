@@ -42,7 +42,7 @@
           :key="workshop._id"
           :workshop="workshop"
       />
-      <g-link to="/workshops" class="p-6 rounded-2xl shadow-inner text-lg text-center w-full h-full flex flex-col justify-center items-center">
+      <g-link to="/kurse" class="p-6 rounded-2xl shadow-inner text-lg text-center w-full h-full flex flex-col justify-center items-center">
         <fa :icon="['fas', 'angle-double-right']" size="2x" class="text-primary mb-4"></fa>
         Weitere Kurse
       </g-link>
