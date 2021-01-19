@@ -7,14 +7,13 @@
       Die Plattform für Live-Kurse und Workshops.
     </Heading>
 
-    <p class="mb-10 md:mb-20 text-center text-3xl md:text-5xl leading-relaxed text-text-gray">
+    <p class="mb-4 md:mb-14 text-center text-3xl md:text-5xl leading-relaxed text-text-gray">
       Neue Möglichkeiten Neues zu lernen.
     </p>
 
     <!-- main usps -->
-    <Heading2 class="text-center mb-6 hidden">Was macht of.courz aus?</Heading2>
-    <full-width-section class="bg-gray-100 mb-10 md:mb-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <full-width-section class="bg-gray-100 mb-4 md:mb-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 mb-6">
 
         <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-text-gray" icon-primary>
           Live-Kurse zu allen Themen und Interessen an einem Ort. Mit der bequemen Suche genau das richtige
