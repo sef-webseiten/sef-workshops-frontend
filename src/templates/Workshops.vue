@@ -171,8 +171,10 @@ export default {
     VueMarkdown,
     PaymentButtons,
   },
-  metaInfo: {
-    title: "Startseite",
+  metaInfo() {
+    return {
+      title: this.workshop.title,
+    }
   },
   computed: {
     workshop() {

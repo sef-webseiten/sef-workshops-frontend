@@ -205,7 +205,10 @@
 import Heading from "../components/gui-elements/Heading";
 
 export default {
-  components: { Heading }
+  components: { Heading },
+  metaInfo: {
+    title: "Datenschutzerklärung",
+  },
 }
 </script>
 <style scoped lang="scss">

@@ -67,7 +67,7 @@ import NewsletterSignupSection from "../components/landing-page/NewsletterSignup
 export default {
   components: { NewsletterSignupSection, IconSection, FullWidthSection, Heading, Heading2, WorkshopCard },
   metaInfo: {
-    title: "Startseite",
+    title: "Neue Möglichkeiten Neues zu lernen",
   },
 };
 </script>

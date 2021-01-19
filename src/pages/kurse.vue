@@ -19,10 +19,15 @@ import Heading2 from "../components/gui-elements/Heading2";
 
 export default {
   components: { Heading2, WorkshopCard },
-  metaInfo: {
-    title: "Startseite",
+  metaInfo() {
+    return {
+      title: this.title,
+    }
   },
   computed: {
+    title() {
+      return this.$store.state.search.searchTerm || "Alle Kurse"
+    },
     searchResults() {
       return this.$static.workshops.edges.filter(({ node: workshop }) => {
         return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())

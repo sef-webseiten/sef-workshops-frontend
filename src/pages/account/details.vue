@@ -18,6 +18,9 @@ export default {
   data() {
     return { primary: tailwindConfig.customColors.primary }
   },
+  metaInfo: {
+    title: "Konto bearbeiten",
+  },
   computed: {
     ...authenticationStoreComputers
   }

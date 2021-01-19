@@ -12,6 +12,9 @@ import Heading from "../../components/gui-elements/Heading";
 
 export default {
   components: { OrderRow, Heading },
+  metaInfo: {
+    title: "Buchungen",
+  },
   computed: {
     orders() {
       return this.$store.state.orders.orders;
