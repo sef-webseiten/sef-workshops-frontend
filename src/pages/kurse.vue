@@ -35,7 +35,9 @@ export default {
     },
     searchResults() {
       return this.$static.workshops.edges.filter(({ node: workshop }) => {
-        return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())
+        return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
+            workshop.subTitle.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
+            workshop.description.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())
       })
     }
   }
