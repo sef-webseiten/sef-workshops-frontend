@@ -31,7 +31,6 @@ export const authenticationStore = {
 };
 
 export function updateUserDetails(user) {
-    console.log(user)
     this.$store.commit("setUserDetails", { ...this.$store.state.authentication.user, ...user })
 }
 
