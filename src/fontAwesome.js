@@ -12,10 +12,11 @@ import {
     faTags,
     faUserFriends,
     faSearch,
-    faFilter
+    faFilter,
+    faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
-    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar)
+    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar, faChevronDown);
 }

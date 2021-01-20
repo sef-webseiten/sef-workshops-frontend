@@ -3,6 +3,10 @@
     <div v-if="visible"
          class="relative bg-white rounded-t p-6 md:mx-6 shadow-2xl animate__animated animate__slideInUp">
 
+      <div class="group absolute right-0 top-0 -mt-14 p-6 pb-2" @click="resetPaymentButton">
+        <fa class="group-hover:bounce" :icon="['fas', 'chevron-down']"/>
+      </div>
+
       <div class="between mb-4">
         <p>Teilnehmer</p>
         <div>
@@ -58,8 +62,6 @@
         <g-link target="_blank" title="AGB" to="/agb">AGB</g-link>
         ·
         <g-link target="_blank" title="Datenschutzerklärung" to="/datenschutzerklaerung">Datenschutzerklärung</g-link>
-        ·
-        <a class="cursor-pointer" @click="resetPaymentButton">Schließen</a>
       </div>
 
     </div>
@@ -169,5 +171,22 @@ export default {
 
 .between-start {
   @apply flex flex-row justify-between items-start;
+}
+
+@variants group-hover {
+  .bounce {
+    animation: bounce 1s infinite;
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-25%);
+        animationTimingFunction: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animationTimingFunction: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
 }
 </style>
