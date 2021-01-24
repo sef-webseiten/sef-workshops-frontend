@@ -35,6 +35,7 @@
 
     <!-- demo workshops ToDo: random / sorted -->
     <heading2 class="text-center mb-6">Mach den ersten Schritt zum Lernerfolg</heading2>
+    <p class="text-center text-text-gray font-bold text-lg mb-6">Schau dir unsere Demo-Kurse an</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-20">
       <WorkshopCard
           v-for="{ node: workshop } in $static.workshops.edges.slice(0,3)"
