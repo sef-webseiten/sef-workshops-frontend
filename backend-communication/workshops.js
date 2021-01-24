@@ -84,6 +84,9 @@ module.exports = {
             let nextDuration = notStartedEvents.length === 0 ? null : Math.floor(notStartedEvents[0].dates.map(date => date.endTime - date.startTime).reduce((a, b) => a + b) / 60 / 1000 / 60);
             let nextParticipants = notStartedEvents.length === 0 ? null : notStartedEvents[0].maxParticipants
 
+            if (minPrice === Infinity)
+                minPrice = 0;
+
             return {
                 ...workshop, minPrice, nextDate, nextDuration, nextParticipants
             };

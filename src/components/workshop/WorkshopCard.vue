@@ -31,10 +31,11 @@
           class="p-4 pt-3 z-20 bg-gray-50 text-center rounded-b-2xl grid grid-cols-2 gap-2 icons-red"
       >
         <!-- stars -->
-        <p>
+        <div>
           <fa :icon="['fas', 'calendar-day']" class="mr-1"/>
-          ab <span>{{ nextDate }}</span>
-        </p>
+          <span v-if="nextDate">ab {{ nextDate }}</span>
+          <span v-else class="ml-1">-</span>
+        </div>
 
         <!-- rating -->
         <div>
@@ -52,13 +53,15 @@
         <!-- duration -->
         <div>
           <fa :icon="['fas', 'clock']" class="mr-2"/>
-          <span>{{ workshop.nextDuration }} Stunden</span>
+          <span v-if="workshop.nextDuration">{{ workshop.nextDuration }} Stunden</span>
+          <span v-else>-</span>
         </div>
 
         <!-- min price -->
         <div>
           <fa :icon="['fas', 'tags']" class="mr-2"/>
-          <span>ab {{ workshop.minPrice }},-</span>
+          <span v-if="workshop.minPrice">ab {{ workshop.minPrice }},-</span>
+          <span v-else>-</span>
         </div>
       </div>
     </g-link>
@@ -84,6 +87,9 @@ export default {
   },
   computed: {
     nextDate() {
+      if(!this.workshop.nextDate)
+        return null;
+
       let date = dayjs(this.workshop.nextDate);
 
       if (date.isSame(dayjs(), "year")) return date.format("D. MMMM");
