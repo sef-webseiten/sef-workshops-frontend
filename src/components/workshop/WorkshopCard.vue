@@ -37,8 +37,8 @@
           <span v-else class="ml-1">-</span>
         </div>
 
-        <!-- rating -->
-        <div>
+        <!-- rating ToDo: Ratings -->
+        <div v-if="true">
           <fa v-for="i in stars" :key="i" :icon="['fas', 'star']" class="mr-1"/>
           <div class="icons-gray inline">
             <fa
@@ -48,6 +48,11 @@
                 class="mr-1 icons-gray"
             />
           </div>
+        </div>
+        <div v-else class="icons-gray">
+          -
+          <fa :icon="['fas', 'star']" class="mx-1 icons-gray" />
+          -
         </div>
 
         <!-- duration -->
@@ -87,7 +92,7 @@ export default {
   },
   computed: {
     nextDate() {
-      if(!this.workshop.nextDate)
+      if (!this.workshop.nextDate)
         return null;
 
       let date = dayjs(this.workshop.nextDate);
@@ -104,6 +109,6 @@ export default {
 }
 
 .icons-gray svg {
-  @apply text-gray-100;
+  @apply text-gray-200;
 }
 </style>
