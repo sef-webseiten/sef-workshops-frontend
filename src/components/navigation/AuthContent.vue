@@ -6,6 +6,7 @@
 </template>
 <script>
 import { smallBreakpoint } from "../../plugins/responsive";
+import { authenticationStoreComputers } from "../../stores/authentication";
 
 export default {
   props: {
@@ -17,6 +18,17 @@ export default {
   data() {
     return {
       badInitialized: false
+    }
+  },
+  computed: {
+    ...authenticationStoreComputers
+  },
+  watch: {
+    firebaseUser(user) {
+      if (!user)
+        import("../../firebase-ui").then(({ ui, uiConfig }) => {
+          ui.start(this.$refs.firebaseui, uiConfig);
+        });
     }
   },
   mounted() {

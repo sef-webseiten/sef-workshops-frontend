@@ -5,7 +5,7 @@
     <span class="relative">
       <button
           class="nav-element"
-          v-if="user"
+          v-if="firebaseUser"
           @click="delayedSet('accountVisible')"
       >Angemeldet als: {{ username }}</button
       >
@@ -53,13 +53,14 @@ export default {
       }
     }
   },
+
   computed: {
     ...authenticationStoreComputers,
     loginContent() {
-      return this.loginVisible && !this.user;
+      return this.loginVisible && !this.firebaseUser;
     },
     accountContent() {
-      return this.accountVisible && this.user;
+      return this.accountVisible && this.firebaseUser;
     }
   },
 };

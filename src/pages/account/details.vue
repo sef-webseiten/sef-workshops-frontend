@@ -3,7 +3,8 @@
     <Heading class="mb-10">Benutzerkonto bearbeiten</Heading>
 
     <DetailsForm v-if="user"/>
-    <Spinner v-else :color="primary" class="mx-auto"/>
+    <Spinner v-else-if="!this.$store.state.initialized" :color="primary" class="mx-auto"/>
+    <p v-else>Dein Konto wurde noch nicht korrekt eingerichtet. Komme in ein paar Minuten wieder. </p>
   </Layout>
 </template>
 <script>

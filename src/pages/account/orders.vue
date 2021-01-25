@@ -4,6 +4,7 @@
     <div v-for="order in orders">
       <order-row :order="order" />
     </div>
+    <p v-if="orders.length === 0">Du hast noch keine Buchungen. </p>
   </Layout>
 </template>
 <script>
