@@ -1,6 +1,6 @@
 <template>
   <Layout withoutBorder>
-    <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red">
+    <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-4 md:pb-6">
       <WorkshopImageLarge :img="workshop.thumbnail" :title="workshop.title"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
@@ -56,7 +56,7 @@
           />
           <div class="block ml-6 md:pt-6">
             <span class="text-xl">
-              {{workshop.organizer.firstName }}, {{ age }}</span
+              {{ workshop.organizer.firstName }}, {{ age }}</span
             ><br/>
             <span>{{ workshop.organizer.occupation }}</span>
           </div>
@@ -143,15 +143,48 @@
         <h2 class="heading">
           Bewertungen
           <div class="inline-block md:float-right">
-            <fa
-                v-for="i in [1, 2, 3, 4, 5]"
-                :key="i"
-                :icon="['fas', 'star']"
-                class="mr-1"
-                size="lg"
-            ></fa>
+            <Stars :stars="workshop.averageRating" size="lg"/>
           </div>
         </h2>
+      </div>
+
+      <!-- individual ratings -->
+      <div v-for="rating in workshop.ratings"
+           class="mx-4 md:mx-6 rounded shadow-xl p-6 flex flex-row justify-between">
+        <div>
+          <div class="flex flex-row items-center w-full justify-start mb-6">
+            <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture"/>
+            <p class="font-bold">{{ rating.author.firstName }}</p>
+          </div>
+          <p>{{ rating.text }}</p>
+        </div>
+        <div class="ml-10 text-sm grid grid-cols-2 gap-4 text-center">
+
+          <div>
+            <p>Inhalt</p>
+            <Stars :stars="rating.content"/>
+          </div>
+
+          <div>
+            <p>Komposition</p>
+            <Stars :stars="rating.composition"/>
+          </div>
+
+          <div>
+            <p>Klarheit</p>
+            <Stars :stars="rating.clarity"/>
+          </div>
+
+          <div>
+            <p>Expertise</p>
+            <Stars :stars="rating.expertise"/>
+          </div>
+
+          <div>
+            <p>Zielerreichung</p>
+            <Stars :stars="rating.goalAchievement"/>
+          </div>
+        </div>
       </div>
 
       <!-- ToDo: nicht angemeldet? -->
@@ -164,9 +197,11 @@ import WorkshopImageLarge from "../components/workshop/WorkshopImageLarge";
 import VueMarkdown from "vue-markdown";
 import dayjs from "dayjs";
 import PaymentButtons from "@/components/PaymentButtons";
+import Stars from "../components/gui-elements/Stars";
 
 export default {
   components: {
+    Stars,
     WorkshopImageLarge,
     VueMarkdown,
     PaymentButtons,
@@ -196,6 +231,10 @@ export default {
   @apply text-light;
 }
 
+.icons-gray svg {
+  @apply text-gray-200;
+}
+
 .heading {
   @apply text-xl font-bold;
 }
@@ -220,6 +259,21 @@ requirements
 
 minPrice
 nextDate
+averageRating
+
+ratings {
+content
+composition
+clarity
+expertise
+goalAchievement
+text
+average
+author {
+firstName
+profilePicture
+}
+}
 
 thumbnail
 categories

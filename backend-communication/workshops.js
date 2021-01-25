@@ -27,6 +27,11 @@ function addDateTimeString(date) {
     }
 }
 
+function calculateAverageOfRating(rating) {
+    const sum = rating.content + rating.composition + rating.clarity + rating.expertise + rating.goalAchievement;
+    return sum / 5;
+}
+
 module.exports = {
     async getWorkshops() {
 
@@ -44,6 +49,18 @@ module.exports = {
                             occupation
                             birthday
                         }
+                        ratings {
+                            content
+                            composition
+                            clarity
+                            expertise
+                            goalAchievement
+                            text
+                            author {
+                                firstName
+                                profilePicture
+                            }
+                        }
                         material
                         requirements
                         categories
@@ -53,7 +70,6 @@ module.exports = {
                             price
                             notes
                             publicLocation
-                            privateLocation
                             maxParticipants
                             dates {
                                 startTime
@@ -87,8 +103,18 @@ module.exports = {
             if (minPrice === Infinity)
                 minPrice = 0;
 
+
+            workshop.ratings = workshop.ratings.map(rating => {
+                return {
+                    ...rating,
+                    average: calculateAverageOfRating(rating)
+                }
+            })
+
+            let averageRating = workshop.ratings.map(r => r.average).reduce((a, b) => a + b, 0) / workshop.ratings.length;
+
             return {
-                ...workshop, minPrice, nextDate, nextDuration, nextParticipants
+                ...workshop, minPrice, nextDate, nextDuration, nextParticipants, averageRating
             };
         });
 
