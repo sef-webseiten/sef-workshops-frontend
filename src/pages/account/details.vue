@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout auth-middleware>
     <Heading class="mb-10">Benutzerkonto bearbeiten</Heading>
 
     <DetailsForm v-if="user"/>

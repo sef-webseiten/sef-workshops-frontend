@@ -1,10 +1,10 @@
 <template>
-  <Layout>
+  <Layout auth-middleware>
     <heading class="mb-6">Buchungen</heading>
-    <div v-for="order in orders">
+    <div v-if="orders.length >= 0" v-for="order in orders">
       <order-row :order="order" />
     </div>
-    <p v-if="orders.length === 0">Du hast noch keine Buchungen. </p>
+    <p v-else>Du hast noch keine Buchungen. </p>
   </Layout>
 </template>
 <script>
