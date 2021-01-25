@@ -5,10 +5,10 @@ import { auth } from "./firebase-client";
 export const uiConfig = {
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
 
-    tosUrl: '/tos',
+    tosUrl: '/agb',
     privacyPolicyUrl: '/privacy'
 };
 
