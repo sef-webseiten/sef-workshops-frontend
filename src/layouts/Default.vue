@@ -48,6 +48,10 @@ export default {
     withoutBorder: {
       type: Boolean,
       default: false
+    },
+    authMiddleware: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -56,7 +60,8 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch("subscribeUserChanges");
+    this.$store.commit("setRouter", this.$router);
+    this.$store.dispatch("subscribeUserChanges", this.authMiddleware);
   },
 };
 </script>

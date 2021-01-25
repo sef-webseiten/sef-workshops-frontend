@@ -1,4 +1,5 @@
 import { loadInitialData, refreshToken } from "../graphql-client";
+import router from "gridsome/app/router";
 
 export const authenticationStore = {
     state: {
@@ -9,16 +10,20 @@ export const authenticationStore = {
     mutations: {
         setFirebaseUser: (state, user) => state.firebaseUser = user,
         setUserDetails: (state, user) => state.user = user,
-        setAccessToken: (state, token) => state.accessToken = token
+        setAccessToken: (state, token) => state.accessToken = token,
     },
     actions: {
-        subscribeUserChanges(store) {
+        subscribeUserChanges(store, shouldRedirect) {
             import("../firebase-client").then(({ auth }) => {
                 auth.onAuthStateChanged(async user => {
                     store.commit("setFirebaseUser", user);
+                    store.commit("setInitialized", !user);
 
-                    if (!user)
+                    if (!user) {
+                        if (shouldRedirect)
+                            store.rootState.router.push("/");
                         return;
+                    }
 
                     let token = await user.getIdToken();
 

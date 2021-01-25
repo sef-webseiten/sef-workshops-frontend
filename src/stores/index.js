@@ -4,16 +4,12 @@ import { searchStore } from "./serach";
 
 export const store = {
     state: {
-        initialized: false,
+        initialized: true,
         router: null
     },
     mutations: {
-        setInitialized(state, initialized) {
-            state.initialized = initialized;
-        },
-        setRouter(state, router) {
-            state.router = router;
-        }
+        setInitialized: (state, initialized) => state.initialized = initialized,
+        setRouter: (state, router) => state.router = router
     },
     modules: {
         orders: ordersStore,
