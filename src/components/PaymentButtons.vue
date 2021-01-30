@@ -154,9 +154,8 @@ export default {
 
         onApprove: (data, actions) => {
           this.step = 4;
-          return actions.order.capture().then((details) => {
-            alert("Transaction completed by " + details.payer.name.given_name);
-            this.$router.push(this.workshop.path + "/successful")
+          return actions.order.capture().then(() => {
+            this.$router.push(this.workshop.path + "/success")
           });
         },
 
@@ -165,7 +164,7 @@ export default {
           console.error(error)
         },
 
-        onCancel: (data) => {
+        onCancel: () => {
           alert("Cancel")
         }
 
