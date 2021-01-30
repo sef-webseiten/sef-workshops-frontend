@@ -26,8 +26,6 @@ export default {
     const self = this;
     this.$root.$on("organizerPopup", () => {
       self.visible = true;
-      console.log(self.visible)
-
     });
   }
 }
