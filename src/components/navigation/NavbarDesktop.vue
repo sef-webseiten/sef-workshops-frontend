@@ -53,7 +53,10 @@ export default {
       }
     }
   },
-
+  mounted() {
+    const self = this;
+    this.$root.$on("openAuthPopup", () => self.delayedSet("loginVisible"));
+  },
   computed: {
     ...authenticationStoreComputers,
     loginContent() {

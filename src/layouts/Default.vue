@@ -61,6 +61,8 @@ export default {
   },
   mounted() {
     this.$store.dispatch("subscribeUserChanges", this.authMiddleware);
+    const self = this;
+    this.$root.$on("openAuthPopup", () => self.navbarMobileVisible = true);
   }
 };
 </script>

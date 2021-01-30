@@ -51,14 +51,19 @@
           <p><span v-for="(date, index) in event.dates" :key="index" class="block">{{ date.timeString }}</span></p>
         </div>
 
+        <p class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup')" v-if="!firebaseUser">
+          Damit du den Kurs buchen kannst, musst du dich
+          zuerst anmelden. Klicke dafür hier.
+        </p>
+
         <!-- next button -->
         <button
-            v-if="[1,2].includes(step)"
-            :disabled="step === 2"
+            v-if="[1,2,4].includes(step)"
+            :disabled="[2,4].includes(step) || !firebaseUser"
             class="w-full bg-primary p-2 font-bold text-white active:bg-light disabled:bg-gray-400 disabled:cursor-default rounded-sm"
             @click="step++">
           <span v-show="step === 1">Weiter</span>
-          <Spinner v-show="step === 2" class="mx-auto"/>
+          <Spinner v-show="[2,4].includes(step)" class="mx-auto"/>
         </button>
 
         <!-- paypal buttons -->
@@ -77,14 +82,15 @@
 <script>
 import Default from "../layouts/Default";
 import Spinner from "./gui-elements/Spinner";
-import {getAffiliateCode} from "../plugins/affiliate";
+import { getAffiliateCode } from "../plugins/affiliate";
+import { authenticationStoreComputers } from "../stores/authentication";
 
 export default {
-  components: {Spinner, Default},
+  components: { Spinner, Default },
   data() {
     return {
       visible: false,
-      step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown
+      step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown; 4 waiting for capture
       participants: 1,
       workshop: null,
       event: null
@@ -130,7 +136,7 @@ export default {
             eventID: this.event._id,
             affiliate: getAffiliateCode()
           }
-      ).then(({createOrder: orderNumber}) => this.setupPaypalButtons(orderNumber));
+      ).then(({ createOrder: orderNumber }) => this.setupPaypalButtons(orderNumber));
     },
     setupPaypalButtons(orderID) {
 
@@ -147,8 +153,10 @@ export default {
         createOrder: () => orderID,
 
         onApprove: (data, actions) => {
+          this.step = 4;
           return actions.order.capture().then((details) => {
             alert("Transaction completed by " + details.payer.name.given_name);
+            this.$router.push(this.workshop.path + "/successful")
           });
         },
 
@@ -167,7 +175,8 @@ export default {
   computed: {
     paypalUrl() {
       return `https://www.paypal.com/sdk/js?client-id=${process.env.GRIDSOME_PAYPAL_CLIENT_ID}&currency=EUR&disable-funding=giropay,card,sofort` //sepa,
-    }
+    },
+    ...authenticationStoreComputers
   }
 }
 </script>

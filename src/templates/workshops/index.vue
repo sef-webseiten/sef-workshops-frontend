@@ -1,6 +1,6 @@
 <template>
   <Layout withoutBorder>
-    <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-4 md:pb-6">
+    <div class="relative md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-4 md:pb-6">
       <WorkshopImageLarge :workshop="workshop"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
@@ -193,11 +193,11 @@
   </Layout>
 </template>
 <script>
-import WorkshopImageLarge from "../components/workshop/WorkshopImageLarge";
+import WorkshopImageLarge from "../../components/workshop/WorkshopImageLarge";
 import VueMarkdown from "vue-markdown";
 import dayjs from "dayjs";
 import PaymentButtons from "@/components/PaymentButtons";
-import Stars from "../components/gui-elements/Stars";
+import Stars from "../../components/gui-elements/Stars";
 
 export default {
   components: {
@@ -226,7 +226,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "src/assets/css/main";
+@import "../../assets/css/main";
 
 .icons-red svg {
   @apply text-light;
