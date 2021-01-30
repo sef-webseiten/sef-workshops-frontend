@@ -1,4 +1,4 @@
-import { addDateTimeString, formatTemplate } from "../../backend-communication/workshops";
+import { addDateTimeString, formatTemplate } from "../../static-generation/workshops/map";
 import dayjs from "dayjs";
 import "dayjs/locale/de";
 

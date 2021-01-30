@@ -1,7 +1,7 @@
 <template>
   <Layout withoutBorder>
     <div class="md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-4 md:pb-6">
-      <WorkshopImageLarge :img="workshop.thumbnail" :title="workshop.title"/>
+      <WorkshopImageLarge :workshop="workshop"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
         <!-- subtitle -->
@@ -153,7 +153,7 @@
            class="mx-4 md:mx-6 rounded shadow-xl p-6 flex flex-row justify-between">
         <div>
           <div class="flex flex-row items-center w-full justify-start mb-6">
-            <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture"/>
+            <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture" alt="Profilbild"/>
             <p class="font-bold">{{ rating.author.firstName }}</p>
           </div>
           <p>{{ rating.text }}</p>
@@ -213,7 +213,8 @@ export default {
   },
   computed: {
     workshop() {
-      return this.$page.workshop;
+      return this.$store.state.workshops.workshops?.filter(workshop => workshop._id == this.$router.currentRoute.params._id)[0] || this.$page.workshop;
+
     },
     nextDate() {
       return dayjs(this.workshop.nextDate).format("DD.MM.YYYY");

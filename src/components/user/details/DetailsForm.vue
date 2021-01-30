@@ -34,7 +34,7 @@
 import InputTemplate from "../../gui-elements/InputTemplate";
 import OrganizerPopup from "./OrganizerPopup";
 import ButtonTemplate from "../../gui-elements/ButtonTemplate";
-import { updateUserData } from "../../../graphql-client";
+import { updateUserData } from "../../../plugins/graphql/graphql-client";
 import Spinner from "../../gui-elements/Spinner";
 
 export default {

@@ -6,7 +6,7 @@
     </Heading2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8" v-if="searchResults.length > 0">
       <WorkshopCard
-          v-for="{ node: workshop } in searchResults"
+          v-for="workshop in searchResults"
           :key="workshop._id"
           :workshop="workshop"
       />
@@ -33,8 +33,11 @@ export default {
     title() {
       return this.$store.state.search.searchTerm || "Alle Kurse"
     },
+    workshops() {
+      return this.$store.state.workshops.workshops || this.$static.workshops.edges.map(({node: workshop}) => workshop);
+    },
     searchResults() {
-      return this.$static.workshops.edges.filter(({ node: workshop }) => {
+      return this.workshops.filter(workshop => {
         return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
             workshop.subTitle.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
             workshop.description.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())

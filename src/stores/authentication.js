@@ -1,5 +1,4 @@
-import { loadInitialData, refreshToken } from "../graphql-client";
-import router from "gridsome/app/router";
+import { loadInitialData, refreshToken } from "../plugins/graphql/graphql-client";
 
 export const authenticationStore = {
     state: {
@@ -14,7 +13,7 @@ export const authenticationStore = {
     },
     actions: {
         subscribeUserChanges(store, shouldRedirect) {
-            import("../firebase-client").then(({ auth }) => {
+            import("../plugins/firebase/firebase-client").then(({ auth }) => {
                 auth.onAuthStateChanged(async user => {
                     store.commit("setFirebaseUser", user);
                     store.commit("setInitialized", !user);

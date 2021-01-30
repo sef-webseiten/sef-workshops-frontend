@@ -72,6 +72,9 @@ export default {
   metaInfo: {
     title: "Neue Möglichkeiten Neues zu lernen",
   },
+  created() {
+    this.$store.commit()
+  }
 };
 </script>
 <static-query>

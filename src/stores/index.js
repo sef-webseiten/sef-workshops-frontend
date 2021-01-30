@@ -1,8 +1,13 @@
 import { ordersStore } from "./orders";
 import { authenticationStore } from "./authentication";
 import { searchStore } from "./serach";
+import { workshopsStore } from "./workshops";
+import Vuex from "vuex";
+import Vue from "vue";
 
-export const store = {
+Vue.use(Vuex);
+
+export const store = new Vuex.Store({
     state: {
         initialized: true,
         router: null
@@ -14,6 +19,7 @@ export const store = {
     modules: {
         orders: ordersStore,
         authentication: authenticationStore,
-        search: searchStore
+        search: searchStore,
+        workshops: workshopsStore
     }
-}
+});

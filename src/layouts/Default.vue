@@ -60,9 +60,8 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit("setRouter", this.$router);
     this.$store.dispatch("subscribeUserChanges", this.authMiddleware);
-  },
+  }
 };
 </script>
 <static-query>

@@ -5,7 +5,7 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const { getWorkshops } = require("./backend-communication/workshops");
+const { getWorkshops } = require("./static-generation/workshops/load");
 
 module.exports = function (api) {
     api.loadSource(async action => {
@@ -21,9 +21,5 @@ module.exports = function (api) {
             });
         })
 
-    })
-
-    api.createPages(({ createPage }) => {
-        // Use the Pages API here: https://gridsome.org/docs/pages-api/
     })
 }
