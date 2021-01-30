@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     signOut() {
-      import("../../firebase-client").then(({ auth }) => auth.signOut());
+      import("../../plugins/firebase/firebase-client").then(({ auth }) => auth.signOut());
     },
   },
 };

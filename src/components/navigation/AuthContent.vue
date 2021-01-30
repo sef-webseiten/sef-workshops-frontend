@@ -26,7 +26,7 @@ export default {
   watch: {
     firebaseUser(user) {
       if (!user)
-        import("../../firebase-ui").then(({ ui, uiConfig }) => {
+        import("../../plugins/firebase/firebase-ui").then(({ ui, uiConfig }) => {
           ui.start(this.$refs.firebaseui, uiConfig);
         });
     }
@@ -38,7 +38,7 @@ export default {
       return;
 
     import("firebaseui/dist/firebaseui.css")
-    import("../../firebase-ui").then(({ ui, uiConfig }) => {
+    import("../../plugins/firebase/firebase-ui").then(({ ui, uiConfig }) => {
       ui.start(this.$refs.firebaseui, uiConfig);
     });
   },
