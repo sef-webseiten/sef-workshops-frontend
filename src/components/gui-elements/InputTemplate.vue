@@ -25,12 +25,10 @@
   </div>
 </template>
 <script>
-import { generate } from "randomstring";
-
 export default {
   data() {
     return {
-      id: generate(12)
+      id: Math.random()
     }
   },
   computed: {
