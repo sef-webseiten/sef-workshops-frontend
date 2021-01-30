@@ -2,7 +2,7 @@
   <div>
     <span class="icons-primary">
       <fa
-          v-for="i in Math.round(stars / 25) + 1"
+          v-for="i in asNumber + 1"
           :key="i"
           :icon="['fas', 'star']"
           class="mr-1"
@@ -11,7 +11,7 @@
     </span>
     <span class="icons-gray">
      <fa
-         v-for="i in 5 - Math.round(stars / 25) - 1"
+         v-for="i in 5 - asNumber - 1"
          :key="i"
          :icon="['fas', 'star']"
          class="mr-1"
@@ -30,6 +30,14 @@ export default {
     size: {
       type: String,
       default: ""
+    }
+  },
+  computed: {
+    asNumber() {
+      if(isNaN(this.stars))
+        return 4;
+
+      return Math.round(this.stars / 25);
     }
   }
 }
