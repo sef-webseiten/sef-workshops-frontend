@@ -1,6 +1,6 @@
 <template>
   <Layout withoutBorder>
-    <div class="relative md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-4 md:pb-6">
+    <div class="relative md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl md:rounded icons-red pb-6">
       <WorkshopImageLarge :workshop="workshop"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
@@ -130,7 +130,7 @@
             @click="
             $root.$emit('openCheckoutProcess', {
               workshop,
-              event,
+              event
             })
           "
         >
@@ -150,41 +150,31 @@
 
       <!-- individual ratings -->
       <div v-for="rating in workshop.ratings"
-           class="mx-4 md:mx-6 rounded shadow-xl p-6 flex flex-row justify-between">
-        <div>
-          <div class="flex flex-row items-center w-full justify-start mb-6">
+           class="mx-4 md:mx-6 rounded shadow-xl p-6">
+
+        <!-- put user and stars next to each other on desktop -->
+        <div class="mb-6 md:flex justify-between items-center">
+          <div class="flex flex-row items-center justify-start mb-6 md:mb-0">
             <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture" alt="Profilbild"/>
             <p class="font-bold">{{ rating.author.firstName }}</p>
           </div>
-          <p>{{ rating.text }}</p>
+
+          <!-- box with stars -->
+          <div>
+            <div class="w-full flex flex-row justify-between items-center">
+              <span>Kurs</span>
+              <Stars :stars="rating.workshopRating.rating" class="inline-block ml-4"/>
+            </div>
+
+            <div class="w-full flex flex-row justify-between items-center mb-6 md:mb-0">
+              <span>Kursleiter</span>
+              <Stars :stars="rating.organizerRating.rating" class="inline-block ml-4"/>
+            </div>
+          </div>
+
         </div>
-        <div class="ml-10 text-sm grid grid-cols-2 gap-4 text-center">
 
-          <div>
-            <p>Inhalt</p>
-            <Stars :stars="rating.content"/>
-          </div>
-
-          <div>
-            <p>Komposition</p>
-            <Stars :stars="rating.composition"/>
-          </div>
-
-          <div>
-            <p>Klarheit</p>
-            <Stars :stars="rating.clarity"/>
-          </div>
-
-          <div>
-            <p>Expertise</p>
-            <Stars :stars="rating.expertise"/>
-          </div>
-
-          <div>
-            <p>Zielerreichung</p>
-            <Stars :stars="rating.goalAchievement"/>
-          </div>
-        </div>
+        <p>{{ rating.text }}</p>
       </div>
 
       <!-- ToDo: nicht angemeldet? -->
@@ -263,17 +253,11 @@ nextDate
 averageRating
 
 ratings {
-content
-composition
-clarity
-expertise
-goalAchievement
 text
-average
-author {
-firstName
-profilePicture
-}
+improveable
+author {firstName profilePicture}
+organizerRating {friendly reliable knowledge patience rating}
+workshopRating { recommendable content entertaining rating}
 }
 
 thumbnail
@@ -290,5 +274,4 @@ timeString
 }
 }
 }
-
 </page-query>

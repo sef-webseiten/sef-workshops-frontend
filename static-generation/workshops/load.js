@@ -2,55 +2,49 @@ const client = require("../graphql-init");
 const gql = require("graphql-tag");
 const { mapWorkshops } = require("./map");
 
-module.exports = {
-    async getWorkshops() {
-
-        let { data: { allWorkshops: workshops } } = await client.query({
-            query: gql`
-                query workshops {
-                    allWorkshops {
-                        _id
-                        title
-                        subTitle
-                        description
-                        organizer {
-                            firstName
-                            profilePicture
-                            occupation
-                            birthday
-                        }
-                        ratings {
-                            content
-                            composition
-                            clarity
-                            expertise
-                            goalAchievement
-                            text
-                            author {
-                                firstName
-                                profilePicture
-                            }
-                        }
-                        material
-                        requirements
-                        categories
-                        thumbnail
-                        events {
-                            _id
-                            price
-                            notes
-                            publicLocation
-                            maxParticipants
-                            dates {
-                                startTime
-                                endTime
-                            }
-                        }
-                    }
+const workshopsQuery = gql`
+    query workshops {
+        allWorkshops {
+            _id
+            title
+            subTitle
+            description
+            organizer {
+                firstName
+                profilePicture
+                occupation
+                birthday
+            }
+            ratings {
+                text
+                improveable
+                author {firstName profilePicture}
+                organizerRating {friendly reliable knowledge patience rating}
+                workshopRating { recommendable content entertaining rating}
+            }
+            material
+            requirements
+            categories
+            thumbnail
+            events {
+                _id
+                price
+                notes
+                publicLocation
+                maxParticipants
+                dates {
+                    startTime
+                    endTime
                 }
-            `
-        });
+            }
+        }
+    }
+`;
 
+module.exports = {
+    workshopsQuery,
+    async getWorkshops() {
+        let { data: { allWorkshops: workshops } } = await client.query({ query: workshopsQuery });
         return mapWorkshops(workshops)
     }
 }

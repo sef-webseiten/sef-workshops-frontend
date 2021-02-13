@@ -33,48 +33,7 @@ workshop: workshops(id: $id) {
 _id
 title
 subTitle
-
-organizer {
-firstName
-birthday
-occupation
-profilePicture
-}
-
-description
-material
-requirements
-
-minPrice
-nextDate
-averageRating
-
-ratings {
-content
-composition
-clarity
-expertise
-goalAchievement
-text
-average
-author {
-firstName
-profilePicture
-}
-}
-
 thumbnail
-categories
-
-events {
-_id
-maxParticipants
-price
-publicLocation
-dates {
-timeString
-}
-}
 }
 }
 

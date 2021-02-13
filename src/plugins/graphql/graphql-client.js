@@ -1,6 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import gql from "graphql-tag";
 import { mapWorkshops } from "../../../static-generation/workshops/map";
+import { workshopsQuery } from "../../../static-generation/workshops/load";
 
 export let client = new GraphQLClient(process.env.GRIDSOME_BACKEND_URL);
 
@@ -25,48 +26,7 @@ export async function updateUserData(user) {
 }
 
 export async function loadWorkshops(store) {
-    const { allWorkshops: workshops } = await client.request(gql`
-        query workshops {
-            allWorkshops {
-                _id
-                title
-                subTitle
-                description
-                organizer {
-                    firstName
-                    profilePicture
-                    occupation
-                    birthday
-                }
-                ratings {
-                    content
-                    composition
-                    clarity
-                    expertise
-                    goalAchievement
-                    text
-                    author {
-                        firstName
-                        profilePicture
-                    }
-                }
-                material
-                requirements
-                categories
-                thumbnail
-                events {
-                    _id
-                    price
-                    notes
-                    publicLocation
-                    maxParticipants
-                    dates {
-                        startTime
-                        endTime
-                    }
-                }
-            }
-        }`);
+    const { allWorkshops: workshops } = await client.request(workshopsQuery);
 
     store.commit("setWorkshops", mapWorkshops(workshops));
 }
