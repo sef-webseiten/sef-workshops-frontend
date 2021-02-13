@@ -155,7 +155,7 @@ export default {
         onApprove: (data, actions) => {
           this.step = 4;
           return actions.order.capture().then(() => {
-            this.$router.push(this.workshop.path + "/success")
+            this.$root.$emit("payment-successful");
           });
         },
 

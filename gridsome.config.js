@@ -8,10 +8,7 @@ module.exports = {
     siteName: 'of.courz',
 
     templates: {
-        Workshops: [
-            { name: "default", path: "/w/:_id", component: "./src/templates/workshops/index.vue"},
-            { name: "payment-successful", path: "/w/:_id/success", component: "./src/templates/workshops/successful.vue"},
-        ]
+        Workshops: "/w/:_id"
     },
 
     plugins: [{
