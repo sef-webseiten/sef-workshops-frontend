@@ -6,7 +6,7 @@
           :key="i"
           :icon="['fas', 'star']"
           class="mr-1"
-          :size="size"
+          :size="size || '1x'"
       ></fa>
     </span>
     <span class="icons-gray">
@@ -15,7 +15,7 @@
          :key="i"
          :icon="['fas', 'star']"
          class="mr-1"
-         :size="size"
+         :size="size || '1x'"
      ></fa>
    </span>
   </div>

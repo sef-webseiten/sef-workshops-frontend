@@ -28,8 +28,8 @@ function addDateTimeString(date) {
 }
 
 function calculateAverageOfRating(rating) {
-    const sum = rating.content + rating.composition + rating.clarity + rating.expertise + rating.goalAchievement;
-    return sum / 5;
+    const sum = rating.workshopRating.rating + rating.organizerRating.rating;
+    return sum / 2;
 }
 
 function mapWorkshops(workshops) {
