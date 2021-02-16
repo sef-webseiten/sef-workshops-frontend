@@ -6,7 +6,7 @@
       <div class="flex flex-row items-center w-full h-128">
         <div class="w-1/2 h-full bg-white text-right p-20">
           <div class="w-fit h-full ml-auto flex flex-col items-center justify-center">
-            <h1 class="text-8xl leading-tight font-bold font-dancing-script mb-4">Abi <span
+            <h1 class="text-8xl leading-tight font-bold font-dancing-script mb-4">Abikurse <span
                 class="text-primary">2021</span></h1>
             <p class="text-4xl font-semibold">Einfacher geht's nicht. </p>
             <button class="primary-button w-fit mt-8 text-xl"><span class="px-6">Kurs finden</span></button>
@@ -23,9 +23,7 @@
                    draggable="false"/>
 
           <!-- floating price tag -->
-          <div
-              class="absolute bottom-0 left-0 m-10 ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat"
-              :style="pinselstrich">
+          <div class="absolute bottom-0 left-0 m-10 ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat pinselstrich">
             nur 39<span class="text-2xl">,-</span><span class="inline-block -ml-4 text-sm align-top">90</span> €
           </div>
         </div>
@@ -84,7 +82,7 @@
     </full-width-section>
 
     <div class="my-10">
-      <h2 class="h2 text-center mb-8">Lehrer werden</h2>
+      <h2 class="h2 text-center mb-8">Trainer werden</h2>
       <div class="max-w-4xl mx-auto grid grid-cols-2 gap-6">
 
         <!-- left side with steps -->
@@ -100,10 +98,10 @@
             Teile dein Wissen und verhilf den Abiturienten zum sorglosen Abitur als coolen Nebenjob.
           </p>
           <p class="mb-4">
-            Mit unserer 3-Schritt Bewerbungsphase kannst du dich schnell als Kursgeber für Abi-Kurse bewerben.
+            Mit unserer 3-Schritt Bewerbungsphase kannst du dich schnell als Kursgeber für Abikurse bewerben.
           </p>
           <button class="primary-button w-full mt-2"
-                  @click="$root.$emit('openContactForm', { subject: `Bewerbung als Lehrer für Abi-Kurse`})">Jetzt
+                  @click="$root.$emit('openContactForm', { subject: `Bewerbung als Trainer für Abikurse`, content: 'Warum bist du als Trainer geeignet?'})">Jetzt
             Bewerben
           </button>
         </div>
@@ -127,7 +125,7 @@ export default {
     }
   },
   metaInfo: {
-    title: "Neue Möglichkeiten Neues zu lernen",
+    title: "Abikurse 2021",
   },
 };
 </script>
