@@ -11,17 +11,14 @@
       Datum: {{ order.timestamp }}
     </div>
     <div>
-      <button-template @click="$root.$emit('openContactForm', { subject: `Stornierung von Bestellung ${order._id}`})">
+      <button class="primary-button w-full" @click="$root.$emit('openContactForm', { subject: `Stornierung von Bestellung ${order._id}`})">
         Stornierung anfragen
-      </button-template>
+      </button>
     </div>
   </div>
 </template>
 <script>
-import ButtonTemplate from "../../gui-elements/ButtonTemplate";
-
 export default {
-  components: { ButtonTemplate },
   props: {
     order: {
       type: Object,
@@ -30,6 +27,3 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
-@import "../../../assets/css/main";
-</style>

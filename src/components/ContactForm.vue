@@ -2,7 +2,7 @@
   <Popup v-show="visible" @close="visible = false">
     <form name="general" @submit.prevent="submit">
 
-      <Heading2>Kontaktieren Sie uns</Heading2>
+      <h2 class="h2">Kontaktieren Sie uns</h2>
 
       <!-- visible form fields -->
       <InputTemplate v-model="form.subject" label="Betreff" required/>
@@ -12,10 +12,10 @@
           class="text-primary">{{ form.email }}</span>.</p>
 
       <!-- button -->
-      <button-template class="mt-4" :disabled="saving">
+      <button class="primary-button w-full mt-4" :disabled="saving">
         <span v-if="!saving">Abschicken</span>
         <Spinner v-else class="mx-auto"/>
-      </button-template>
+      </button>
 
       <p v-if="error" class="mt-4 text-center font-bold">Es ist ein Fehler entstanden, bitte probier es nochmal. </p>
     </form>
@@ -23,13 +23,11 @@
 </template>
 <script>
 import InputTemplate from "./gui-elements/InputTemplate";
-import Heading2 from "./gui-elements/Heading2";
 import { authenticationStoreComputers } from "../stores/authentication";
-import ButtonTemplate from "./gui-elements/ButtonTemplate";
 import Spinner from "./gui-elements/Spinner";
 
 export default {
-  components: { ButtonTemplate, Heading2, InputTemplate, Spinner },
+  components: { InputTemplate, Spinner },
   data() {
     return {
       visible: false,

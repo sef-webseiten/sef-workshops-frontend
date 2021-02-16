@@ -206,8 +206,6 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../../assets/css/main";
-
 .icons-red svg {
   @apply text-light;
 }

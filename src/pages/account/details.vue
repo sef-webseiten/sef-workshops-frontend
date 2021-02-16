@@ -1,6 +1,6 @@
 <template>
   <Layout auth-middleware>
-    <Heading class="mb-10">Benutzerkonto bearbeiten</Heading>
+    <h1 class="h1 mb-10">Benutzerkonto bearbeiten</h1>
 
     <DetailsForm v-if="user"/>
     <Spinner v-else-if="!this.$store.state.initialized" :color="primary" class="mx-auto"/>
@@ -8,14 +8,13 @@
   </Layout>
 </template>
 <script>
-import Heading from "../../components/gui-elements/Heading";
 import DetailsForm from "../../components/user/details/DetailsForm";
 import { authenticationStoreComputers } from "../../stores/authentication";
 import Spinner from "../../components/gui-elements/Spinner";
 import tailwindConfig from "../../../tailwind.config";
 
 export default {
-  components: { Spinner, DetailsForm, Heading },
+  components: { Spinner, DetailsForm },
   data() {
     return { primary: tailwindConfig.customColors.primary }
   },

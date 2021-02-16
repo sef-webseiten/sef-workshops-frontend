@@ -1,13 +1,10 @@
 <template>
   <Layout>
-    <Heading>AGB</Heading>
+    <h1 class="h1">AGB</h1>
   </Layout>
 </template>
 <script>
-import Heading from "../components/gui-elements/Heading";
-
 export default {
-  components: { Heading },
   metaInfo: {
     title: "AGB",
   },

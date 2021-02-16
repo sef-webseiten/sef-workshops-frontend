@@ -1,22 +1,25 @@
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
     faAngleDoubleLeft,
-    faAngleDoubleRight,
+    faAngleDoubleRight, faBookOpen,
     faCalendarDay,
-    faFire,
+    faChevronDown,
     faClock,
+    faEllipsisH,
+    faFilter,
+    faFire,
     faMapMarkerAlt,
     faMinus,
-    faEllipsisH,
-    faPlus, faStar,
-    faTags,
-    faUserFriends,
+    faPlus,
     faSearch,
-    faFilter,
-    faChevronDown
+    faStar,
+    faTags,
+    faUserClock,
+    faUserFriends,
+    faUsers
 } from "@fortawesome/free-solid-svg-icons";
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
-    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faCalendarDay, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar, faChevronDown);
+    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faBookOpen, faUsers, faCalendarDay, faUserClock, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar, faChevronDown);
 }

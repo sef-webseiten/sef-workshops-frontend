@@ -1,0 +1,3 @@
+.primary-button {
+  @apply px-2 py-2 text-white bg-primary disabled:cursor-default disabled:bg-light rounded-sm;
+}

@@ -5,6 +5,3 @@
     <g-link to="/agb" class="link">AGB</g-link>
   </span>
 </template>
-<style scoped lang="scss">
-@import "src/assets/css/main";
-</style>

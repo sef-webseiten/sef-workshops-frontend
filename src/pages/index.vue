@@ -15,7 +15,7 @@
     </full-width-section>
 
     <!-- demo workshops ToDo: random / sorted -->
-    <heading2 class="text-center mb-6">Mach den ersten Schritt zum Lernerfolg</heading2>
+    <h2 class="h2 text-center mb-6">Mach den ersten Schritt zum Lernerfolg</h2>
     <p class="text-center text-text-gray font-bold text-lg mb-6">Schau dir unsere Demo-Kurse an</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-20">
       <WorkshopCard
@@ -60,21 +60,16 @@
   </Layout>
 </template>
 <script>
-import Heading from "../components/gui-elements/Heading";
 import FullWidthSection from "../components/gui-elements/FullWidthSection";
-import Heading2 from "../components/gui-elements/Heading2";
 import IconSection from "../components/gui-elements/IconSection";
 import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 
 export default {
-  components: { NewsletterSignupSection, IconSection, FullWidthSection, Heading, Heading2, WorkshopCard },
+  components: { NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
   metaInfo: {
     title: "Neue Möglichkeiten Neues zu lernen",
   },
-  created() {
-    this.$store.commit()
-  }
 };
 </script>
 <static-query>

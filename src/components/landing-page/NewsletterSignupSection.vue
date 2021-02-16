@@ -1,8 +1,8 @@
 <template>
   <div>
-    <heading2 class="text-center mb-6">
-      Dich interessiert der Fortschritt bei of.courz? Melde dich bei unserem Newsletter an
-    </heading2>
+    <h2 class="h2 text-center mb-6">
+      {{ title || "Dich interessiert der Fortschritt bei of.courz? Melde dich bei unserem Newsletter an" }}
+    </h2>
     <form class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6" @submit.prevent="submit">
 
       <!-- left side -->
@@ -13,12 +13,12 @@
         <g-link class="text-sm text-primary" to="/privacy">Klicke hier um die Datenschutzerklärung einzusehen.</g-link>
 
         <!-- button with loading indicator -->
-        <button-template class="mt-4" :disabled="state === 1 || state === 2">
+        <button class="primary-button w-full mt-4" :disabled="state === 1 || state === 2">
           <span v-if="state === 0">Abschicken</span>
           <Spinner v-else-if="state === 1" class="mx-auto"/>
           <span v-else-if="state === 2">Erfolgreich abgeschickt</span>
           <span v-else-if="state === 3">Erneut versuchen</span>
-        </button-template>
+        </button>
 
       </div>
 
@@ -38,15 +38,14 @@
   </div>
 </template>
 <script>
-import Heading2 from "../gui-elements/Heading2";
 import InputTemplate from "../gui-elements/InputTemplate";
-import ButtonTemplate from "../gui-elements/ButtonTemplate";
 import Spinner from "../gui-elements/Spinner";
 
 export default {
+  props: ["title"],
   data() {
     return {
-      state: 0, // 0 = waiting, 1 = saving, 2 = done, 3 = error,
+      state: 0, // 0 = waiting, 1 = saving, 2 = done, 3 = error
       form: {
         firstName: "",
         mail: ""
@@ -69,6 +68,6 @@ export default {
 
     }
   },
-  components: { ButtonTemplate, Heading2, InputTemplate, Spinner }
+  components: { InputTemplate, Spinner }
 }
 </script>

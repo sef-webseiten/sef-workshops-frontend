@@ -83,15 +83,4 @@ html {
 body {
   @apply bg-gray-50;
 }
-
-.header-transition {
-  background-image: linear-gradient(
-          to right,
-          #e53e3e,
-          #ef6b19,
-          #e99800,
-          #d2c300,
-          #a8eb12
-  );
-}
 </style>

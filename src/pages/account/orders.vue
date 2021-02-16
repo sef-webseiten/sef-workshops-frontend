@@ -1,6 +1,6 @@
 <template>
   <Layout auth-middleware>
-    <heading class="mb-6">Buchungen</heading>
+    <h1 class="h1 mb-6">Buchungen</h1>
     <div v-if="orders.length >= 0" v-for="order in orders">
       <order-row :order="order" />
     </div>
@@ -9,10 +9,9 @@
 </template>
 <script>
 import OrderRow from "../../components/user/order/OrderRow";
-import Heading from "../../components/gui-elements/Heading";
 
 export default {
-  components: { OrderRow, Heading },
+  components: { OrderRow },
   metaInfo: {
     title: "Buchungen",
   },

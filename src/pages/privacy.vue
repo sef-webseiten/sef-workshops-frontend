@@ -202,10 +202,7 @@
   </Layout>
 </template>
 <script>
-import Heading from "../components/gui-elements/Heading";
-
 export default {
-  components: { Heading },
   metaInfo: {
     title: "Datenschutzerklärung",
   },
@@ -224,7 +221,7 @@ h3 {
   @apply text-lg font-bold text-text-gray mb-2;
 }
 
-p{
+p {
   @apply mb-2;
 }
 </style>

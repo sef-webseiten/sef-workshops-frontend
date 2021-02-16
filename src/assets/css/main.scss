@@ -1,33 +1,11 @@
+@import "buttons";
+@import "links";
+@import "headings";
+
 .box {
   @apply bg-gray-100 rounded-sm transition-all duration-200;
 }
 
 .hr {
   @apply w-full h-px bg-gray-400 bg-opacity-25;
-}
-
-.link {
-  @apply m-0 p-1 block transition-all duration-200 ease-in-out w-full text-left rounded-sm;
-}
-
-.link:focus {
-  @apply outline-none;
-}
-
-.link:hover {
-  @apply bg-gray-50;
-}
-
-.link-no-break {
-  @apply link;
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .link {
-    @apply inline-block w-auto mr-4;
-  }
-  .link-no-break {
-    width: 100% !important;
-  }
 }

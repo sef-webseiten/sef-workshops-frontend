@@ -44,6 +44,9 @@ module.exports = {
         }
     },
     variants: {
+        extend: {
+            margin: ["last"]
+        },
         backgroundColor: ['responsive', 'active', 'disabled', 'hover'],
         cursor: ['responsive', 'disabled'],
         borderColor: ['responsive', 'hover', 'focus', 'focus-within'],

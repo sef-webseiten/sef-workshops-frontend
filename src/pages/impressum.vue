@@ -1,13 +1,10 @@
 <template>
   <Layout>
-    <Heading>Impressum</Heading>
+    <h1 class="h1">Impressum</h1>
   </Layout>
 </template>
 <script>
-import Heading from "../components/gui-elements/Heading";
-
 export default {
-  components: { Heading },
   metaInfo: {
     title: "Impressum",
   },

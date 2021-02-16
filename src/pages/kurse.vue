@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <Heading2 class="mb-6 text-center">
+    <h2 class="h2 mb-6 text-center">
       <span v-if="this.$store.state.search.searchTerm">Ergebnisse für die Suche <span class="italic text-primary">{{this.$store.state.search.searchTerm}}</span></span>
       <span v-else>Alle Kurse</span>
-    </Heading2>
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8" v-if="searchResults.length > 0">
       <WorkshopCard
           v-for="workshop in searchResults"
@@ -13,17 +13,16 @@
     </div>
     <div class="my-16" v-else>
       <GhostWorkshopCard />
-      <Heading2 class="text-center text-text-gray mt-4">Es gibt keine Kurse zu deiner Suche. </Heading2>
+      <h2 class="h2 text-center mt-4">Es gibt keine Kurse zu deiner Suche. </h2>
     </div>
   </Layout>
 </template>
 <script>
 import WorkshopCard from "../components/workshop/WorkshopCard";
-import Heading2 from "../components/gui-elements/Heading2";
 import GhostWorkshopCard from "../components/workshop/GhostWorkshopCard";
 
 export default {
-  components: { GhostWorkshopCard, Heading2, WorkshopCard },
+  components: { GhostWorkshopCard, WorkshopCard },
   metaInfo() {
     return {
       title: this.title,

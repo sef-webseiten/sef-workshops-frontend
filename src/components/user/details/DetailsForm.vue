@@ -23,22 +23,21 @@
     <OrganizerPopup v-if="user && !user.organizer" @organizer="user.organizer = true"/>
 
     <!-- disable button if currently saving or no changes have been done -->
-    <button-template submit class="mt-4 h-fit" :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)">
+    <button class="primary-button w-full mt-4 h-fit" :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)">
       <span v-if="!saving">Speichern</span>
       <Spinner v-else class="mx-auto"/>
-    </button-template>
+    </button>
 
   </form>
 </template>
 <script>
 import InputTemplate from "../../gui-elements/InputTemplate";
 import OrganizerPopup from "./OrganizerPopup";
-import ButtonTemplate from "../../gui-elements/ButtonTemplate";
 import { updateUserData } from "../../../plugins/graphql/graphql-client";
 import Spinner from "../../gui-elements/Spinner";
 
 export default {
-  components: { Spinner, ButtonTemplate, InputTemplate, OrganizerPopup },
+  components: { Spinner, InputTemplate, OrganizerPopup },
   data() {
     return {
       user: { ...this.$store.state.authentication.user },
