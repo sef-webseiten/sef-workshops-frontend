@@ -6,7 +6,7 @@
 
       <!-- visible form fields -->
       <InputTemplate v-show="notLoggedIn" v-model="form.name" label="Name" required/>
-      <InputTemplate v-show="notLoggedIn" v-model="form.email" label="E-Mail" required/>
+      <InputTemplate v-show="notLoggedIn" v-model="form.email" label="E-Mail" type="email" required/>
       <InputTemplate v-model="form.subject" label="Betreff" required/>
       <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
 
@@ -83,7 +83,7 @@ export default {
       self.error = false;
 
       try {
-        const data = await fetch("/forms/general", {
+        await fetch("/forms/general", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({
@@ -92,9 +92,6 @@ export default {
             userid: this.user?._id
           })
         });
-
-        if(!data.ok)
-          throw new Error();
 
         this.close();
       } catch (e) {
