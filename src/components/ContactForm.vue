@@ -49,7 +49,7 @@ export default {
     this.$root.$on('openContactForm', data => {
       self.notLoggedIn = !this.firebaseUser;
       self.visible = true;
-      self.form.email = this.firebaseUser.email;
+      self.form.email = this.firebaseUser?.email;
       self.form.name = this.username;
 
       if (!data)
