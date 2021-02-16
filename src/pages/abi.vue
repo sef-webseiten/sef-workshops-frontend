@@ -106,7 +106,7 @@
           <p class="mb-4">
             Mit unserer 3-Schritt Bewerbungsphase kannst du dich schnell als Kursgeber für Abi-Kurse bewerben.
           </p>
-          <button class="primary-button w-full mt-2">Jetzt Bewerben</button>
+          <button class="primary-button w-full mt-2" @click="$root.$emit('openContactForm', { subject: `Bewerbung als Lehrer für Abi-Kurse`})">Jetzt Bewerben</button>
         </div>
       </div>
     </full-width-section>

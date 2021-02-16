@@ -2,9 +2,11 @@
   <Popup v-show="visible" @close="visible = false">
     <form name="general" @submit.prevent="submit">
 
-      <h2 class="h2">Kontaktieren Sie uns</h2>
+      <h2 class="h2">Kontaktiere uns</h2>
 
       <!-- visible form fields -->
+      <InputTemplate v-show="notLoggedIn" v-model="form.name" label="Name" required/>
+      <InputTemplate v-show="notLoggedIn" v-model="form.email" label="E-Mail" required/>
       <InputTemplate v-model="form.subject" label="Betreff" required/>
       <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
 
@@ -33,18 +35,22 @@ export default {
       visible: false,
       saving: false,
       error: false,
+      notLoggedIn: true,
       form: {
         subject: "",
         content: "",
-        email: ""
+        email: "",
+        name: ""
       }
     }
   },
   mounted() {
     const self = this;
     this.$root.$on('openContactForm', data => {
+      self.notLoggedIn = !this.firebaseUser;
       self.visible = true;
       self.form.email = this.firebaseUser.email;
+      self.form.name = this.username;
 
       if (!data)
         return;
@@ -83,8 +89,8 @@ export default {
           body: encode({
             "form-name": "general",
             ...this.form,
-            email: this.firebaseUser.email,
-            userid: this.user._id
+            email: this.firebaseUser?.email,
+            userid: this.user?._id
           })
         });
 
