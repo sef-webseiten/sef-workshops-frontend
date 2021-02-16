@@ -24,14 +24,7 @@
 
       <!-- explanation text -->
       <div>
-        <p class="mt-6">
-          Wenn du wissen möchtest, was es für Neuerungen oder Angebote bei of.courz gibt, melde dich doch bei unserem
-          Newsletter an. Du brauchst keine Sorgen zu haben - wir werden dir nicht unnötig häufig E-Mails schicken.
-        </p>
-        <p class="mt-4">
-          Du kannst dich natürlich jederzeit von dem Newsletter abmelden. Dazu kannst du uns kontaktieren oder
-          einfach in einer der Mails den Link öffnen.
-        </p>
+        <slot />
       </div>
 
     </form>

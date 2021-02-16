@@ -1,10 +1,10 @@
 <template>
   <div class="w-full text-center">
-    <fa :icon="icon" class="block mx-auto mb-5" size="3x" :class="{'text-primary' : iconPrimary}"/>
-    <h3 class="text-2xl mb-4 font-bold">
+    <fa :icon="icon" class="block mx-auto mb-5" :size="huge ? '4x' : '3x'" :class="{'text-primary' : iconPrimary}"/>
+    <h3 class="text-3xl mb-4 font-bold">
       {{ title }}
     </h3>
-    <p>
+    <p :class="{'text-lg': huge}">
       <slot/>
     </p>
   </div>
@@ -16,6 +16,7 @@ export default {
       type: Array,
       required: true
     },
+    huge: Boolean,
     title: String,
     iconPrimary: Boolean
   }

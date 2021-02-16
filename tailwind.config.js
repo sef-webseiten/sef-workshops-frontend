@@ -19,7 +19,8 @@ module.exports = {
                 "fit": "fit-content"
             },
             height: {
-                "fit": "fit-content"
+                "fit": "fit-content",
+                "128": "32rem"
             },
 
             // Material Design Input field
@@ -33,6 +34,7 @@ module.exports = {
         },
         fontFamily: {
             "display": ["Poppins", "sans-serif"],
+            "dancing-script": "'Dancing Script', cursive"
         },
         container: {
             center: true,

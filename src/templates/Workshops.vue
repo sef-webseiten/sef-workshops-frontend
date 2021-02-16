@@ -10,8 +10,8 @@
   </Layout>
 </template>
 <script>
-import WorkshopPage from "../../components/workshop/WorkshopPage";
-import WorkshopBookedPage from "../../components/workshop/WorkshopBookedPage";
+import WorkshopPage from "../components/workshop/WorkshopPage";
+import WorkshopBookedPage from "../components/workshop/WorkshopBookedPage";
 
 export default {
   components: {
@@ -63,7 +63,6 @@ averageRating
 ratings {
 text
 improveable
-author {firstName profilePicture}
 organizerRating {friendly reliable knowledge patience rating}
 workshopRating { recommendable content entertaining rating}
 }

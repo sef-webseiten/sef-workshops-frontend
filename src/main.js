@@ -8,6 +8,7 @@ import { initAffiliate } from "./plugins/affiliate";
 import Popup from "./components/gui-elements/Popup";
 
 require("typeface-poppins");
+require("typeface-dancing-script");
 
 setupFontAwesome();
 

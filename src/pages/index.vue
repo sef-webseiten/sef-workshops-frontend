@@ -51,11 +51,16 @@
       </div>
     </full-width-section>
 
-    <!--full-width-section class="bg-primary">
-      <heading class="text-white">Hi</heading>
-    </full-width-section-->
-
-    <newsletter-signup-section class="mb-20" />
+    <newsletter-signup-section class="mb-20">
+      <p class="mt-6">
+        Wenn du wissen möchtest, was es für Neuerungen oder Angebote bei of.courz gibt, melde dich doch bei unserem
+        Newsletter an. Du brauchst keine Sorgen zu haben - wir werden dir nicht unnötig häufig E-Mails schicken.
+      </p>
+      <p class="mt-4">
+        Du kannst dich natürlich jederzeit von dem Newsletter abmelden. Dazu kannst du uns kontaktieren oder
+        einfach in einer der Mails den Link öffnen.
+      </p>
+    </newsletter-signup-section>
 
   </Layout>
 </template>
