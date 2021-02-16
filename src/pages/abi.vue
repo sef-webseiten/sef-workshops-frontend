@@ -96,7 +96,7 @@
       <div class="max-w-4xl mx-auto grid grid-cols-2 gap-6">
 
         <div class="w-fit mx-auto">
-          <number-paragraph v-for="(step, index) in lehrerSteps" :number="index + 1" class="mb-4 text-xl mx-4">{{ step }}</number-paragraph>
+          <number-paragraph v-for="(step, index) in lehrerSteps" :key="index" :number="index + 1" class="mb-4 text-xl mx-4">{{ step }}</number-paragraph>
         </div>
 
         <div class="h-full flex flex-col justify-center">
