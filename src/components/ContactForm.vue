@@ -10,7 +10,7 @@
       <InputTemplate v-model="form.subject" label="Betreff" required/>
       <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
 
-      <p class="mt-4">Wir kontaktieren dich zu deiner Anfrage unter <span
+      <p class="mt-4" v-show="form.email">Wir kontaktieren dich zu deiner Anfrage unter <span
           class="text-primary">{{ form.email }}</span>.</p>
 
       <!-- button -->
