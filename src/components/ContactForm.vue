@@ -89,7 +89,6 @@ export default {
           body: encode({
             "form-name": "general",
             ...this.form,
-            email: this.firebaseUser?.email,
             userid: this.user?._id
           })
         });
