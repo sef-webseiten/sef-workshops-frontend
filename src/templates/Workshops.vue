@@ -63,6 +63,7 @@ averageRating
 ratings {
 text
 improveable
+author {firstName profilePicture}
 organizerRating {friendly reliable knowledge patience rating}
 workshopRating { recommendable content entertaining rating}
 }
