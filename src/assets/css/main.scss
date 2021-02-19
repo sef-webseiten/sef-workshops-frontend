@@ -9,3 +9,7 @@
 .hr {
   @apply w-full h-px bg-gray-400 bg-opacity-25;
 }
+
+.page-style-card {
+  @apply md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl lg:rounded;
+}

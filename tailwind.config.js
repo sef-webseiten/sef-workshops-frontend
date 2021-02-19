@@ -9,7 +9,8 @@ module.exports = {
     theme: {
         extend: {
             borderRadius: {
-                DEFAULT: "1rem"
+                DEFAULT: "1rem",
+                sm: "0.25rem"
             },
             boxShadow: {
                 "2xl": "0 0 50px -10px rgba(0, 0, 0, 0.25)",
@@ -47,9 +48,9 @@ module.exports = {
     },
     variants: {
         extend: {
-            margin: ["last"]
+            margin: ["last"],
+            backgroundColor: ["checked", 'active', 'disabled']
         },
-        backgroundColor: ['responsive', 'active', 'disabled', 'hover'],
         cursor: ['responsive', 'disabled'],
         borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
     },

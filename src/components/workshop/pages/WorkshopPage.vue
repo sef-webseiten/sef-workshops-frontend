@@ -1,5 +1,5 @@
 <template>
-    <div class="relative md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl lg:rounded icons-red pb-6">
+    <div class="relative page-style-card icons-red pb-6">
       <WorkshopImageLarge :workshop="workshop"/>
 
       <div class="p-6 md:p-10 pb-0 md:pb-0">
@@ -81,7 +81,7 @@
           <vue-markdown :source="workshop.material" class="text-justify"/>
         </div>
 
-        <h2 class="heading my-8">Veranstaltungen</h2>
+        <h2 class="h3 my-8">Veranstaltungen</h2>
       </div>
 
       <!-- events -->
@@ -138,58 +138,24 @@
         </button>
       </div>
 
-      <div class="p-6 md:p-10">
-        <h2 class="heading">
-          Bewertungen
-          <div class="inline-block md:float-right">
-            <Stars :stars="workshop.averageRating" size="lg"/>
-          </div>
-        </h2>
-      </div>
-
-      <!-- individual ratings -->
-      <div v-for="rating in workshop.ratings"
-           class="mx-4 md:mx-6 rounded shadow-xl p-6">
-
-        <!-- put user and stars next to each other on desktop -->
-        <div class="mb-6 md:flex justify-between items-center">
-          <div class="flex flex-row items-center justify-start mb-6 md:mb-0">
-            <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture" alt="Profilbild"/>
-            <p class="font-bold">{{ rating.author.firstName }}</p>
-          </div>
-
-          <!-- box with stars -->
-          <div>
-            <div class="w-full flex flex-row justify-between items-center">
-              <span>Kurs</span>
-              <Stars :stars="rating.workshopRating.rating" class="inline-block ml-4"/>
-            </div>
-
-            <div class="w-full flex flex-row justify-between items-center mb-6 md:mb-0">
-              <span>Kursleiter</span>
-              <Stars :stars="rating.organizerRating.rating" class="inline-block ml-4"/>
-            </div>
-          </div>
-
-        </div>
-
-        <p>{{ rating.text }}</p>
-      </div>
+      <WorkshopRatingSection :workshop="workshop" />
 
       <!-- ToDo: nicht angemeldet? -->
       <PaymentButtons />
     </div>
 </template>
 <script>
-import WorkshopImageLarge from "../../components/workshop/WorkshopImageLarge";
+import WorkshopImageLarge from "../WorkshopImageLarge";
 import VueMarkdown from "vue-markdown";
 import dayjs from "dayjs";
-import Stars from "../../components/gui-elements/Stars";
-import PaymentButtons from "../PaymentButtons";
+import Stars from "../../gui-elements/Stars";
+import PaymentButtons from "../../PaymentButtons";
+import WorkshopRatingSection from "../sections/ratings/WorkshopRatingSection";
 
 export default {
   props: ["workshop"],
   components: {
+    WorkshopRatingSection,
     Stars,
     WorkshopImageLarge,
     VueMarkdown,
@@ -212,9 +178,5 @@ export default {
 
 .icons-gray svg {
   @apply text-gray-200;
-}
-
-.heading {
-  @apply text-xl font-bold;
 }
 </style>

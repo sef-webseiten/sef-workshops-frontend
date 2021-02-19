@@ -10,8 +10,8 @@
   </Layout>
 </template>
 <script>
-import WorkshopPage from "../components/workshop/WorkshopPage";
-import WorkshopBookedPage from "../components/workshop/WorkshopBookedPage";
+import WorkshopPage from "../components/workshop/pages/WorkshopPage";
+import WorkshopBookedPage from "../components/workshop/pages/WorkshopBookedPage";
 
 export default {
   components: {
