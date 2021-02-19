@@ -7,6 +7,7 @@
           :icon="['fas', 'star']"
           class="mr-1"
           :size="size || '1x'"
+          @click="click(i)"
       ></fa>
     </span>
     <span class="icons-gray">
@@ -16,6 +17,7 @@
          :icon="['fas', 'star']"
          class="mr-1"
          :size="size || '1x'"
+         @click="click(asNumber + 1 + i)"
      ></fa>
    </span>
   </div>
@@ -23,7 +25,7 @@
 <script>
 export default {
   props: {
-    stars: {
+    value: {
       type: Number,
       default: 5
     },
@@ -32,12 +34,17 @@ export default {
       default: ""
     }
   },
+  methods: {
+    click(id) {
+      this.$emit('input', (id - 1) * 25)
+    }
+  },
   computed: {
     asNumber() {
-      if(isNaN(this.stars))
+      if(isNaN(this.value))
         return 4;
 
-      return Math.round(this.stars / 25);
+      return Math.round(this.value / 25);
     }
   }
 }

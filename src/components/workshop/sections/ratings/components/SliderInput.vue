@@ -1,6 +1,6 @@
 <template>
-  <div class="font-bold select-none">
-    <button :class="{'bg-primary': !value, 'bg-light': value}" class="label rounded-l-sm" @click.prevent="$emit('input', false)">
+  <div class="font-bold select-none flex flex-row">
+    <button :class="{'bg-primary': value == false, 'bg-light': value || value != false}" class="label rounded-l-sm" @click.prevent="$emit('input', false)">
       {{ leftContent || "Nein" }}
     </button>
     <button :class="{'bg-primary': value, 'bg-light': !value}" class="label rounded-r-sm" @click.prevent="$emit('input', true)">
