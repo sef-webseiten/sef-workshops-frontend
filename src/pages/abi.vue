@@ -2,29 +2,35 @@
   <Layout>
 
     <full-width-section class="-mt-6" without-border>
+      <div class="flex flex-col md:flex-row items-center w-full md:h-128">
 
-      <div class="flex flex-row items-center w-full h-128">
-        <div class="w-1/2 h-full bg-white text-right p-20">
-          <div class="w-fit h-full ml-auto flex flex-col items-center justify-center">
-            <h1 class="text-8xl leading-tight font-bold font-dancing-script mb-4">Abikurse <span
-                class="text-primary">2021</span></h1>
-            <p class="text-4xl font-semibold">Einfacher geht's nicht. </p>
+        <!-- left side -->
+        <div class="w-full md:w-1/2 md:h-full bg-white text-right p-6 md:p-20">
+          <div class="w-full h-full ml-auto flex flex-col items-center justify-center text-center">
+
+            <!-- headline -->
+            <h1 class="text-6xl md:text-8xl leading-tight font-bold font-dancing-script mb-4">
+              Abikurse <span class="text-primary">2021</span>
+            </h1>
+
+            <p class="text-2xl md:text-4xl font-semibold">Einfacher geht's nicht. </p>
             <button class="primary-button w-fit mt-8 text-xl"><span class="px-6">Kurs finden</span></button>
           </div>
         </div>
 
         <!-- torn sheet image -->
-        <g-image src="~/assets/img/kante.png" height="400" class="-mr-10 h-full z-10" draggable="false"/>
+        <g-image src="~/assets/img/kante.png" height="400" class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false"/>
+        <g-image src="~/assets/img/kante-gedreht.png" height="400" class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false"/>
 
-        <div class="relative w-1/2 h-full">
-          <!-- header image -->
+        <!-- header image -->
+        <div class="relative w-full md:w-1/2 md:h-full">
           <g-image src="~/assets/img/abi/header.jpg" width="960"
-                   class="object-cover w-full h-full overflow-hidden" style="transform: rotateY(180deg)"
+                   class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden" style="transform: rotateY(180deg)"
                    draggable="false"/>
 
           <!-- floating price tag -->
           <div
-              class="absolute bottom-0 left-0 m-10 ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat pinselstrich">
+              class="absolute bottom-0 left-0 m-4 mb-0 md:m-10 md:ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat pinselstrich select-none">
             nur 39<span class="text-2xl">,-</span><span class="inline-block -ml-4 text-sm align-top">90</span> €
           </div>
         </div>
