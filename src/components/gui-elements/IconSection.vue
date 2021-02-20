@@ -1,6 +1,8 @@
 <template>
   <div class="w-full text-center">
-    <fa :icon="icon" class="block mx-auto mb-5" :size="huge ? '4x' : '3x'" :class="{'text-primary' : iconPrimary}"/>
+    <div class="block mx-auto bg-gray-50 flex justify-center items-center rounded-full w-24 h-24 mb-5">
+      <fa :icon="icon" class="" :size="huge ? '4x' : '3x'" :class="{'text-primary' : iconPrimary}"/>
+    </div>
     <h3 class="text-3xl mb-4 font-bold">
       {{ title }}
     </h3>

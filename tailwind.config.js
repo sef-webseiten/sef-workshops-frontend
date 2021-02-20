@@ -1,7 +1,8 @@
 const customColors = {
     primary: "#60A5FA",
     light: "#93C5FD",
-    "text-gray": "#1F2937"
+    "light-background": "#EFF5FB",
+    "text-gray": "#1F2937",
 };
 
 module.exports = {
@@ -17,11 +18,15 @@ module.exports = {
                 "xl": "0 0 15px -5px rgba(0, 0, 0, 0.25)"
             },
             width: {
-                "fit": "fit-content"
+                "fit": "fit-content",
+                "18": "4.5rem"
             },
             height: {
                 "fit": "fit-content",
                 "128": "32rem"
+            },
+            zIndex: {
+                "-10": -10
             },
 
             // Material Design Input field

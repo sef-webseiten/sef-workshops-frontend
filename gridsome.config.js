@@ -6,6 +6,7 @@
 
 module.exports = {
     siteName: 'of.courz',
+    titleTemplate: '%s – of.courz',
 
     templates: {
         Workshops: "/w/:_id"

@@ -36,7 +36,7 @@ export default {
       return {
         'absolute top-0 duration-300 origin-0 pointer-events-none': this.type !== 'checkbox',
         'text-center': this.type === 'checkbox',
-        'text-gray-500': this.value.length === 0
+        'text-gray-500': !this.value || this.value.length === 0
       }
     }
   },

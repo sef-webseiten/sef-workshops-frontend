@@ -1,8 +1,11 @@
 <template>
   <div>
     <h2 class="h2 text-center mb-6">
-      {{ title || "Dich interessiert der Fortschritt bei of.courz? Melde dich bei unserem Newsletter an" }}
+      {{ title }}
     </h2>
+    <h3 class="h4 text-center mb-6" v-if="subTitle">
+      {{ subTitle }}
+    </h3>
     <form class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6" @submit.prevent="submit">
 
       <!-- left side -->
@@ -35,7 +38,7 @@ import InputTemplate from "../gui-elements/InputTemplate";
 import Spinner from "../gui-elements/Spinner";
 
 export default {
-  props: ["title"],
+  props: ["title", "subTitle"],
   data() {
     return {
       state: 0, // 0 = waiting, 1 = saving, 2 = done, 3 = error

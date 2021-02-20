@@ -27,12 +27,10 @@
             nur 39<span class="text-2xl">,-</span><span class="inline-block -ml-4 text-sm align-top">90</span> €
           </div>
         </div>
-
       </div>
-
     </full-width-section>
 
-    <full-width-section class="mb-10 text-center bg-light bg-opacity-10">
+    <full-width-section class="mb-10 text-center bg-light-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
 
         <div>
@@ -69,7 +67,7 @@
     </full-width-section>
 
     <!-- newsletter signup section -->
-    <full-width-section class="bg-light bg-opacity-10">
+    <full-width-section class="bg-light-background">
       <newsletter-signup-section class="my-10" title="Die Plätze sind begrenzt - bleib auf dem Laufenden ">
         <p class="mt-6">
           Anfang März stehen die Termine fest. Trage dich jetzt ein und wir informieren dich, wenn es so weit ist.

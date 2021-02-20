@@ -1,37 +1,60 @@
 <template>
   <Layout>
 
-    <full-width-section class="mb-20">
-      <div class="md:w-1/2 h-full m-10 p-4 md:p-8 md:mt-72 shadow-2xl rounded-lg bg-white bg-opacity-75">
-        <p class="my-4 md:my-8 text-center text-3xl md:text-4xl tracking-wide text-text-gray">
-          <span class="font-bold md:text-5xl inline-block mb-4">Der Ort</span><br> für Live-Kurse und Workshops.
-        </p>
+    <full-width-section class="-mt-6">
+      <div class="md:w-1/2 h-full p-4 md:p-8 lg:p-10 mb-2 md:mt-72 shadow-2xl rounded-sm bg-white">
+        <h1 class="h0 mb-6">
+          <span class="font-medium leading-snug">Live-Kurse, Seminare und Workshops...</span>
+        </h1>
+        <h2 class="h2">
+          <span class="font-medium"><fa icon="angle-double-right" size="sm" class="mr-4"/>
+            <span class="relative z-10">Alles an einem Ort<span
+                class="block bg-light bg-opacity-20 absolute bottom-0 left-0 -mx-1 h-4 -z-10"
+                style="width: calc(100% + .5rem);"/></span>
+          </span>
+        </h2>
+        <button class="primary-button mt-8">
+          <span class="px-8" @click="scrollTo('kurse-finden')">Kurs finden</span>
+        </button>
       </div>
 
       <template v-slot:fullwidth>
-        <g-image src="~/assets/img/pexels-fauxels-3184360.jpg" width="1920" class="object-cover w-full h-full"/>
+        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="object-cover w-full h-full"
+                 style="transform: rotateY(180deg)"/>
       </template>
-
     </full-width-section>
 
-    <!-- demo workshops ToDo: random / sorted -->
-    <h2 class="h2 text-center mb-6">Mach den ersten Schritt zum Lernerfolg</h2>
-    <p class="text-center text-text-gray font-bold text-lg mb-6">Schau dir unsere Demo-Kurse an</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-20">
-      <WorkshopCard
-          v-for="{ node: workshop } in $static.workshops.edges.slice(0,3)"
-          :key="workshop._id"
-          :workshop="workshop"
-      />
-      <g-link to="/kurse" class="p-6 rounded-2xl shadow-inner text-lg text-center w-full h-full flex flex-col justify-center items-center">
-        <fa :icon="['fas', 'angle-double-right']" size="2x" class="text-primary mb-4"></fa>
-        Weitere Kurse
-      </g-link>
+    <full-width-section class="text-center bg-light-background">
+      <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
+        <div>
+          <g-image src="~/assets/img/abi/frau.jpg" width="800" class=" h-96 w-96 ml-auto rounded-full shadow-2xl"
+                   draggable="false"/>
+        </div>
+
+        <div class="flex flex-col justify-center">
+          <p class="h1">Zu <span class="text-primary">neuen Skills</span> mit</p>
+          <p class="text-7xl font-bold text-text-gray tracking-wide my-5">Trainern</p>
+          <p class="h1">an <span class="text-primary">deiner</span> Seite</p>
+        </div>
+
+      </div>
+    </full-width-section>
+
+    <div id="kurse-finden" class="pt-16">
+      <h2 class="h2 text-center mb-6">Kurse finden</h2>
+      <p class="h4 text-center mb-10">Mach dir einen Eindruck von der Plattform</p>
+      <div class="max-w-5xl mx-auto block grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <WorkshopCard
+            v-for="workshop in workshops.slice(0,3)"
+            :key="workshop._id"
+            :workshop="workshop"
+        />
+      </div>
     </div>
 
     <!-- main usps -->
-    <full-width-section class="bg-gray-100 mb-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 mb-6">
+    <full-width-section class="bg-light-background mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
 
         <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-text-gray" icon-primary>
           Live-Kurse zu allen Themen und Interessen an einem Ort. Mit der bequemen Suche genau das richtige
@@ -51,14 +74,17 @@
       </div>
     </full-width-section>
 
-    <newsletter-signup-section class="mb-20">
+    <newsletter-signup-section class="mb-20" title="Dich interessiert unser Fortschritt?"
+                               sub-title="Melde dich bei unserem Newsletter an">
       <p class="mt-6">
-        Wenn du wissen möchtest, was es für Neuerungen oder Angebote bei of.courz gibt, melde dich doch bei unserem
-        Newsletter an. Du brauchst keine Sorgen zu haben - wir werden dir nicht unnötig häufig E-Mails schicken.
+        Aktuell befinden wir uns im Aufbau und arbeiten stetig an der optimalen Lösung, um dir die beste Lernerfahrung
+        zu ermöglichen.
       </p>
       <p class="mt-4">
-        Du kannst dich natürlich jederzeit von dem Newsletter abmelden. Dazu kannst du uns kontaktieren oder
-        einfach in einer der Mails den Link öffnen.
+        Damit du keine Neuerungen und Fortschritte verpasst, melde dich doch bei unserem Newsletter an.
+      </p>
+      <p class="mt-4">
+        Aber keine Sorge von uns bekommst du keinen Spam.
       </p>
     </newsletter-signup-section>
 
@@ -69,12 +95,21 @@ import FullWidthSection from "../components/gui-elements/FullWidthSection";
 import IconSection from "../components/gui-elements/IconSection";
 import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
+import { scrollTo } from "../plugins/scroll-to";
 
 export default {
   components: { NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
   metaInfo: {
-    title: "Neue Möglichkeiten Neues zu lernen",
+    title: "Live-Kurse, Seminare und Workshops an einem Ort",
   },
+  computed: {
+    workshops() {
+      return this.$store.state.workshops.workshops || this.$static.workshops.edges.map(({ node: workshop }) => workshop);
+    }
+  },
+  methods: {
+    scrollTo
+  }
 };
 </script>
 <static-query>
