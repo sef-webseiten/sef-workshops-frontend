@@ -1,20 +1,20 @@
 <template>
-  <div class="relative border-b-2 focus-within:border-blue-500 mt-8 mb-2">
+  <div class="relative border-b-2 mt-8 mb-2" :class="colorName === 'primary' ? 'focus-within:border-primary' : 'focus-within:border-abi'">
 
     <!-- input -->
     <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :type="type" :required="required" :name="label"
-           placeholder=" "
+           placeholder=" " :class="colorName"
            :value="value" @input="$emit('input', $event.target.value)"
            class="block w-full appearance-none focus:outline-none bg-transparent"/>
 
     <!-- checkbox -->
     <input v-else-if="type === 'checkbox'" :id="id" :type="type" :required="required" :name="label"
-           :value="value" @input="$emit('input', $event.target.value)"
+           :value="value" @input="$emit('input', $event.target.value)" :class="colorName"
            class="mr-1">
 
     <!-- textarea -->
     <textarea v-else :id="id" :required="required" placeholder=" " :name="label" :value="value"
-              @input="$emit('input', $event.target.value)"
+              @input="$emit('input', $event.target.value)" :class="colorName"
               class="block w-full h-20 appearance-none focus:outline-none bg-transparent"/>
 
     <!-- label -->
@@ -54,6 +54,10 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    colorName: {
+      type: String,
+      default: "primary"
     }
   }
 }
@@ -66,9 +70,13 @@ textarea:not(:placeholder-shown) ~ label {
   @apply transform scale-75 -translate-y-6;
 }
 
-input:focus-within ~ label,
-textarea:focus-within ~ label {
-  @apply text-blue-500;
+input.primary:focus-within ~ label,
+textarea.primary:focus-within ~ label {
+  @apply text-primary;
 }
 
+input.abi:focus-within ~ label,
+textarea.abi:focus-within ~ label {
+  @apply text-abi;
+}
 </style>

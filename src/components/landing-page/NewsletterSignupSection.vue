@@ -10,13 +10,17 @@
 
       <!-- left side -->
       <div>
-        <input-template label="Vorname" required v-model="form.firstName"/>
-        <input-template label="E-Mail-Adresse" required v-model="form.mail"/>
-        <input-template label="Ich akzeptiere die Datenschutzerklärung" required type="checkbox"/>
-        <g-link class="text-sm text-primary" to="/privacy">Klicke hier um die Datenschutzerklärung einzusehen.</g-link>
+        <input-template label="Vorname" required v-model="form.firstName" :color-name="colorName"/>
+        <input-template label="E-Mail-Adresse" required v-model="form.mail" :color-name="colorName"/>
+        <input-template label="Ich akzeptiere die Datenschutzerklärung" required type="checkbox"
+                        :color-name="colorName"/>
+        <g-link class="text-sm" :class="colorName === 'abi' ? 'text-abi' : 'text-primary'" to="/privacy">Klicke hier um
+          die Datenschutzerklärung
+          einzusehen.
+        </g-link>
 
         <!-- button with loading indicator -->
-        <button class="primary-button w-full mt-4" :disabled="state === 1 || state === 2">
+        <button class="w-full mt-4" :class="`${colorName}-button`" :disabled="state === 1 || state === 2">
           <span v-if="state === 0">Abschicken</span>
           <Spinner v-else-if="state === 1" class="mx-auto"/>
           <span v-else-if="state === 2">Erfolgreich abgeschickt</span>
@@ -27,7 +31,7 @@
 
       <!-- explanation text -->
       <div>
-        <slot />
+        <slot/>
       </div>
 
     </form>
@@ -38,7 +42,14 @@ import InputTemplate from "../gui-elements/InputTemplate";
 import Spinner from "../gui-elements/Spinner";
 
 export default {
-  props: ["title", "subTitle"],
+  props: {
+    title: String,
+    subTitle: String,
+    colorName: {
+      type: String,
+      default: "primary",
+    }
+  },
   data() {
     return {
       state: 0, // 0 = waiting, 1 = saving, 2 = done, 3 = error

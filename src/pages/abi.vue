@@ -10,11 +10,11 @@
 
             <!-- headline -->
             <h1 class="text-6xl md:text-8xl leading-tight font-bold font-dancing-script mb-4">
-              Abikurse <span class="text-primary">2021</span>
+              Abikurse <span class="text-abi">2021</span>
             </h1>
 
             <p class="text-2xl md:text-4xl font-semibold">Einfacher geht's nicht. </p>
-            <button class="primary-button w-fit mt-8 text-xl"><span class="px-6">Kurs finden</span></button>
+            <button class="abi-button w-fit mt-8 text-xl"><span class="px-6">Kurs finden</span></button>
           </div>
         </div>
 
@@ -37,14 +37,14 @@
       </div>
     </full-width-section>
 
-    <full-width-section class="mb-10 text-center bg-light-background">
+    <full-width-section class="mb-10 text-center bg-abi-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
         <TrainerImage/>
 
         <div class="flex flex-col justify-center">
-          <p class="h1">Mit unseren <span class="text-primary">ausgewählten</span></p>
+          <p class="h1">Mit unseren <span class="text-abi">ausgewählten</span></p>
           <p class="text-7xl font-bold text-text-gray tracking-wide my-5">Trainern</p>
-          <p class="h1"><span class="text-primary">sorglos</span> durch's Abi</p>
+          <p class="h1"><span class="text-abi">sorglos</span> durch's Abi</p>
         </div>
 
       </div>
@@ -54,15 +54,15 @@
     <full-width-section class="mb-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-20 mt-6 mb-6">
 
-        <icon-section huge :icon="['fas', 'user-clock']" title="3 Tage" class="text-text-gray" icon-primary>
+        <icon-section huge :icon="['fas', 'user-clock']" title="3 Tage" class="text-text-gray" icon-color-class="text-abi">
           In nur 3 Tagen alles Wichtige für dein Abitur in NRW wiederholen und üben.
         </icon-section>
 
-        <icon-section huge :icon="['fas', 'users']" title="Kleine Gruppe" class="text-text-gray" icon-primary>
+        <icon-section huge :icon="['fas', 'users']" title="Kleine Gruppe" class="text-text-gray" icon-color-class="text-abi">
           Gruppen aus 10 - 12 Personen ermöglichen eine individuelle Unterstützung durch deinen Trainer.
         </icon-section>
 
-        <icon-section huge :icon="['fas', 'book-open']" title="Individuell" class="text-text-gray" icon-primary>
+        <icon-section huge :icon="['fas', 'book-open']" title="Individuell" class="text-text-gray" icon-color-class="text-abi">
           Solange bis du alles drauf hast: Keine Frage bleibt offen.
         </icon-section>
 
@@ -70,8 +70,8 @@
     </full-width-section>
 
     <!-- newsletter signup section -->
-    <full-width-section class="bg-light-background">
-      <newsletter-signup-section class="my-10" title="Die Plätze sind begrenzt - bleib auf dem Laufenden ">
+    <full-width-section class="bg-abi-background">
+      <newsletter-signup-section class="my-10" title="Die Plätze sind begrenzt - bleib auf dem Laufenden " color-name="abi">
         <p class="mt-6">
           Anfang März stehen die Termine fest. Trage dich jetzt ein und wir informieren dich, wenn es so weit ist.
           Sichere dir deinen Platz vor allen anderen.
@@ -101,7 +101,7 @@
           <p class="mb-4">
             Mit unserer 3-Schritt Bewerbungsphase kannst du dich schnell als Kursgeber für Abikurse bewerben.
           </p>
-          <button class="primary-button w-full mt-2"
+          <button class="abi-button w-full mt-2"
                   @click="$root.$emit('openContactForm', { subject: `Bewerbung als Trainer für Abikurse`, content: 'Warum bist du als Trainer geeignet?'})">
             Jetzt
             Bewerben

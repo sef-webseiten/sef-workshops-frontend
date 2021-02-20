@@ -1,7 +1,9 @@
 const customColors = {
     primary: "#60A5FA",
+    "primary-background": "#EFF5FB",
     light: "#93C5FD",
-    "light-background": "#EFF5FB",
+    abi: "#FFAA75",
+    "abi-background": "#FAF2ED",
     "text-gray": "#1F2937",
 };
 
