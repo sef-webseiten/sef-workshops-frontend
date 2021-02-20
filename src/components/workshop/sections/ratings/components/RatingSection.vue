@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-row justify-between items-center">
-    <div><slot /></div>
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="w-full mb-1 md:mb-0"><slot /></div>
 
     <SliderInput v-if="type === 'slider'" :value="value" @input="$emit('input', $event)" />
-    <Stars v-if="type === 'stars'" class="text-lg" :value="value" @input="$emit('input', $event)" />
+    <Stars v-if="type === 'stars'" class="text-xl" :value="value" @input="$emit('input', $event)" clickable/>
   </div>
 </template>
 <script>

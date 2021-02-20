@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <span class="icons-primary">
+  <div class="flex flex-row" :class="{'cursor-pointer' : clickable}">
+    <span class="icons-primary flex flex-row">
       <fa
           v-for="i in asNumber + 1"
           :key="i"
@@ -10,7 +10,7 @@
           @click="click(i)"
       ></fa>
     </span>
-    <span class="icons-gray">
+    <span class="icons-gray flex flex-row">
      <fa
          v-for="i in 5 - asNumber - 1"
          :key="i"
@@ -32,7 +32,8 @@ export default {
     size: {
       type: String,
       default: ""
-    }
+    },
+    clickable: Boolean
   },
   methods: {
     click(id) {

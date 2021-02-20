@@ -23,7 +23,7 @@
         </RatingSection>
 
         <RatingSection v-model="form.organizerRating.rating" type="stars" class="mt-3">
-          bekommt die Bewertung
+          bekommt die Bewertung:
         </RatingSection>
       </div>
 
@@ -46,8 +46,8 @@
         </RatingSection>
       </div>
 
-      <input-template label="Deine Meinung" v-model="form.text"/>
-      <input-template label="Das könnte so noch besser werden" v-model="form.improveable"/>
+      <input-template label="Deine Meinung ist gefragt. Wirklich!" type="textarea" v-model="form.text"/>
+      <input-template :label="`Was könnte ${workshop.organizer.firstName} verbessern?`" type="textarea" v-model="form.improveable"/>
     </div>
 
     <!-- button with loading indicator -->

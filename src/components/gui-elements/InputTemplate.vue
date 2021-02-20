@@ -15,7 +15,7 @@
     <!-- textarea -->
     <textarea v-else :id="id" :required="required" placeholder=" " :name="label" :value="value"
               @input="$emit('input', $event.target.value)"
-              class="block w-full appearance-none focus:outline-none bg-transparent"/>
+              class="block w-full h-20 appearance-none focus:outline-none bg-transparent"/>
 
     <!-- label -->
     <label :for="id" :class="labelClasses">
@@ -35,7 +35,8 @@ export default {
     labelClasses() {
       return {
         'absolute top-0 duration-300 origin-0 pointer-events-none': this.type !== 'checkbox',
-        'text-center': this.type === 'checkbox'
+        'text-center': this.type === 'checkbox',
+        'text-gray-500': this.value.length === 0
       }
     }
   },
