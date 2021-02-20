@@ -20,7 +20,7 @@
           <!-- subtitle -->
           <p
               v-if="workshop.subTitle"
-              class="my-4 text-sm border-l-2 border-light pl-4 rounded-sm"
+              class="my-4 text-sm border-l-2 border-light pl-4"
           >
             {{ workshop.subTitle }}
           </p>
