@@ -13,7 +13,7 @@
                 style="width: calc(100% + .5rem);"/></span>
           </span>
         </h2>
-        <button class="primary-button mt-8">
+        <button class="mx-auto md:mx-0 block primary-button mt-8">
           <span class="px-8" @click="scrollTo('kurse-finden')">Kurs finden</span>
         </button>
       </div>
@@ -26,11 +26,7 @@
 
     <full-width-section class="text-center bg-light-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
-        <div>
-          <g-image src="~/assets/img/abi/frau.jpg" width="800"
-                   class="w-full h-auto md:h-96 md:w-96 mb-10 ml-auto rounded-full shadow-2xl"
-                   draggable="false"/>
-        </div>
+        <TrainerImage />
 
         <div class="flex flex-col justify-center">
           <p class="h1">Zu <span class="text-primary">neuen Skills</span> mit</p>
@@ -99,9 +95,10 @@ import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 import { scrollTo } from "../plugins/scroll-to";
 import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
+import TrainerImage from "../components/landing-page/TrainerImage";
 
 export default {
-  components: { FloatingInstagram, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
+  components: { TrainerImage, FloatingInstagram, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
   metaInfo: {
     title: "Live-Kurse, Seminare und Workshops an einem Ort",
   },

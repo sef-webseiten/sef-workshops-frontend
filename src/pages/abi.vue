@@ -23,7 +23,8 @@
                    draggable="false"/>
 
           <!-- floating price tag -->
-          <div class="absolute bottom-0 left-0 m-10 ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat pinselstrich">
+          <div
+              class="absolute bottom-0 left-0 m-10 ml-16 px-10 pt-8 pb-10 text-3xl font-bold bg-center bg-contain bg-no-repeat pinselstrich">
             nur 39<span class="text-2xl">,-</span><span class="inline-block -ml-4 text-sm align-top">90</span> €
           </div>
         </div>
@@ -32,11 +33,7 @@
 
     <full-width-section class="mb-10 text-center bg-light-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
-
-        <div>
-          <g-image src="~/assets/img/abi/frau.jpg" width="800" class="w-full h-auto md:h-96 md:w-96 mb-10 ml-auto rounded-full shadow-2xl"
-                   draggable="false"/>
-        </div>
+        <TrainerImage/>
 
         <div class="flex flex-col justify-center">
           <p class="h1">Mit unseren <span class="text-primary">ausgewählten</span></p>
@@ -99,14 +96,15 @@
             Mit unserer 3-Schritt Bewerbungsphase kannst du dich schnell als Kursgeber für Abikurse bewerben.
           </p>
           <button class="primary-button w-full mt-2"
-                  @click="$root.$emit('openContactForm', { subject: `Bewerbung als Trainer für Abikurse`, content: 'Warum bist du als Trainer geeignet?'})">Jetzt
+                  @click="$root.$emit('openContactForm', { subject: `Bewerbung als Trainer für Abikurse`, content: 'Warum bist du als Trainer geeignet?'})">
+            Jetzt
             Bewerben
           </button>
         </div>
       </div>
     </div>
 
-    <FloatingInstagram />
+    <FloatingInstagram/>
   </Layout>
 </template>
 <script>
@@ -116,9 +114,18 @@ import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 import NumberParagraph from "../components/gui-elements/NumberParagraph";
 import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
+import TrainerImage from "../components/landing-page/TrainerImage";
 
 export default {
-  components: { NumberParagraph, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard, FloatingInstagram },
+  components: {
+    TrainerImage,
+    NumberParagraph,
+    NewsletterSignupSection,
+    IconSection,
+    FullWidthSection,
+    WorkshopCard,
+    FloatingInstagram
+  },
   data() {
     return {
       lehrerSteps: ["Bewerben", "Gespräch", "Vorbereitung"]
