@@ -11,7 +11,7 @@
     <InputTemplate v-model="user.occupation" label="Beschäftigung" required/>
 
     <!-- birthday -->
-    <InputTemplate v-model="user.birthday" label="Geburtstag" type="date" required/>
+    <InputTemplate v-model="user.birthday" label="Geburtstag" required type="date"/>
 
     <p v-if="!user.organizer" class="mt-4">Du bist kein angemeldeter Kursleiter.
       <button class="text-primary" @click="$root.$emit('organizerPopup')">Klicke hier zum aktivieren.</button>
@@ -23,7 +23,8 @@
     <OrganizerPopup v-if="user && !user.organizer" @organizer="user.organizer = true"/>
 
     <!-- disable button if currently saving or no changes have been done -->
-    <button class="primary-button w-full mt-4 h-fit" :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)">
+    <button :disabled="saving || JSON.stringify(user) === JSON.stringify($store.state.authentication.user)"
+            class="primary-button w-full mt-4 h-fit">
       <span v-if="!saving">Speichern</span>
       <Spinner v-else class="mx-auto"/>
     </button>
@@ -54,7 +55,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .line-margin {
   @apply mb-10;
 }

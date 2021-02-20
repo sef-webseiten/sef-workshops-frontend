@@ -19,14 +19,17 @@
         </div>
 
         <!-- torn sheet image -->
-        <g-image src="~/assets/img/kante.png" height="400" class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false"/>
-        <g-image src="~/assets/img/kante-gedreht.png" height="400" class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false"/>
+        <g-image class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false" height="400"
+                 src="~/assets/img/kante.png"/>
+        <g-image class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false" height="400"
+                 src="~/assets/img/kante-gedreht.png"/>
 
         <!-- header image -->
         <div class="relative w-full md:w-1/2 md:h-full">
-          <g-image src="~/assets/img/abi/header.jpg" width="960"
-                   class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden" style="transform: rotateY(180deg)"
-                   draggable="false"/>
+          <g-image class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden" draggable="false"
+                   src="~/assets/img/abi/header.jpg"
+                   style="transform: rotateY(180deg)"
+                   width="960"/>
 
           <!-- floating price tag -->
           <div
@@ -54,15 +57,18 @@
     <full-width-section class="">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-20 my-10">
 
-        <icon-section huge :icon="['fas', 'user-clock']" title="3 Tage" class="text-text-gray" icon-color-class="text-abi">
+        <icon-section :icon="['fas', 'user-clock']" class="text-text-gray" huge icon-color-class="text-abi"
+                      title="3 Tage">
           In nur 3 Tagen alles Wichtige für dein Abitur in NRW wiederholen und üben.
         </icon-section>
 
-        <icon-section huge :icon="['fas', 'users']" title="Kleine Gruppe" class="text-text-gray" icon-color-class="text-abi">
+        <icon-section :icon="['fas', 'users']" class="text-text-gray" huge icon-color-class="text-abi"
+                      title="Kleine Gruppe">
           Gruppen aus 10 - 12 Personen ermöglichen eine individuelle Unterstützung durch deinen Trainer.
         </icon-section>
 
-        <icon-section huge :icon="['fas', 'book-open']" title="Individuell" class="text-text-gray" icon-color-class="text-abi">
+        <icon-section :icon="['fas', 'book-open']" class="text-text-gray" huge icon-color-class="text-abi"
+                      title="Individuell">
           Solange bis du alles drauf hast: Keine Frage bleibt offen.
         </icon-section>
 
@@ -71,7 +77,8 @@
 
     <!-- newsletter signup section -->
     <full-width-section class="bg-abi-background">
-      <newsletter-signup-section class="my-10" title="Die Plätze sind begrenzt - bleib auf dem Laufenden " color-name="abi">
+      <newsletter-signup-section class="my-10" color-name="abi"
+                                 title="Die Plätze sind begrenzt - bleib auf dem Laufenden ">
         <p class="mt-6">
           Anfang März stehen die Termine fest. Trage dich jetzt ein und wir informieren dich, wenn es so weit ist.
           Sichere dir deinen Platz vor allen anderen.

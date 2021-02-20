@@ -3,23 +3,23 @@
     <div class="p-6 md:p-10">
       <h2 class="h3">
         Bewertungen
-        <div class="inline-block md:float-right text-xl">
+        <span class="inline-block md:float-right text-xl">
           <Stars :value="workshop.averageRating" size="lg"/>
-        </div>
+        </span>
       </h2>
     </div>
 
-    <WorkshopCreateRatingSection :workshop="workshop" class="mx-4 md:mx-6 rounded shadow-xl p-6 mb-6 md:mb-10"
-                                 v-show="writingRating" @finish="writingRating = false"/>
+    <WorkshopCreateRatingSection v-show="writingRating" :workshop="workshop"
+                                 class="mx-4 md:mx-6 rounded shadow-xl p-6 mb-6 md:mb-10" @finish="writingRating = false"/>
 
     <!-- individual ratings -->
     <div v-for="rating in workshop.ratings"
          class="mx-4 md:mx-6 rounded shadow-xl p-6">
 
       <!-- put user and stars next to each other on desktop -->
-      <div class="md:flex justify-between items-center" :class="{'mb-6' : rating.text}">
+      <div :class="{'mb-6' : rating.text}" class="md:flex justify-between items-center">
         <div class="flex flex-row items-center justify-start mb-6 md:mb-0">
-          <img class="h-16 w-16 mr-6 rounded-full" :src="rating.author.profilePicture" alt="Profilbild"/>
+          <img :src="rating.author.profilePicture" alt="Profilbild" class="h-16 w-16 mr-6 rounded-full"/>
           <p class="font-bold">{{ rating.author.firstName }}</p>
         </div>
 

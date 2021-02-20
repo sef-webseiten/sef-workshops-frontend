@@ -11,19 +11,20 @@
 
       <!-- input field with placeholder -->
       <input
+          id="search"
+          v-model="searchTerm"
           class="bg-white pl-4 py-2 opacity-90 placeholder-opacity-75 rounded text-base w-full focus:outline-none flex-grow"
           placeholder="Suche..."
-          v-model="searchTerm"
-          id="search"
           type="text"
           @click.prevent="clickSearchBar"
       />
 
       <!-- search button -->
-      <button
-          class="border-l border-gray-300 pl-4 pr-6 py-2 rounded-r focus:outline-none hover:bg-gray-100 select-none flex"
-          @click.prevent="clickSearchBar"
-      >
+      <label for="search">
+        <button
+            class="border-l border-gray-300 pl-4 pr-6 py-2 rounded-r focus:outline-none hover:bg-gray-100 select-none flex"
+            @click.prevent="clickSearchBar"
+        >
 
         <span class="hidden md:block">
           <fa
@@ -31,9 +32,10 @@
               class="mr-2 text-light"
           />
         </span>
-        <span>Suchen</span>
+          <span>Suchen</span>
 
-      </button>
+        </button>
+      </label>
     </div>
 
     <!-- desktop filter button -->

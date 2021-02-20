@@ -8,7 +8,7 @@
       <div class="text-xl relative md:text-2xl md:mr-2 text-center md:text-left">
         <BurgerIcon class="absolute left-0 md:hidden" @click="navbarMobileVisible = true"/>
         <g-link to="/">
-          <img src="../assets/img/logo/logo.svg" class="h-6 md:h-8 mx-auto" alt="Logo"/>
+          <img alt="Logo" class="h-6 md:h-8 mx-auto" src="../assets/img/logo/logo.svg"/>
         </g-link>
       </div>
 
@@ -16,20 +16,21 @@
       <Searchbar/>
 
       <!-- mobile and desktop navbar navbar -->
-      <NavbarMobile class="block md:hidden" :navbarMobileVisible="navbarMobileVisible" @close="navbarMobileVisible = false"/>
+      <NavbarMobile :navbarMobileVisible="navbarMobileVisible" class="block md:hidden"
+                    @close="navbarMobileVisible = false"/>
       <NavbarDesktop class="hidden md:block"/>
 
     </header>
 
     <!-- actual page content -->
-    <div class="xl:container" :class="{'p-6' : !withoutBorder}">
+    <div :class="{'p-6' : !withoutBorder}" class="xl:container">
       <slot/>
     </div>
 
     <!-- footer on desktop, hidden on mobile -->
     <DesktopFooter class="hidden md:block"/>
 
-    <ContactForm />
+    <ContactForm/>
 
   </div>
 </template>

@@ -1,24 +1,25 @@
 <template>
-  <div class="relative border-b-2 mt-8 mb-2" :class="colorName === 'primary' ? 'focus-within:border-primary' : 'focus-within:border-abi'">
+  <div :class="colorName === 'primary' ? 'focus-within:border-primary' : 'focus-within:border-abi'"
+       class="relative border-b-2 mt-8 mb-2">
 
     <!-- input -->
-    <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :type="type" :required="required" :name="label"
-           placeholder=" " :class="colorName"
-           :value="value" @input="$emit('input', $event.target.value)"
-           class="block w-full appearance-none focus:outline-none bg-transparent"/>
+    <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :class="colorName" :name="label" :required="required"
+           :type="type" :value="value"
+           class="block w-full appearance-none focus:outline-none bg-transparent" placeholder=" "
+           @input="$emit('input', $event.target.value)"/>
 
     <!-- checkbox -->
-    <input v-else-if="type === 'checkbox'" :id="id" :type="type" :required="required" :name="label"
-           :value="value" @input="$emit('input', $event.target.value)" :class="colorName"
-           class="mr-1">
+    <input v-else-if="type === 'checkbox'" :id="id" :class="colorName" :name="label" :required="required"
+           :type="type" :value="value" class="mr-1"
+           @input="$emit('input', $event.target.value)">
 
     <!-- textarea -->
-    <textarea v-else :id="id" :required="required" placeholder=" " :name="label" :value="value"
-              @input="$emit('input', $event.target.value)" :class="colorName"
-              class="block w-full h-20 appearance-none focus:outline-none bg-transparent"/>
+    <textarea v-else :id="id" :class="colorName" :name="label" :required="required" :value="value"
+              class="block w-full h-20 appearance-none focus:outline-none bg-transparent" placeholder=" "
+              @input="$emit('input', $event.target.value)"/>
 
     <!-- label -->
-    <label :for="id" :class="labelClasses">
+    <label :class="labelClasses" :for="id">
       {{ `${label.trim()}${required ? "*" : ""}` }}
     </label>
 
@@ -62,7 +63,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 input:focus-within ~ label,
 input:not(:placeholder-shown) ~ label,
 textarea:focus-within ~ label,

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit" v-if="visible">
+  <form v-if="visible" @submit.prevent="submit">
 
     <div v-show="state !== 2">
       <h3 class="h4 mb-6">Bewerte den Kurs</h3>
@@ -22,7 +22,7 @@
           ist immer geduldig bei Fragen oder Schwierigkeiten.
         </RatingSection>
 
-        <RatingSection v-model="form.organizerRating.rating" type="stars" class="mt-3">
+        <RatingSection v-model="form.organizerRating.rating" class="mt-3" type="stars">
           bekommt die Bewertung:
         </RatingSection>
       </div>
@@ -41,18 +41,18 @@
           ist nie langweilig.
         </RatingSection>
 
-        <RatingSection v-model="form.workshopRating.rating" type="stars" class="mt-3">
+        <RatingSection v-model="form.workshopRating.rating" class="mt-3" type="stars">
           bekommt die Bewertung:
         </RatingSection>
       </div>
 
-      <input-template label="Deine Meinung ist gefragt. Wirklich!" type="textarea" v-model="form.text"/>
-      <input-template :label="`Was könnte ${workshop.organizer.firstName} verbessern?`" type="textarea"
-                      v-model="form.improveable"/>
+      <input-template v-model="form.text" label="Deine Meinung ist gefragt. Wirklich!" type="textarea"/>
+      <input-template v-model="form.improveable" :label="`Was könnte ${workshop.organizer.firstName} verbessern?`"
+                      type="textarea"/>
     </div>
 
     <!-- button with loading indicator -->
-    <button class="primary-button w-full" :disabled="state === 1 || state === 2" :class="{'mt-4' : state !== 2}">
+    <button :class="{'mt-4' : state !== 2}" :disabled="state === 1 || state === 2" class="primary-button w-full">
       <span v-if="state === 0">Abschicken</span>
       <Spinner v-else-if="state === 1" class="mx-auto"/>
       <span v-else-if="state === 2">Erfolgreich abgeschickt, Kachel schließt sich</span>

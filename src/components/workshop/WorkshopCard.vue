@@ -8,8 +8,8 @@
         <!-- thumbnail -->
         <img
             :src="workshop.thumbnail"
-            class="rounded-t w-full h-32 object-cover"
             alt="Thumbnail"
+            class="rounded-t w-full h-32 object-cover"
             draggable="false"
         />
 
@@ -51,7 +51,7 @@
         </div>
         <div v-else class="icons-gray">
           -
-          <fa :icon="['fas', 'star']" class="mx-1 icons-gray" />
+          <fa :icon="['fas', 'star']" class="mx-1 icons-gray"/>
           -
         </div>
 

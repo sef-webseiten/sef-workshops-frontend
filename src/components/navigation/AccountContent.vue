@@ -1,9 +1,9 @@
 <template>
   <div class="text-black">
     <g-link class="link-no-break" to="/">Startseite</g-link>
-    <g-link class="link-no-break" v-show="firebaseUser" to="/account/orders">Buchungen</g-link>
-    <g-link class="link-no-break" v-show="firebaseUser" to="/account/details">Mein Konto</g-link>
-    <button class="link-no-break" v-show="firebaseUser" @click="signOut">Ausloggen</button>
+    <g-link v-show="firebaseUser" class="link-no-break" to="/account/orders">Buchungen</g-link>
+    <g-link v-show="firebaseUser" class="link-no-break" to="/account/details">Mein Konto</g-link>
+    <button v-show="firebaseUser" class="link-no-break" @click="signOut">Ausloggen</button>
     <button class="link-no-break" @click="$root.$emit('openContactForm')">Kontakt aufnehmen</button>
   </div>
 </template>

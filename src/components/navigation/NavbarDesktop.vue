@@ -4,19 +4,19 @@
     <!-- Auth section -->
     <span class="relative">
       <button
-          class="nav-element"
           v-if="firebaseUser"
+          class="nav-element"
           @click="delayedSet('accountVisible')"
       >Angemeldet als: {{ username }}</button
       >
-      <button class="nav-element"
-              @click="delayedSet('loginVisible')"
-              v-else>Anmelden</button>
+      <button v-else
+              class="nav-element"
+              @click="delayedSet('loginVisible')">Anmelden</button>
 
       <!-- Navbar popup content -->
       <NavbarPopup v-show="popup && (loginContent || accountContent)">
 
-        <AuthContent v-show="loginContent" v-if="renderAuth" desktop/>
+        <AuthContent v-if="renderAuth" v-show="loginContent" desktop/>
         <AccountContent v-show="accountContent"/>
 
       </NavbarPopup>

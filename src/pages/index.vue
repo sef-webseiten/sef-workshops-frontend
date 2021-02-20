@@ -4,8 +4,8 @@
     <!-- mobile header image -->
     <full-width-section class="-mt-6 md:hidden h-36">
       <template v-slot:fullwidth>
-        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="object-cover w-full h-48"
-                 style="transform: rotateY(180deg)"/>
+        <g-image class="object-cover w-full h-48" src="~/assets/img/pexels-fauxels-3182759.jpg" style="transform: rotateY(180deg)"
+                 width="1920"/>
       </template>
     </full-width-section>
     <full-width-section class="md:-mt-6">
@@ -17,7 +17,7 @@
             <span class="font-medium leading-snug">Live-Kurse, Seminare und Workshops...</span>
           </h1>
           <h2 class="h2">
-          <span class="font-medium"><fa icon="angle-double-right" size="sm" class="mr-4"/>
+          <span class="font-medium"><fa class="mr-4" icon="angle-double-right" size="sm"/>
             <span class="relative z-10">Alles an einem Ort<span
                 class="block bg-light bg-opacity-20 absolute bottom-0 left-0 -mx-1 h-4 -z-10"
                 style="width: calc(100% + .5rem);"/></span>
@@ -29,22 +29,23 @@
         </div>
 
         <!-- abi ad -->
-        <g-link to="/abi" class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4">
-          <g-image src="~/assets/img/abi/badge.png" width="400" class="mx-auto"/>
+        <g-link class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4" to="/abi">
+          <g-image class="mx-auto" src="~/assets/img/abi/badge.png" width="400"/>
         </g-link>
       </div>
 
 
       <!-- deskop header image -->
       <template v-slot:fullwidth>
-        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="hidden md:block object-cover w-full h-full"
-                 style="transform: rotateY(180deg)"/>
+        <g-image class="hidden md:block object-cover w-full h-full" src="~/assets/img/pexels-fauxels-3182759.jpg"
+                 style="transform: rotateY(180deg)"
+                 width="1920"/>
       </template>
     </full-width-section>
 
     <full-width-section class="text-center bg-primary-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
-        <TrainerImage class="mb-10 md:mb-0" />
+        <TrainerImage class="mb-10 md:mb-0"/>
 
         <div class="flex flex-col justify-center">
           <p class="h1">Zu <span class="text-primary">neuen Skills</span> mit</p>
@@ -71,17 +72,19 @@
     <full-width-section class="bg-primary-background">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-20 my-10">
 
-        <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-text-gray" icon-color-class="text-primary">
+        <icon-section :icon="['fas', 'star']" class="text-text-gray" icon-color-class="text-primary"
+                      title="Breite Auswahl">
           Live-Kurse zu allen Themen und Interessen an einem Ort. Mit der bequemen Suche genau das richtige
           finden und dank unserem einheitlichen Bewertungssystem immer die richtige Wahl treffen.
         </icon-section>
 
-        <icon-section :icon="['fas', 'fire']" title="Mit echten Menschen" class="text-text-gray" icon-color-class="text-primary">
+        <icon-section :icon="['fas', 'fire']" class="text-text-gray" icon-color-class="text-primary"
+                      title="Mit echten Menschen">
           Echte Interaktion statt stundenlangem Zuhören. Gemeinsam mit kompetenten Trainern beim Lernen
           schnell Hürden überwinden und damit sicher zum Lernerfolg kommen.
         </icon-section>
 
-        <icon-section :icon="['fas', 'tags']" title="Preiswert" class="text-text-gray" icon-color-class="text-primary">
+        <icon-section :icon="['fas', 'tags']" class="text-text-gray" icon-color-class="text-primary" title="Preiswert">
           Zum fairen Preis zu echten Lernerfolgen. Unkompliziert hochwertiges Wissen von Trainern
           ohne große Umwege auf of.courz.de finden.
         </icon-section>
@@ -89,8 +92,8 @@
       </div>
     </full-width-section>
 
-    <newsletter-signup-section class="my-16" title="Dich interessiert unser Fortschritt?"
-                               sub-title="Melde dich bei unserem Newsletter an">
+    <newsletter-signup-section class="my-16" sub-title="Melde dich bei unserem Newsletter an"
+                               title="Dich interessiert unser Fortschritt?">
       <p class="mt-6">
         Aktuell befinden wir uns im Aufbau und arbeiten stetig an der optimalen Lösung, um dir die beste Lernerfahrung
         zu ermöglichen.
@@ -103,7 +106,7 @@
       </p>
     </newsletter-signup-section>
 
-    <FloatingInstagram />
+    <FloatingInstagram/>
   </Layout>
 </template>
 <script>

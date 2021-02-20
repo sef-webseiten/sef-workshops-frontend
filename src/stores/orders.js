@@ -9,7 +9,7 @@ function prepareOrder(order) {
 }
 
 export const ordersStore = {
-    state:  {
+    state: {
         orders: []
     },
     mutations: {

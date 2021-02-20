@@ -8,7 +8,7 @@
            class="relative bg-white rounded-t p-6 md:mx-6 shadow-2xl">
 
         <div class="group absolute right-0 top-0 -mt-14 p-6 pb-2" @click="resetPaymentButton">
-          <fa class="group-hover:bounce" :icon="['fas', 'chevron-down']"/>
+          <fa :icon="['fas', 'chevron-down']" class="group-hover:bounce"/>
         </div>
 
         <div class="between mb-4">
@@ -51,7 +51,7 @@
           <p><span v-for="(date, index) in event.dates" :key="index" class="block">{{ date.timeString }}</span></p>
         </div>
 
-        <p class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup')" v-if="!firebaseUser">
+        <p v-if="!firebaseUser" class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup')">
           Damit du den Kurs buchen kannst, musst du dich
           zuerst anmelden. Klicke dafür hier.
         </p>

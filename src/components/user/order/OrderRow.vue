@@ -11,7 +11,8 @@
       Datum: {{ order.timestamp }}
     </div>
     <div>
-      <button class="primary-button w-full" @click="$root.$emit('openContactForm', { subject: `Stornierung von Bestellung ${order._id}`})">
+      <button class="primary-button w-full"
+              @click="$root.$emit('openContactForm', { subject: `Stornierung von Bestellung ${order._id}`})">
         Stornierung anfragen
       </button>
     </div>

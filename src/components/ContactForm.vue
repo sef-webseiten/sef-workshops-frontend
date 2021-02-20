@@ -6,15 +6,15 @@
 
       <!-- visible form fields -->
       <InputTemplate v-show="notLoggedIn" v-model="form.name" label="Name" required/>
-      <InputTemplate v-show="notLoggedIn" v-model="form.email" label="E-Mail" type="email" required/>
+      <InputTemplate v-show="notLoggedIn" v-model="form.email" label="E-Mail" required type="email"/>
       <InputTemplate v-model="form.subject" label="Betreff" required/>
-      <InputTemplate v-model="form.content" label="Inhalt" type="textarea" required/>
+      <InputTemplate v-model="form.content" label="Inhalt" required type="textarea"/>
 
-      <p class="mt-4" v-show="form.email">Wir kontaktieren dich zu deiner Anfrage unter <span
+      <p v-show="form.email" class="mt-4">Wir kontaktieren dich zu deiner Anfrage unter <span
           class="text-primary">{{ form.email }}</span>.</p>
 
       <!-- button -->
-      <button class="primary-button w-full mt-4" :disabled="saving">
+      <button :disabled="saving" class="primary-button w-full mt-4">
         <span v-if="!saving">Abschicken</span>
         <Spinner v-else class="mx-auto"/>
       </button>

@@ -30,8 +30,8 @@
       Aufsichtsbehörde des Bundeslands Ihres Wohnsitzes oder an die für uns als verantwortliche Stelle zuständige
       Behörde.</p>
     <p>Eine Liste der Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden Sie unter: <a
-        href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank"
-        rel="nofollow noopener">https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>.
+        href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" rel="nofollow noopener"
+        target="_blank">https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>.
     </p>
     <p></p>
     <h2>Erfassung allgemeiner Informationen beim Besuch unserer Website</h2>
@@ -196,7 +196,7 @@
       den Datenschutz verantwortliche Person in unserer Organisation:</p>
     <p></p>
     <p><em>Die Datenschutzerklärung wurde mithilfe der activeMind AG erstellt, den Experten für <a
-        href="https://www.activemind.de/datenschutz/datenschutzbeauftragter/" target="_blank" rel="noopener">externe
+        href="https://www.activemind.de/datenschutz/datenschutzbeauftragter/" rel="noopener" target="_blank">externe
       Datenschutzbeauftragte</a> (Version #2020-09-30).</em></p>
 
   </Layout>
@@ -208,7 +208,7 @@ export default {
   },
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 h1 {
   @apply text-2xl font-bold text-text-gray mb-4;
 }

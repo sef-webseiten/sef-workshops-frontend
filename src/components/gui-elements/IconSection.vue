@@ -1,7 +1,7 @@
 <template>
   <div class="w-full text-center">
     <div class="block mx-auto bg-gray-50 flex justify-center items-center rounded-full w-24 h-24 mb-5">
-      <fa :icon="icon" class="" :size="huge ? '4x' : '3x'" :class="iconColorClass"/>
+      <fa :class="iconColorClass" :icon="icon" :size="huge ? '4x' : '3x'" class=""/>
     </div>
     <h3 class="text-3xl mb-4 font-bold">
       {{ title }}

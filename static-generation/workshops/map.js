@@ -70,4 +70,9 @@ function mapWorkshops(workshops) {
     });
 }
 
-module.exports = { formatTemplate: workshopDateFormatTemplate, addDateTimeString, calculateAverageOfRating, mapWorkshops }
+module.exports = {
+    formatTemplate: workshopDateFormatTemplate,
+    addDateTimeString,
+    calculateAverageOfRating,
+    mapWorkshops
+}

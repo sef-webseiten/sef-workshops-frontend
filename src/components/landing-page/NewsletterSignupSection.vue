@@ -3,24 +3,24 @@
     <h2 class="h2 text-center mb-6">
       {{ title }}
     </h2>
-    <h3 class="h4 text-center mb-6" v-if="subTitle">
+    <h3 v-if="subTitle" class="h4 text-center mb-6">
       {{ subTitle }}
     </h3>
     <form class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6" @submit.prevent="submit">
 
       <!-- left side -->
       <div>
-        <input-template label="Vorname" required v-model="form.firstName" :color-name="colorName"/>
-        <input-template label="E-Mail-Adresse" required v-model="form.mail" :color-name="colorName"/>
-        <input-template label="Ich akzeptiere die Datenschutzerklärung" required type="checkbox"
-                        :color-name="colorName"/>
-        <g-link class="text-sm" :class="colorName === 'abi' ? 'text-abi' : 'text-primary'" to="/privacy">Klicke hier um
+        <input-template v-model="form.firstName" :color-name="colorName" label="Vorname" required/>
+        <input-template v-model="form.mail" :color-name="colorName" label="E-Mail-Adresse" required/>
+        <input-template :color-name="colorName" label="Ich akzeptiere die Datenschutzerklärung" required
+                        type="checkbox"/>
+        <g-link :class="colorName === 'abi' ? 'text-abi' : 'text-primary'" class="text-sm" to="/privacy">Klicke hier um
           die Datenschutzerklärung
           einzusehen.
         </g-link>
 
         <!-- button with loading indicator -->
-        <button class="w-full mt-4" :class="`${colorName}-button`" :disabled="state === 1 || state === 2">
+        <button :class="`${colorName}-button`" :disabled="state === 1 || state === 2" class="w-full mt-4">
           <span v-if="state === 0">Abschicken</span>
           <Spinner v-else-if="state === 1" class="mx-auto"/>
           <span v-else-if="state === 2">Erfolgreich abgeschickt</span>

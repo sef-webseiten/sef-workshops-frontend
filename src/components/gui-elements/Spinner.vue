@@ -1,5 +1,5 @@
 <template>
-  <div class="lds-dual-ring" :style="style"></div>
+  <div :style="style" class="lds-dual-ring"></div>
 </template>
 <script>
 export default {
@@ -16,7 +16,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .lds-dual-ring {
   display: block;
   width: 1.35rem;

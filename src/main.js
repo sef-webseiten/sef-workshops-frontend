@@ -29,5 +29,5 @@ export default function (Vue, { router, isClient, appOptions }) {
     appOptions.store = store;
 
     if (isClient)
-       window.onload = () => setTimeout(() => loadFrontendStuff({ store, router }), 1000)
+        window.onload = () => setTimeout(() => loadFrontendStuff({ store, router }), 1000)
 }

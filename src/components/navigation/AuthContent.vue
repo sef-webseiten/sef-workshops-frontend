@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="firebaseui"></div>
-    <p class="text-black p-1" v-if="badInitialized">Seite bitte neuladen, es ist ein Fehler aufgetreten</p>
+    <p v-if="badInitialized" class="text-black p-1">Seite bitte neuladen, es ist ein Fehler aufgetreten</p>
   </div>
 </template>
 <script>

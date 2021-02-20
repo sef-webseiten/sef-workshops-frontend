@@ -1,7 +1,8 @@
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
     faAngleDoubleLeft,
-    faAngleDoubleRight, faBookOpen,
+    faAngleDoubleRight,
+    faBookOpen,
     faCalendarDay,
     faChevronDown,
     faClock,
@@ -18,9 +19,7 @@ import {
     faUserFriends,
     faUsers
 } from "@fortawesome/free-solid-svg-icons";
-import {
-    faInstagram
-} from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
