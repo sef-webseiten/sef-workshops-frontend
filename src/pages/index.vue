@@ -8,25 +8,32 @@
                  style="transform: rotateY(180deg)"/>
       </template>
     </full-width-section>
-
     <full-width-section class="md:-mt-6">
 
-      <!-- header card -->
-      <div class="md:w-1/2 h-full p-4 md:p-8 lg:p-10 mb-2 md:mt-72 shadow-2xl rounded-sm bg-white">
-        <h1 class="h0 mb-6">
-          <span class="font-medium leading-snug">Live-Kurse, Seminare und Workshops...</span>
-        </h1>
-        <h2 class="h2">
+      <div class="flex flex-col md:flex-row justify-center items-center md:mt-72 ">
+        <!-- header card -->
+        <div class="md:w-1/2 h-full p-4 md:p-8 lg:p-10 mb-2 shadow-2xl rounded-sm bg-white">
+          <h1 class="h0 mb-6">
+            <span class="font-medium leading-snug">Live-Kurse, Seminare und Workshops...</span>
+          </h1>
+          <h2 class="h2">
           <span class="font-medium"><fa icon="angle-double-right" size="sm" class="mr-4"/>
             <span class="relative z-10">Alles an einem Ort<span
                 class="block bg-light bg-opacity-20 absolute bottom-0 left-0 -mx-1 h-4 -z-10"
                 style="width: calc(100% + .5rem);"/></span>
           </span>
-        </h2>
-        <button class="mx-auto md:mx-0 block primary-button mt-8">
-          <span class="px-8" @click="scrollTo('kurse-finden')">Kurs finden</span>
-        </button>
+          </h2>
+          <button class="mx-auto md:mx-0 block primary-button mt-8">
+            <span class="px-8" @click="scrollTo('kurse-finden')">Kurs finden</span>
+          </button>
+        </div>
+
+        <!-- abi ad -->
+        <g-link to="/abi" class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4">
+          <g-image src="~/assets/img/abi/badge.png" width="400" class="mx-auto"/>
+        </g-link>
       </div>
+
 
       <!-- deskop header image -->
       <template v-slot:fullwidth>
@@ -37,7 +44,7 @@
 
     <full-width-section class="text-center bg-primary-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
-        <TrainerImage />
+        <TrainerImage class="mb-10 md:mb-0" />
 
         <div class="flex flex-col justify-center">
           <p class="h1">Zu <span class="text-primary">neuen Skills</span> mit</p>

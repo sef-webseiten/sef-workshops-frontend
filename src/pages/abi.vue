@@ -39,7 +39,7 @@
 
     <full-width-section class="text-center bg-abi-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
-        <TrainerImage/>
+        <TrainerImage class="mb-10 md:mb-0"/>
 
         <div class="flex flex-col justify-center">
           <p class="h1">Mit unseren <span class="text-abi">ausgewählten</span></p>
