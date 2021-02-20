@@ -27,7 +27,8 @@
     <full-width-section class="text-center bg-light-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
         <div>
-          <g-image src="~/assets/img/abi/frau.jpg" width="800" class=" h-96 w-96 ml-auto rounded-full shadow-2xl"
+          <g-image src="~/assets/img/abi/frau.jpg" width="800"
+                   class="w-full h-auto md:h-96 md:w-96 mb-10 ml-auto rounded-full shadow-2xl"
                    draggable="false"/>
         </div>
 
@@ -88,6 +89,7 @@
       </p>
     </newsletter-signup-section>
 
+    <FloatingInstagram />
   </Layout>
 </template>
 <script>
@@ -96,9 +98,10 @@ import IconSection from "../components/gui-elements/IconSection";
 import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 import { scrollTo } from "../plugins/scroll-to";
+import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
 
 export default {
-  components: { NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
+  components: { FloatingInstagram, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
   metaInfo: {
     title: "Live-Kurse, Seminare und Workshops an einem Ort",
   },

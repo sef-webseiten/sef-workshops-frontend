@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "gridsome-plugin-tailwindcss": "^4.1.0",
     "node-sass": "^4.14.1",

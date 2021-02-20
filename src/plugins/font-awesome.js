@@ -18,8 +18,11 @@ import {
     faUserFriends,
     faUsers
 } from "@fortawesome/free-solid-svg-icons";
+import {
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 export function setupFontAwesome() {
     config.autoAddCss = false;
-    library.add(faPlus, faMinus, faEllipsisH, faFire, faUserFriends, faFilter, faSearch, faBookOpen, faUsers, faCalendarDay, faUserClock, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar, faChevronDown);
+    library.add(faPlus, faMinus, faEllipsisH, faFire, faInstagram, faUserFriends, faFilter, faSearch, faBookOpen, faUsers, faCalendarDay, faUserClock, faTags, faClock, faMapMarkerAlt, faAngleDoubleRight, faAngleDoubleLeft, faStar, faChevronDown);
 }

@@ -34,7 +34,7 @@
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
 
         <div>
-          <g-image src="~/assets/img/abi/frau.jpg" width="800" class=" h-96 w-96 ml-auto rounded-full shadow-2xl"
+          <g-image src="~/assets/img/abi/frau.jpg" width="800" class="w-full h-auto md:h-96 md:w-96 mb-10 ml-auto rounded-full shadow-2xl"
                    draggable="false"/>
         </div>
 
@@ -106,6 +106,7 @@
       </div>
     </div>
 
+    <FloatingInstagram />
   </Layout>
 </template>
 <script>
@@ -114,9 +115,10 @@ import IconSection from "../components/gui-elements/IconSection";
 import WorkshopCard from "../components/workshop/WorkshopCard";
 import NewsletterSignupSection from "../components/landing-page/NewsletterSignupSection";
 import NumberParagraph from "../components/gui-elements/NumberParagraph";
+import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
 
 export default {
-  components: { NumberParagraph, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard },
+  components: { NumberParagraph, NewsletterSignupSection, IconSection, FullWidthSection, WorkshopCard, FloatingInstagram },
   data() {
     return {
       lehrerSteps: ["Bewerben", "Gespräch", "Vorbereitung"]
