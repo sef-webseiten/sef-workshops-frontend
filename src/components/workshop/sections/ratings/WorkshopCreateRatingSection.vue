@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="submit" v-if="visible">
 
     <div v-show="state !== 2">
       <h3 class="h4 mb-6">Bewerte den Kurs</h3>
@@ -47,7 +47,8 @@
       </div>
 
       <input-template label="Deine Meinung ist gefragt. Wirklich!" type="textarea" v-model="form.text"/>
-      <input-template :label="`Was könnte ${workshop.organizer.firstName} verbessern?`" type="textarea" v-model="form.improveable"/>
+      <input-template :label="`Was könnte ${workshop.organizer.firstName} verbessern?`" type="textarea"
+                      v-model="form.improveable"/>
     </div>
 
     <!-- button with loading indicator -->
@@ -116,10 +117,45 @@ export default {
         rating: this.form
       }).then(({ addRating: rating }) => {
         self.state = 2;
-        self.workshop.ratings.push(rating)
+        self.workshop.ratings.push({
+          ...rating,
+          author: this.$store.state.authentication.user
+        })
         setTimeout(() => self.$emit('finish', rating), 1000);
       }).catch(() => self.state = 3);
 
+    }
+  },
+  computed: {
+    workshopOrder() {
+      const self = this;
+
+      for (const order of this.$store.state.orders.orders) {
+        if (order.status === 'PAYED' && order.workshop._id.localeCompare(self.workshop._id) === 0)
+          return order;
+      }
+
+      return null;
+    },
+    bookingStarted() {
+      if (!this.workshopOrder)
+        return null;
+
+      return this.workshopOrder.event.dates[0].startTime < Date.now()
+    },
+    notRatedYet() {
+      if (!this.workshopOrder)
+        return true;
+
+      for (const rating in this.workshop.ratings) {
+        if (rating.author._id === this.$store.state.authentication.firebaseUser?.id)
+          return false;
+      }
+
+      return true;
+    },
+    visible() {
+      return !!this.bookingStarted && this.notRatedYet;
     }
   },
   components: { RatingSection, SliderInput, InputTemplate, Spinner }

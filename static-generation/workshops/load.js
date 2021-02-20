@@ -10,6 +10,7 @@ const workshopsQuery = gql`
             subTitle
             description
             organizer {
+                _id
                 firstName
                 profilePicture
                 occupation
