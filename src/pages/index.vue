@@ -35,7 +35,7 @@
       </template>
     </full-width-section>
 
-    <full-width-section class="text-center bg-light-background">
+    <full-width-section class="text-center bg-primary-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
         <TrainerImage />
 
@@ -48,10 +48,10 @@
       </div>
     </full-width-section>
 
-    <div id="kurse-finden" class="pt-16">
+    <div id="kurse-finden" class="py-16">
       <h2 class="h2 text-center mb-6">Kurse finden</h2>
       <p class="h4 text-center mb-10">Mach dir einen Eindruck von der Plattform</p>
-      <div class="max-w-5xl mx-auto block grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <div class="max-w-5xl mx-auto block grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <WorkshopCard
             v-for="workshop in workshops.slice(0,3)"
             :key="workshop._id"
@@ -61,8 +61,8 @@
     </div>
 
     <!-- main usps -->
-    <full-width-section class="bg-light-background mb-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
+    <full-width-section class="bg-primary-background">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-20 my-10">
 
         <icon-section :icon="['fas', 'star']" title="Breite Auswahl" class="text-text-gray" icon-color-class="text-primary">
           Live-Kurse zu allen Themen und Interessen an einem Ort. Mit der bequemen Suche genau das richtige
@@ -82,7 +82,7 @@
       </div>
     </full-width-section>
 
-    <newsletter-signup-section class="mb-20" title="Dich interessiert unser Fortschritt?"
+    <newsletter-signup-section class="my-16" title="Dich interessiert unser Fortschritt?"
                                sub-title="Melde dich bei unserem Newsletter an">
       <p class="mt-6">
         Aktuell befinden wir uns im Aufbau und arbeiten stetig an der optimalen Lösung, um dir die beste Lernerfahrung

@@ -37,7 +37,7 @@
       </div>
     </full-width-section>
 
-    <full-width-section class="mb-10 text-center bg-abi-background">
+    <full-width-section class="text-center bg-abi-background">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
         <TrainerImage/>
 
@@ -51,8 +51,8 @@
     </full-width-section>
 
     <!-- main usps -->
-    <full-width-section class="mb-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-20 mt-6 mb-6">
+    <full-width-section class="">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-20 my-10">
 
         <icon-section huge :icon="['fas', 'user-clock']" title="3 Tage" class="text-text-gray" icon-color-class="text-abi">
           In nur 3 Tagen alles Wichtige für dein Abitur in NRW wiederholen und üben.
@@ -82,14 +82,15 @@
       </newsletter-signup-section>
     </full-width-section>
 
-    <div class="my-10">
+    <div class="my-16">
       <h2 class="h2 text-center mb-8">Trainer werden</h2>
-      <div class="max-w-4xl mx-auto grid grid-cols-2 gap-6">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- left side with steps -->
         <div class="w-fit mx-auto">
           <number-paragraph v-for="(step, index) in lehrerSteps" :key="index" :number="index + 1"
-                            class="mb-4 text-xl mx-4">{{ step }}
+                            class="mb-4 text-xl mx-4" color-name="abi">
+            {{ step }}
           </number-paragraph>
         </div>
 
