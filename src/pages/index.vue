@@ -1,7 +1,17 @@
 <template>
   <Layout>
 
-    <full-width-section class="-mt-6">
+    <!-- mobile header image -->
+    <full-width-section class="-mt-6 md:hidden h-36">
+      <template v-slot:fullwidth>
+        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="object-cover w-full h-48"
+                 style="transform: rotateY(180deg)"/>
+      </template>
+    </full-width-section>
+
+    <full-width-section class="md:-mt-6">
+
+      <!-- header card -->
       <div class="md:w-1/2 h-full p-4 md:p-8 lg:p-10 mb-2 md:mt-72 shadow-2xl rounded-sm bg-white">
         <h1 class="h0 mb-6">
           <span class="font-medium leading-snug">Live-Kurse, Seminare und Workshops...</span>
@@ -18,8 +28,9 @@
         </button>
       </div>
 
+      <!-- deskop header image -->
       <template v-slot:fullwidth>
-        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="object-cover w-full h-full"
+        <g-image src="~/assets/img/pexels-fauxels-3182759.jpg" width="1920" class="hidden md:block object-cover w-full h-full"
                  style="transform: rotateY(180deg)"/>
       </template>
     </full-width-section>
