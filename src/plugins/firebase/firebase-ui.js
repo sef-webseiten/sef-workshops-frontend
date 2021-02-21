@@ -7,9 +7,9 @@ export const uiConfig = {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         // firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
-
+    signInFlow: 'popup',
     tosUrl: '/agb',
-    privacyPolicyUrl: '/privacy'
+    privacyPolicyUrl: '/privacy',
 };
 
 export const ui = new firebaseui.auth.AuthUI(auth);

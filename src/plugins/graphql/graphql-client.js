@@ -9,8 +9,8 @@ export function refreshToken(token) {
     client.setHeader("Authorization", `Bearer ${token}`)
 }
 
-export async function updateUserData(user) {
-    await client.request(gql`
+export async function updateUserData(user, store) {
+    const {updateUserData: newUser} = await client.request(gql`
         mutation ($firstName: String, $lastName: String, $occupation: String, $birthday: Date, $organizer: Boolean) {
             updateUserData (
                 user: {
@@ -20,9 +20,17 @@ export async function updateUserData(user) {
                     birthday: $birthday
                     organizer: $organizer
                 }
-            ) { firstName }
+            ) { _id
+                firstName
+                lastName
+                organizer
+                occupation
+                birthday
+                profilePicture }
         }
     `, user);
+
+    store.commit("setUserDetails", newUser);
 }
 
 export async function loadWorkshops(store) {
@@ -61,6 +69,7 @@ export async function loadInitialData(store) {
                         startTime
                         endTime
                     }
+                    publicLocation
                     privateLocation
                 }
                 timestamp

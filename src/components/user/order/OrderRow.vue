@@ -21,7 +21,7 @@
         <!-- location -->
         <div>
           <p class="font-semibold">Wo? </p>
-          {{ order.event.privateLocation }}
+          {{ order.event.privateLocation || order.event.publicLocation }}
         </div>
 
       </div>

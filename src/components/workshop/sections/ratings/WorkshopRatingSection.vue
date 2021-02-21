@@ -19,7 +19,7 @@
       <!-- put user and stars next to each other on desktop -->
       <div :class="{'mb-6' : rating.text}" class="md:flex justify-between items-center">
         <div class="flex flex-row items-center justify-start mb-6 md:mb-0">
-          <img :src="rating.author.profilePicture" alt="Profilbild" class="h-16 w-16 mr-6 rounded-full"/>
+          <img :src="rating.author.profilePicture || '/assets/img/user.png'" alt="Profilbild" class="h-16 w-16 mr-6 rounded-full"/>
           <p class="font-bold">{{ rating.author.firstName }}</p>
         </div>
 

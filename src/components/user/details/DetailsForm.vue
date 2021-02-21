@@ -13,11 +13,18 @@
     <!-- birthday -->
     <InputTemplate v-model="user.birthday" label="Geburtstag" required type="date"/>
 
-    <p v-if="!user.organizer" class="mt-4">Du bist kein angemeldeter Kursleiter.
-      <button class="text-primary" @click="$root.$emit('organizerPopup')">Klicke hier zum aktivieren.</button>
+    <p v-if="!user.organizer" class="mt-4">
+      Du bist kein angemeldeter Kursleiter.
+      <span class="text-primary" v-if="!allFieldsFilled">
+        Fülle alle Felder aus, um dich als Kursleiter zu registrieren.
+      </span>
+      <button v-if="allFieldsFilled" class="text-primary" @click.prevent="$root.$emit('organizerPopup')">Klicke hier zum aktivieren.</button>
     </p>
     <p v-else class="mt-4">
       Du bist bei uns als Kursleiter angemeldet.
+      <span v-if="JSON.stringify(user) !== JSON.stringify($store.state.authentication.user)" class="text-primary">
+        Du musst nur noch speichern.
+      </span>
     </p>
 
     <OrganizerPopup v-if="user && !user.organizer" @organizer="user.organizer = true"/>
@@ -45,10 +52,15 @@ export default {
       saving: false
     }
   },
+  computed: {
+    allFieldsFilled() {
+      return this.user.firstName && this.user.lastName && this.user.occupation && this.user.birthday;
+    }
+  },
   methods: {
     async save() {
       this.saving = true;
-      await updateUserData(this.user);
+      await updateUserData(this.user, this.$store);
       this.$store.commit('setUserDetails', this.user);
       this.saving = false;
     }
