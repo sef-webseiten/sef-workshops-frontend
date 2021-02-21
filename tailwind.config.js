@@ -56,9 +56,10 @@ module.exports = {
     variants: {
         extend: {
             margin: ["last"],
-            backgroundColor: ["checked", 'active', 'disabled']
+            backgroundColor: ["checked", 'active', 'disabled'],
+            cursor: ["disabled"],
+            textDecoration: ["disabled"]
         },
-        cursor: ['responsive', 'disabled'],
         borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
     },
     purge: [

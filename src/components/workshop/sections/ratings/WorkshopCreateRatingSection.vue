@@ -148,7 +148,7 @@ export default {
         return true;
 
       for (const rating in this.workshop.ratings) {
-        if (rating.author._id === this.$store.state.authentication.firebaseUser?.id)
+        if (rating.author?._id === this.$store.state.authentication.firebaseUser?.id)
           return false;
       }
 

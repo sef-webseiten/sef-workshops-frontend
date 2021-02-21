@@ -57,24 +57,34 @@
         </div>
       </div>
 
-      <!-- ToDo: Configure vue-markdown correctly -->
+      <!-- ToDo: enable and configure vue-markdown correctly -->
+
+      <!-- takeaway -->
+      <div class="box mt-8 w-full p-4">
+        <h2 class="text-lg mb-4">Das nimmst du mit</h2>
+        <span class="text-justify">{{ workshop.takeaway }}</span>
+        <!--vue-markdown :source="" class="text-justify"/-->
+      </div>
 
       <!-- description -->
       <div class="box mt-8 w-full p-4">
         <h2 class="text-lg mb-4">Beschreibung</h2>
-        <vue-markdown :source="workshop.description" class="text-justify"/>
+        <span class="text-justify">{{ workshop.description }}</span>
+        <!--vue-markdown :source="" class="text-justify"/-->
       </div>
 
       <!-- requirements -->
       <div v-if="workshop.requirements" class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Vorraussetzungen</h2>
-        <vue-markdown :source="workshop.requirements" class="text-justify"/>
+        <h2 class="text-lg mb-4">Voraussetzungen</h2>
+        <span class="text-justify">{{ workshop.requirements }}</span>
+        <!--vue-markdown :source="" class="text-justify"/-->
       </div>
 
-      <!-- material -->
-      <div v-if="workshop.material" class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Material</h2>
-        <vue-markdown :source="workshop.material" class="text-justify"/>
+      <!-- content -->
+      <div v-if="workshop.content" class="box mt-8 w-full p-4">
+        <h2 class="text-lg mb-4">Inhalte</h2>
+        <span class="text-justify">{{ workshop.content }}</span>
+        <!--vue-markdown :source="" class="text-justify"/-->
       </div>
 
       <h2 class="h3 my-8">Veranstaltungen</h2>
@@ -83,7 +93,7 @@
     <!-- events -->
     <div
         v-for="(event, id) in workshop.events"
-        :key="id"
+        v-show="event.visibility === 'VISIBLE'" :key="id"
         class="my-8 mx-4 md:mx-6 rounded shadow-xl flex flex-row"
     >
       <div
@@ -91,7 +101,7 @@
       >
         <div class="box p-2">
           <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
-          5/{{ event.maxParticipants }}
+          {{ event.currentParticipants }}/{{ event.maxParticipants }}
         </div>
 
         <div class="box p-2">
@@ -112,22 +122,27 @@
               <span
                   v-for="date in event.dates"
                   :key="date.startTime"
-                  class="block"
-              >{{ date.timeString }}</span
-              >
+                  class="block">
+                {{ date.timeString }}
+              </span>
+            <div>
+            </div>
           </div>
         </div>
       </div>
 
+
       <!-- cta -->
       <button
-          :disabled="!workshop.nextDate"
-          class="p-4 text-white bg-primary disabled:bg-light font-lg font-bold rounded-r w-1/5"
+          :disabled="!event.bookable"
+          class="p-4 text-white bg-primary disabled:bg-light disabled:cursor-not-allowed disabled:line-through font-lg font-bold rounded-r w-1/5"
           @click=" $root.$emit('openCheckoutProcess',{ workshop, event })">
-          <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline"
-                style="">Teilnehmen</span>
+          <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline">
+            Teilnehmen
+          </span>
       </button>
     </div>
+
 
     <WorkshopRatingSection :workshop="workshop"/>
 

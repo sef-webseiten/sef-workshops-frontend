@@ -8,7 +8,12 @@ const workshopsQuery = gql`
             _id
             title
             subTitle
+            
+            takeaway
             description
+            requirements
+            content
+            
             organizer {
                 _id
                 firstName
@@ -19,20 +24,21 @@ const workshopsQuery = gql`
             ratings {
                 text
                 improveable
-                author {firstName profilePicture}
+                author {_id firstName profilePicture}
                 organizerRating {friendly reliable knowledge patience rating}
                 workshopRating { recommendable content entertaining rating}
             }
-            material
-            requirements
+            
             categories
             thumbnail
             events {
                 _id
                 price
                 notes
+                visibility
                 publicLocation
                 maxParticipants
+                currentParticipants
                 dates {
                     startTime
                     endTime

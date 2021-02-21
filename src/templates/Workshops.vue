@@ -53,7 +53,8 @@ profilePicture
 }
 
 description
-material
+takeaway
+content
 requirements
 
 minPrice
@@ -63,7 +64,7 @@ averageRating
 ratings {
 text
 improveable
-author {firstName profilePicture}
+author {_id firstName profilePicture}
 organizerRating {friendly reliable knowledge patience rating}
 workshopRating { recommendable content entertaining rating}
 }
@@ -74,6 +75,7 @@ categories
 events {
 _id
 maxParticipants
+currentParticipants
 price
 publicLocation
 dates {

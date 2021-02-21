@@ -47,8 +47,12 @@ export async function loadInitialData(store) {
                 _id
                 status
                 price
+                participants
                 workshop {
                     _id
+                    organizer {
+                        firstName
+                    }
                     title
                     thumbnail
                 }

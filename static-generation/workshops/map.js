@@ -40,6 +40,9 @@ function mapWorkshops(workshops) {
         // add time strings
         workshop.events.forEach(event => {
             event.dates = event.dates.map(addDateTimeString);
+            event.price = event.price / 100;
+            event.visible = event.visibility === 'VISIBLE';
+            event.bookable = minValue(event.dates, "startTime") > Date.now() && event.maxParticipants > event.currentParticipants;
         })
 
         let notStartedEvents = workshop.events.filter(event => event.dates.every(date => date.startTime > Date.now()));
