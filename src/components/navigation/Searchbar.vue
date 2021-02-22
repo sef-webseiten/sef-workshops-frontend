@@ -38,8 +38,8 @@
       </label>
     </div>
 
-    <!-- desktop filter button -->
-    <button class="hidden lg:block ml-4 p-2 cursor-pointer hidden">
+    <!-- desktop filter button add lg:block -->
+    <button class="hidden  ml-4 p-2 cursor-pointer">
       <fa :icon="['fas', 'filter']" size="lg"/>
     </button>
 
