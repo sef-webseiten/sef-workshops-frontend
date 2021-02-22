@@ -29,7 +29,7 @@
 export default {
   data() {
     return {
-      id: Math.random()
+      id: Math.round(Math.random() * 10000)
     }
   },
   computed: {
