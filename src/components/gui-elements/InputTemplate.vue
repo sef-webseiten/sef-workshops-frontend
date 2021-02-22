@@ -3,7 +3,8 @@
        class="relative border-b-2 mt-8 mb-2">
 
     <!-- input -->
-    <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :class="colorName" :name="label" :required="required"
+    <input v-if="type !== 'textarea' && type !== 'checkbox'" :id="id" :class="colorName" :name="label"
+           :required="required"
            :type="type" :value="value"
            class="block w-full appearance-none focus:outline-none bg-transparent" placeholder=" "
            @input="$emit('input', $event.target.value)"/>
@@ -26,10 +27,14 @@
   </div>
 </template>
 <script>
+function generateRandomNumber() {
+  return Math.round(Math.random() * 10000000)
+}
+
 export default {
   data() {
     return {
-      id: Math.round(Math.random() * 10000)
+      id: generateRandomNumber()
     }
   },
   computed: {
