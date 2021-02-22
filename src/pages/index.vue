@@ -5,7 +5,7 @@
     <full-width-section class="-mt-6 md:hidden h-36">
       <template v-slot:fullwidth>
         <g-image class="object-cover w-full h-48" src="~/assets/img/pexels-fauxels-3182759.jpg" style="transform: rotateY(180deg)"
-                 width="1920"/>
+                 width="1920" alt="Header Image"/>
       </template>
     </full-width-section>
     <full-width-section class="md:-mt-6">
@@ -30,7 +30,7 @@
 
         <!-- abi ad -->
         <g-link class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4" to="/abi">
-          <g-image class="mx-auto" src="~/assets/img/abi/badge.png" width="400"/>
+          <g-image class="mx-auto" src="~/assets/img/abi/badge.png" width="400" alt="Abikurs Aktion"/>
         </g-link>
       </div>
 

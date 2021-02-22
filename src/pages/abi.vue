@@ -20,14 +20,14 @@
 
         <!-- torn sheet image -->
         <g-image class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false" height="400"
-                 src="~/assets/img/kante.png"/>
-        <g-image class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false" height="400"
+                 src="~/assets/img/kante.png" alt="Zerrissenes Blatt"/>
+        <g-image class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false" height="400" alt="Zerrissenes Blatt"
                  src="~/assets/img/kante-gedreht.png"/>
 
         <!-- header image -->
         <div class="relative w-full md:w-1/2 md:h-full">
           <g-image class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden" draggable="false"
-                   src="~/assets/img/abi/header.jpg"
+                   src="~/assets/img/abi/header.jpg" alt="Headerbild"
                    style="transform: rotateY(180deg)"
                    width="960"/>
 

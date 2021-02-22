@@ -39,7 +39,7 @@
     </div>
 
     <!-- desktop filter button -->
-    <button class="hidden lg:block ml-4 p-2 cursor-pointer">
+    <button class="hidden lg:block ml-4 p-2 cursor-pointer hidden">
       <fa :icon="['fas', 'filter']" size="lg"/>
     </button>
 
