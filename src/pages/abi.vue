@@ -14,7 +14,7 @@
             </h1>
 
             <p class="text-2xl md:text-4xl font-semibold">Einfacher geht's nicht. </p>
-            <button class="abi-button w-fit mt-8 text-xl"><span class="px-6">Kurs finden</span></button>
+            <button class="abi-button w-fit mt-8 text-xl" @click="scrollTo('newsletter')"><span class="px-6">Platz sichern</span></button>
           </div>
         </div>
 
@@ -76,7 +76,7 @@
     </full-width-section>
 
     <!-- newsletter signup section -->
-    <full-width-section class="bg-abi-background">
+    <full-width-section class="bg-abi-background" id="newsletter">
       <newsletter-signup-section class="my-10" color-name="abi"
                                  title="Die Plätze sind begrenzt - bleib auf dem Laufenden ">
         <p class="mt-6">
@@ -129,6 +129,7 @@ import NewsletterSignupSection from "../components/landing-page/NewsletterSignup
 import NumberParagraph from "../components/gui-elements/NumberParagraph";
 import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
 import TrainerImage from "../components/landing-page/TrainerImage";
+import { scrollTo } from "../plugins/scroll-to";
 
 export default {
   components: {
@@ -142,6 +143,7 @@ export default {
   },
   data() {
     return {
+      scrollTo,
       lehrerSteps: ["Bewerben", "Gespräch", "Vorbereitung"]
     }
   },
