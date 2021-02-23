@@ -13,9 +13,13 @@
             draggable="false"
         />
 
-        <div class="p-4 pb-0">
+        <div class="p-4 pt-2 pb-0">
+
+          <span class="text-xs text-gray-400">{{ workshop.organizer.firstName }} {{ workshop.organizer.lastName }}</span>
+
           <!-- title -->
           <h2 class="text-base font-medium mb-4">{{ workshop.title }}</h2>
+
 
           <!-- subtitle -->
           <p
@@ -24,6 +28,7 @@
           >
             {{ workshop.subTitle }}
           </p>
+
         </div>
       </div>
 

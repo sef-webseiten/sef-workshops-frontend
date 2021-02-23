@@ -17,6 +17,7 @@ const workshopsQuery = gql`
             organizer {
                 _id
                 firstName
+                lastName
                 profilePicture
                 occupation
                 birthday

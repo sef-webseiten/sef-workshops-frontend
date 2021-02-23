@@ -142,6 +142,10 @@ title
 subTitle
 _id
 thumbnail
+organizer {
+firstName
+lastName
+ }
 path
 minPrice
 nextDate
