@@ -65,6 +65,7 @@ export async function loadInitialData(store) {
                     thumbnail
                 }
                 event {
+                    _id
                     dates {
                         startTime
                         endTime

@@ -33,7 +33,7 @@
       </div>
 
       <div
-          class="p-4 pt-3 z-20 bg-gray-50 text-center rounded-b-2xl grid grid-cols-2 gap-2 icons-red"
+          class="p-4 pt-3 z-20 bg-gray-50 text-center rounded-b-2xl grid grid-cols-2 gap-2 icons-primary-light"
       >
         <!-- stars -->
         <div>
@@ -109,10 +109,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.icons-red svg {
-  @apply text-light;
-}
-
 .icons-gray svg {
   @apply text-gray-200;
 }

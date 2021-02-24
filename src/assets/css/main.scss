@@ -13,3 +13,11 @@
 .page-style-card {
   @apply md:mt-8 mb-12 mx-auto lg:w-3/4 shadow-2xl lg:rounded;
 }
+
+.icons-primary-light svg {
+  @apply text-light;
+}
+
+.icons-gray svg {
+  @apply text-gray-200;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative page-style-card icons-red pb-6">
+  <div class="relative page-style-card icons-primary-light pb-6">
     <WorkshopImageLarge :workshop="workshop"/>
 
     <div class="p-6 md:p-10 pb-0 md:pb-0">
@@ -91,58 +91,8 @@
     </div>
 
     <!-- events -->
-    <div
-        v-for="(event, id) in workshop.events"
-        v-show="event.visibility === 'VISIBLE'" :key="id"
-        class="my-8 mx-4 md:mx-6 rounded shadow-xl flex flex-row"
-    >
-      <div
-          class="p-4 grid grid-cols-1 md:grid-cols-3 gap-y-3 text-lg text-center flex-grow"
-      >
-        <div class="box p-2">
-          <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
-          {{ event.currentParticipants }}/{{ event.maxParticipants }}
-        </div>
-
-        <div class="box p-2">
-          <fa :icon="['fas', 'map-marker-alt']" class="mr-2" size="lg"/>
-          {{ event.publicLocation }}
-        </div>
-
-        <!-- ToDo: format price like XX,YY EUROP -->
-        <div class="box p-2">
-          <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
-          {{ event.price }} EURO
-        </div>
-
-        <!-- dates -->
-        <div class="box flex flex-row justify-center md:col-span-3">
-          <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
-          <div class="p-2">
-              <span
-                  v-for="date in event.dates"
-                  :key="date.startTime"
-                  class="block">
-                {{ date.timeString }}
-              </span>
-            <div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- cta -->
-      <button
-          :disabled="!event.bookable"
-          class="p-4 text-white bg-primary disabled:bg-light disabled:cursor-not-allowed disabled:line-through font-lg font-bold rounded-r w-1/5"
-          @click=" $root.$emit('openCheckoutProcess',{ workshop, event })">
-          <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline">
-            Teilnehmen
-          </span>
-      </button>
-    </div>
-
+    <WorkshopEventsSection v-for="event in visibleEvents" :key="event._id" :event="event" :workshop="workshop"/>
+    <p v-if="visibleEvents.length === 0" class="mx-10">Es gibt zu diesem Kurs aktuell leider keine geplanten Veranstaltungen. </p>
 
     <WorkshopRatingSection :workshop="workshop"/>
 
@@ -156,10 +106,12 @@ import dayjs from "dayjs";
 import Stars from "../../gui-elements/Stars";
 import PaymentButtons from "../../PaymentButtons";
 import WorkshopRatingSection from "../sections/ratings/WorkshopRatingSection";
+import WorkshopEventsSection from "../sections/events/WorkshopEventsSection";
 
 export default {
   props: ["workshop"],
   components: {
+    WorkshopEventsSection,
     WorkshopRatingSection,
     Stars,
     WorkshopImageLarge,
@@ -170,18 +122,16 @@ export default {
     nextDate() {
       return dayjs(this.workshop.nextDate).format("DD.MM.YYYY");
     },
+    visibleEvents() {
+      const self = this;
+      return this.workshop.events.filter(event => {
+        const exists = self.$store.state.orders.orders.filter(o => o.event._id === event._id).length > 0;
+        return event.visible && event.bookable || exists
+      });
+    },
     age() {
       return dayjs().diff(dayjs(this.workshop.organizer.birthday), "year");
     }
   },
 };
 </script>
-<style lang="scss" scoped>
-.icons-red svg {
-  @apply text-light;
-}
-
-.icons-gray svg {
-  @apply text-gray-200;
-}
-</style>

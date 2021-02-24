@@ -50,12 +50,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.icons-primary svg {
-  @apply text-light;
-}
-
-.icons-gray svg {
-  @apply text-gray-200;
-}
-</style>
