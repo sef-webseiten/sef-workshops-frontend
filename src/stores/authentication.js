@@ -1,4 +1,4 @@
-import { loadInitialData, refreshToken } from "../plugins/graphql/graphql-client";
+import { loadInitialData, refreshToken, updateUserData } from "../plugins/graphql/graphql-client";
 
 export const authenticationStore = {
     state: {
@@ -27,7 +27,12 @@ export const authenticationStore = {
                     let token = await user.getIdToken();
 
                     refreshToken(token);
-                    loadInitialData(store).then(() => store.commit("setInitialized", true));
+                    loadInitialData(store).then(() => {
+                        if (store.state.user.firstName.localeCompare("Kunde") === 0 && store.state.user.lastName.localeCompare("") === 0)
+                            updateUserData({ firstName: store.state.firebaseUser.displayName }, store);
+
+                        store.commit("setInitialized", true)
+                    });
                 });
             });
         }

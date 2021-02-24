@@ -61,7 +61,6 @@ export default {
     async save() {
       this.saving = true;
       await updateUserData(this.user, this.$store);
-      this.$store.commit('setUserDetails', this.user);
       this.saving = false;
     }
   }
