@@ -34,8 +34,6 @@
         {{ order.price / 100 }} EURO <br>
         <span class="font-semibold mt-2">Datum</span>
         {{ order.timestamp }} <br>
-        <span class="font-semibold mt-2">Teilnehmer</span>
-        {{ order.participants }} <br>
         <span class="font-semibold mt-2">Status</span>
         {{ statusCodes[order.status] }} <br>
         <span class="font-semibold mt-2">Buchungsnummer</span>

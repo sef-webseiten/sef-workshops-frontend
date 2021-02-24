@@ -11,28 +11,6 @@
           <fa :icon="['fas', 'chevron-down']" class="group-hover:bounce"/>
         </div>
 
-        <div class="between mb-4">
-          <p>Teilnehmer</p>
-          <div>
-
-            <!-- minus icon -->
-            <div v-if="step === 1" v-show="participants > 1" class="p-1 inline-block" @click="participants--">
-              <fa :icon="['fas', 'minus']"/>
-            </div>
-
-            <!-- number -->
-            <span class="mx-2 font-medium text-lg">
-            {{ participants }}
-          </span>
-
-            <!-- plus icon -->
-            <div v-if="step === 1" class="p-1 inline-block" @click="participants++">
-              <fa :icon="['fas', 'plus']"/>
-            </div>
-
-          </div>
-        </div>
-
         <!-- price -->
         <div class="between mb-4">
           <p>Gesamtbetrag </p>
@@ -91,7 +69,6 @@ export default {
     return {
       visible: false,
       step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown; 4 waiting for capture
-      participants: 1,
       workshop: null,
       event: null
     }
@@ -131,7 +108,7 @@ export default {
 
       this.$backend.request(
           mutation, {
-            participants: this.participants,
+            participants: 1,
             workshopID: this.workshop._id,
             eventID: this.event._id,
             affiliate: getAffiliateCode()
