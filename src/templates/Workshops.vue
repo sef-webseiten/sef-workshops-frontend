@@ -60,6 +60,7 @@ requirements
 minPrice
 nextDate
 averageRating
+nextDuration
 
 ratings {
 text

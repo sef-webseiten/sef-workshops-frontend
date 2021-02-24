@@ -35,9 +35,15 @@
         </div>
 
         <!-- first event date -->
-        <div class="mt-2 p-2 box w-fit inline-block">
+        <div class="mt-2 p-2 box w-fit inline-block mr-4">
           <fa :icon="['fas', 'calendar-day']" class="mr-1" size="lg"/>
           {{ nextDate.localeCompare("Invalid Date") !== 0 ? `ab ${nextDate}` : "kein Termin geplant" }}
+        </div>
+
+        <!-- first event date -->
+        <div class="mt-2 p-2 box w-fit inline-block">
+          <fa :icon="['fas', 'clock']" class="mr-1" size="lg"/>
+          {{ workshop.nextDuration }} Stunden
         </div>
 
       </div>
