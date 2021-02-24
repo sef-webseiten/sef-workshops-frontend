@@ -35,6 +35,11 @@
           </div>
         </div>
       </div>
+
+      <p class="box text-center md:col-span-3"
+        v-if="this.$store.state.orders.orders.filter(o => o.event._id === event._id).length > 0">
+        Du bist bei dieser Veranstaltung angemeldet.
+      </p>
     </div>
 
     <!-- cta -->
