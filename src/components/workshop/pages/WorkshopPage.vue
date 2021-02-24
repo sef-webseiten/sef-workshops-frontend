@@ -43,7 +43,7 @@
         <!-- first event date -->
         <div class="mt-2 p-2 box w-fit inline-block">
           <fa :icon="['fas', 'clock']" class="mr-1" size="lg"/>
-          {{ workshop.nextDuration }} Stunden
+          {{ workshop.nextDuration ? `${workshop.nextDuration} Stunden` : "-" }}
         </div>
 
       </div>
