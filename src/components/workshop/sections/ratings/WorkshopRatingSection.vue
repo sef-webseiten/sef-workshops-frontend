@@ -14,7 +14,7 @@
 
     <!-- individual ratings -->
     <div v-for="rating in workshop.ratings"
-         class="mx-4 md:mx-6 rounded shadow-xl p-6">
+         class="mx-4 md:mx-6 rounded shadow-xl p-6 mb-6 last:mb-0">
 
       <!-- put user and stars next to each other on desktop -->
       <div :class="{'mb-6' : rating.text}" class="md:flex justify-between items-center">
