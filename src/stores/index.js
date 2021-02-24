@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        initialized: true,
+        initialized: false,
         router: null
     },
     mutations: {

@@ -37,7 +37,9 @@
         <span class="font-semibold mt-2">Teilnehmer</span>
         {{ order.participants }} <br>
         <span class="font-semibold mt-2">Status</span>
-        {{ statusCodes[order.status] }}
+        {{ statusCodes[order.status] }} <br>
+        <span class="font-semibold mt-2">Buchungsnummer</span>
+        {{ order._id }}
       </div>
     </div>
 
