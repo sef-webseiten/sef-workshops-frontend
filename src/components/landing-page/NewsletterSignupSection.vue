@@ -65,6 +65,8 @@ export default {
 
       const self = this;
 
+      plausible("newsletter");
+
       fetch(process.env.GRIDSOME_BACKEND_NEWSLETTER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
