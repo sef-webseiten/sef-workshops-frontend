@@ -4,7 +4,7 @@
     <g-link v-show="firebaseUser" class="link-no-break" to="/account/orders">Buchungen</g-link>
     <g-link v-show="firebaseUser" class="link-no-break" to="/account/details">Mein Konto</g-link>
     <button v-show="firebaseUser" class="link-no-break" @click="signOut">Ausloggen</button>
-    <button class="link-no-break" @click="$root.$emit('openContactForm')">Kontakt aufnehmen</button>
+    <button class="link-no-break" @click="$root.$emit('openContactForm')">Support kontaktieren</button>
   </div>
 </template>
 <script>
