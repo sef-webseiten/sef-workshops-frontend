@@ -18,7 +18,6 @@
         {{ event.publicLocation }}
       </div>
 
-      <!-- ToDo: format price like XX,YY EUROP -->
       <div class="box p-2">
         <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
         {{ event.price }} EURO
