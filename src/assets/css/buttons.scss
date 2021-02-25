@@ -1,7 +1,11 @@
 .primary-button {
-  @apply px-2 py-2 text-white bg-primary disabled:cursor-default disabled:bg-light rounded-sm;
+  @apply p-2 text-white bg-primary disabled:cursor-default disabled:bg-light rounded-sm;
+}
+
+.primary-border-button {
+  @apply p-2 text-primary disabled:text-gray-400 disabled:cursor-default text-primary rounded-sm border border-primary;
 }
 
 .abi-button {
-  @apply px-2 py-2 text-white bg-abi disabled:cursor-default disabled:bg-abi rounded-sm;
+  @apply p-2 text-white bg-abi disabled:cursor-default disabled:bg-abi rounded-sm;
 }

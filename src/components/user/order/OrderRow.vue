@@ -7,7 +7,7 @@
         <!-- name and organizer -->
         <div class="mb-4">
           <span class="font-semibold">{{ order.workshop.title }}</span> bei
-          <span class="font-semibold">{{ order.workshop.organizer.firstName }}</span>
+          <span class="font-semibold">{{ order.workshop.organizer.firstName }} {{ order.workshop.organizer.lastName }}</span>
         </div>
 
         <!-- dates -->
@@ -41,15 +41,37 @@
       </div>
     </div>
 
-    <div>
-      <p class="text-center mb-2">Aktionen</p>
-      <button class="primary-button w-full"
+    <div class="text-center">
+      <p class="mb-2">Aktionen</p>
+
+      <!-- request refund -->
+      <button class="primary-border-button w-full"
               @click="$root.$emit('openContactForm', { subject: `Stornierung von Bestellung ${order._id}`})">
         Stornierung anfragen
       </button>
-      <g-link :to="`/w/${order.workshop._id}`" class="block text-center mt-2 primary-button w-full">
+
+      <!-- open workshop -->
+      <g-link :to="`/w/${order.workshop._id}`" class="block mt-2 primary-border-button w-full">
         Kurs öffnen
       </g-link>
+
+      <!-- contact on whatsapp -->
+      <a :href="order.workshop.organizer.contact.whatsapp" v-if="order.workshop.organizer.contact.whatsapp"
+         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="WhatsApp">
+        {{ order.workshop.organizer.firstName }} auf WhatsApp kontaktieren
+      </a>
+
+      <!-- contact on facebook messenger -->
+      <a :href="order.workshop.organizer.contact.messenger" v-if="order.workshop.organizer.contact.messenger"
+         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="Messenger">
+        {{ order.workshop.organizer.firstName }} beim Facebook Messenger kontaktieren
+      </a>
+
+      <!-- mailto button -->
+      <a :href="`mailto:${order.workshop.organizer.email}`"
+         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="E-Mail">
+        {{ order.workshop.organizer.firstName }} eine E-Mail schreiben
+      </a>
     </div>
   </div>
 </template>

@@ -58,7 +58,8 @@ module.exports = {
             margin: ["last"],
             backgroundColor: ["checked", 'active', 'disabled'],
             cursor: ["disabled"],
-            textDecoration: ["disabled"]
+            textDecoration: ["disabled"],
+            textColor: ["disabled"]
         },
         borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
     },

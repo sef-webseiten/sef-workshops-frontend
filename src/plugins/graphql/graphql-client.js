@@ -60,6 +60,12 @@ export async function loadInitialData(store) {
                     _id
                     organizer {
                         firstName
+                        lastName
+                        email
+                        contact {
+                            whatsapp
+                            messenger
+                        }
                     }
                     title
                     thumbnail
