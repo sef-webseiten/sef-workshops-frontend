@@ -6,10 +6,10 @@ export const searchStore = {
         setSearchTerm(state, searchTerm) {
             state.searchTerm = searchTerm;
 
-            /*if(searchTerm)
+            if(searchTerm)
                 this.state.router.push({ query: { s: searchTerm } })
             else
-                this.state.router.push("/kurse")*/
+                if(this.state.router.currentRoute.fullPath !== "/kurse") this.state.router.push("/kurse");
         }
     }
 }

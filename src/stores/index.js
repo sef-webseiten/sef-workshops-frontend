@@ -1,6 +1,6 @@
 import { ordersStore } from "./orders";
 import { authenticationStore } from "./authentication";
-import { searchStore } from "./serach";
+import { searchStore } from "./search";
 import { workshopsStore } from "./workshops";
 import Vuex from "vuex";
 import Vue from "vue";

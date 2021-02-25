@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <full-width-section class="-mt-6 mb-8 bg-gray-100">
+
+    </full-width-section>
     <h2 class="h2 mb-6 text-center">
       <span v-if="this.$store.state.search.searchTerm">Ergebnisse für die Suche <span
           class="italic text-primary">{{ this.$store.state.search.searchTerm }}</span></span>
@@ -21,9 +24,10 @@
 <script>
 import WorkshopCard from "../components/workshop/WorkshopCard";
 import GhostWorkshopCard from "../components/workshop/GhostWorkshopCard";
+import FullWidthSection from "../components/gui-elements/FullWidthSection";
 
 export default {
-  components: { GhostWorkshopCard, WorkshopCard },
+  components: { FullWidthSection, GhostWorkshopCard, WorkshopCard },
   metaInfo() {
     return {
       title: this.title,
@@ -38,11 +42,31 @@ export default {
     },
     searchResults() {
       return this.workshops.filter(workshop => {
-        return workshop.title.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
-            workshop.subTitle.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase()) ||
-            workshop.description.toLowerCase().includes(this.$store.state.search.searchTerm.toLowerCase())
+        if (workshop.categories.includes("Demo"))
+          return false;
+
+        let found = true, keywords = this.$store.state.search.searchTerm.toLowerCase().split(' ');
+
+        console.log(keywords)
+
+        for (const keyword of keywords) {
+          console.log(keyword, (workshop.title.toLowerCase().includes(keyword) ||
+              workshop.subTitle.toLowerCase().includes(keyword) ||
+              workshop.description.toLowerCase().includes(keyword)))
+          found &= (workshop.title.toLowerCase().includes(keyword) ||
+              workshop.subTitle.toLowerCase().includes(keyword) ||
+              workshop.description.toLowerCase().includes(keyword));
+
+          if(!found)
+            break;
+        }
+
+        return found;
       })
     }
+  },
+  mounted() {
+    this.$store.commit("setSearchTerm", this.$router.currentRoute.query?.s)
   }
 };
 </script>
