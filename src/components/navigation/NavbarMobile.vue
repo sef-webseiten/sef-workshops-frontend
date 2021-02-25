@@ -17,7 +17,7 @@
           class="w-66vw h-screen fixed top-0 left-0 shadow-2xl z-40 bg-white">
 
         <!-- orange section with username -->
-        <div class="bg-primary w-full h-29 p-6 pt-16 text-xl">
+        <div class="bg-primary w-full h-28 p-6 pt-16 text-xl">
           Hi{{ username ? ` ${username}` : "" }}!
         </div>
 
@@ -53,8 +53,8 @@ export default {
 <style lang="scss">
 @import "src/assets/css/main";
 
-.h-29 {
-  height: 7.25rem;
+.h-28 {
+  height: 7rem;
 }
 
 .w-66vw {
