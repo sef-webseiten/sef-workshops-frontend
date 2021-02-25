@@ -7,7 +7,10 @@
     >
       <div class="box p-2">
         <fa :icon="['fas', 'user-friends']" class="mr-2" size="lg"/>
-        {{ event.currentParticipants }}/{{ event.maxParticipants }}
+        <span class="mr-2">{{ event.maxParticipants }}</span>
+        <div class="inline-block w-4 h-4 rounded-full bg-green-400" v-if="utilization < 75"/>
+        <div class="inline-block w-4 h-4 rounded-full bg-yellow-400" v-else-if="utilization < 100"/>
+        <div class="inline-block w-4 h-4 rounded-full bg-red-400" v-else/>
       </div>
 
       <div class="box p-2">
@@ -55,6 +58,11 @@
 </template>
 <script>
 export default {
-  props: ["workshop", "event"]
+  props: ["workshop", "event"],
+  computed: {
+    utilization() {
+      return this.event.currentParticipants / this.event.maxParticipants * 100;
+    }
+  }
 }
 </script>
