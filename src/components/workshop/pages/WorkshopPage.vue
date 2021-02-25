@@ -23,8 +23,13 @@
 
         <!-- ratings -->
         <div class="mt-2 p-2 box w-fit inline-block mr-4">
-          <div>
+          <div v-if="!isNaN(workshop.averageRating)">
             <Stars :value="workshop.averageRating" class="border-box" size="lg"/>
+          </div>
+          <div v-else>
+            -
+            <fa :icon="['fas', 'star']" class="mx-1 icons-gray" size="lg"/>
+            -
           </div>
         </div>
 

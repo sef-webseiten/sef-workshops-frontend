@@ -42,18 +42,11 @@
           <span v-else class="ml-1">-</span>
         </div>
 
-        <!-- rating ToDo: Ratings -->
-        <div v-if="true">
-          <fa v-for="i in stars" :key="i" :icon="['fas', 'star']" class="mr-1"/>
-          <div class="icons-gray inline">
-            <fa
-                v-for="i in 5 - stars"
-                :key="i"
-                :icon="['fas', 'star']"
-                class="mr-1 icons-gray"
-            />
-          </div>
+        <!-- ratings -->
+        <div v-if="!isNaN(workshop.averageRating)">
+          <Stars class="mx-auto w-fit" :value="workshop.averageRating" />
         </div>
+        <!-- no ratings available -->
         <div v-else class="icons-gray">
           -
           <fa :icon="['fas', 'star']" class="mx-1 icons-gray"/>
@@ -70,7 +63,7 @@
         <!-- min price -->
         <div>
           <fa :icon="['fas', 'tags']" class="mr-2"/>
-          <span v-if="workshop.minPrice">ab {{ workshop.minPrice }},-</span>
+          <span v-if="workshop.minPrice">ab {{ Math.round(workshop.minPrice) == workshop.minPrice ? `${workshop.minPrice},-` : `${workshop.minPrice} EURO` }}</span>
           <span v-else>-</span>
         </div>
       </div>
@@ -80,10 +73,12 @@
 <script>
 import dayjs from "dayjs";
 import "dayjs/locale/de";
+import Stars from "../gui-elements/Stars";
 
 dayjs.locale("de");
 
 export default {
+  components: { Stars },
   props: {
     workshop: {
       type: Object,

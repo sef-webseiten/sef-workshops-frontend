@@ -3,8 +3,13 @@
     <div class="p-6 md:p-10">
       <h2 class="h3">
         Bewertungen
-        <span class="inline-block md:float-right text-xl">
-          <Stars :value="workshop.averageRating" size="lg"/>
+        <span class="inline-block float-right text-xl">
+          <Stars v-if="!isNaN(workshop.averageRating)" :value="workshop.averageRating" size="lg"/>
+          <span v-else>
+            -
+          <fa :icon="['fas', 'star']" class="mx-1 icons-gray" size="lg"/>
+          -
+          </span>
         </span>
       </h2>
     </div>
