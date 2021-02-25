@@ -54,17 +54,18 @@
       </div>
 
       <!-- organizer box -->
-      <div class="mt-8 flex box p-4">
+      <div class="mt-8 flex flex-row items-center box p-4">
         <img
             :src="workshop.organizer.profilePicture"
             alt="Profilbild"
             class="w-16 h-16 md:w-24 md:h-24 rounded-full inline-block"
         />
-        <div class="block ml-6 md:pt-6">
-            <span class="text-xl">
-              {{ workshop.organizer.firstName }}, {{ age }}</span
-            ><br/>
-          <span>{{ workshop.organizer.occupation }}</span>
+        <div class="block ml-6 h-fit">
+          <p class="text-xl mb-1">
+            {{ workshop.organizer.firstName }} {{ workshop.organizer.lastName }}, {{ age }}
+          </p>
+          <p>{{ workshop.organizer.occupation }}</p>
+          <p>E-Mail: {{ workshop.organizer.email }}</p>
         </div>
       </div>
 
@@ -103,7 +104,8 @@
 
     <!-- events -->
     <WorkshopEventsSection v-for="event in visibleEvents" :key="event._id" :event="event" :workshop="workshop"/>
-    <p v-if="visibleEvents.length === 0" class="mx-10">Es gibt zu diesem Kurs aktuell leider keine geplanten Veranstaltungen. </p>
+    <p v-if="visibleEvents.length === 0" class="mx-10">Es gibt zu diesem Kurs aktuell leider keine geplanten
+      Veranstaltungen. </p>
 
     <WorkshopRatingSection :workshop="workshop"/>
 

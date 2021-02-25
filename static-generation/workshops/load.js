@@ -16,6 +16,7 @@ const workshopsQuery = gql`
             
             organizer {
                 _id
+                email
                 firstName
                 lastName
                 profilePicture
