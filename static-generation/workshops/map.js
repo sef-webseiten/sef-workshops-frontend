@@ -32,6 +32,19 @@ function calculateAverageOfRating(rating) {
     return sum / 2;
 }
 
+function calcAbiDate(dates) {
+
+    const startTime = minValue(dates, "startTime"), endTime = Math.max.apply(Math, dates.map(date => date.endTime));
+
+    if (1616968800000 < startTime && endTime < 1617573600000)
+        return "o1";
+    else if (1617573600000 < startTime && endTime < 1618178400000)
+        return "o2";
+    else if (1618178400000 < startTime && endTime < 1618783200000)
+        return "d";
+    else return "all";
+}
+
 function mapWorkshops(workshops) {
     return workshops.map(workshop => {
 
@@ -40,6 +53,7 @@ function mapWorkshops(workshops) {
         // add time strings
         workshop.events.forEach(event => {
             event.dates = event.dates.map(addDateTimeString);
+            event.abiDate = calcAbiDate(event.dates)
             event.price = event.price / 100;
             event.visible = event.visibility === 'VISIBLE';
             event.bookable = minValue(event.dates, "startTime") > Date.now() && event.maxParticipants > event.currentParticipants;
