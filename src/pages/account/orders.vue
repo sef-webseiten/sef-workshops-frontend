@@ -4,7 +4,10 @@
 
     <order-row v-for="order in orders" :order="order"/>
     <Spinner v-if="!this.$store.state.initialized" :color="primary" class="mx-auto"/>
-    <p v-else-if="orders.length === 0">Du hast noch keine Buchungen. </p>
+    <div v-else-if="orders.length === 0">
+      <p >Du hast noch keine Buchungen. </p>
+      <g-link class="block primary-button w-full md:w-fit mt-4" to="/">Jetzt Kurs finden </g-link>
+    </div>
   </Layout>
 </template>
 <script>
