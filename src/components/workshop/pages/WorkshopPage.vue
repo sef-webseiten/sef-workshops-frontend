@@ -104,8 +104,7 @@
 
     <!-- events -->
     <WorkshopEventsSection v-for="event in visibleEvents" :key="event._id" :event="event" :workshop="workshop"/>
-    <p v-if="visibleEvents.length === 0" class="mx-10">Es gibt zu diesem Kurs aktuell leider keine geplanten
-      Veranstaltungen. </p>
+    <p v-if="visibleEvents.length === 0" class="mx-10">Keine geplanten Veranstaltungen. </p>
 
     <WorkshopRatingSection :workshop="workshop"/>
 
