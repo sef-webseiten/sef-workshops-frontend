@@ -4,12 +4,12 @@
     <!-- abi dropdown -->
     <full-width-section class="-mt-6 mb-8 bg-gray-100">
       <div>
-        <label for="dates" class="block h4 mb-4">Wann soll dein Kurs sein?</label>
+        <label for="dates" class="block h4 mb-4">Termin wählen</label>
         <select id="dates" class="rounded-sm border border-primary w-full p-1" name="dates" v-model="abiDate">
-          <option value="all">Bitte eine Option aussuchen</option>
-          <option value="o1">Anfang der Osterferien</option>
-          <option value="o2">Ende der Osterferien</option>
-          <option value="d">Woche nach den Osterferien</option>
+          <option value="all">Bitte eine Option auswählen</option>
+          <option value="o1">Anfang der Osterferien (29. - 31. März)</option>
+          <option value="o2">Ende der Osterferien (9. - 11. April)</option>
+          <option value="d">Woche nach den Osterferien (13. - 15. April)</option>
         </select>
       </div>
     </full-width-section>
