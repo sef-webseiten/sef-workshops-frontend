@@ -1,5 +1,5 @@
 <template>
-  <div class="font-display">
+  <div class="font-display" id="navbar">
 
     <!-- header -->
     <header class="bg-primary p-4 md:p-10 text-white md:flex flex-row justify-between items-center">

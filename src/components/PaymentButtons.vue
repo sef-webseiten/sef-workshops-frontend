@@ -19,17 +19,23 @@
 
         <!-- workshop name -->
         <div class="between mb-4">
-          <p>Workshop</p>
+          <p>Kurs</p>
           <p class="font-bold text-right">{{ workshop.title }}</p>
+        </div>
+
+        <!-- organizer name -->
+        <div class="between mb-4">
+          <p>Kursgeber</p>
+          <p class="text-right">{{ workshop.organizer.fullName }}</p>
         </div>
 
         <!-- date -->
         <div class="between-start mb-4">
           <p>Wann?</p>
-          <p><span v-for="(date, index) in event.dates" :key="index" class="block">{{ date.timeString }}</span></p>
+          <p><span v-for="(date, index) in event.dates" :key="index" class="block text-right">{{ date.timeString }}</span></p>
         </div>
 
-        <p v-if="!firebaseUser" class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup')">
+        <p v-if="!firebaseUser" class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup'); scrollTo('navbar'); visible = false;">
           Damit du den Kurs buchen kannst, musst du dich
           zuerst anmelden. Klicke dafür hier.
         </p>
@@ -40,7 +46,7 @@
             :disabled="[2,4].includes(step) || !firebaseUser"
             class="w-full bg-primary p-2 font-bold text-white active:bg-light disabled:bg-gray-400 disabled:cursor-default rounded-sm"
             @click="step++">
-          <span v-show="step === 1">Weiter</span>
+          <span v-show="step === 1">Kaufen</span>
           <Spinner v-show="[2,4].includes(step)" class="mx-auto"/>
         </button>
 
@@ -62,11 +68,13 @@ import Default from "../layouts/Default";
 import Spinner from "./gui-elements/Spinner";
 import { getAffiliateCode } from "../plugins/affiliate";
 import { authenticationStoreComputers } from "../stores/authentication";
+import { scrollTo } from "../plugins/scroll-to";
 
 export default {
   components: { Spinner, Default },
   data() {
     return {
+      scrollTo,
       visible: false,
       step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown; 4 waiting for capture
       workshop: null,

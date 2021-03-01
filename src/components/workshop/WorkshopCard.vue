@@ -15,7 +15,7 @@
 
         <div class="p-4 pt-2 pb-0">
 
-          <span class="text-xs text-gray-400">{{ workshop.organizer.firstName }} {{ workshop.organizer.lastName }}</span>
+          <span class="text-xs text-gray-400">{{ workshop.organizer.fullName }}</span>
 
           <!-- title -->
           <h2 class="text-base font-medium mb-4">{{ workshop.title }}</h2>

@@ -7,7 +7,7 @@
         <!-- name and organizer -->
         <div class="mb-4">
           <span class="font-semibold">{{ order.workshop.title }}</span> bei
-          <span class="font-semibold">{{ order.workshop.organizer.firstName }} {{ order.workshop.organizer.lastName }}</span>
+          <span class="font-semibold">{{ order.workshop.organizer.fullName }}</span>
         </div>
 
         <!-- dates -->

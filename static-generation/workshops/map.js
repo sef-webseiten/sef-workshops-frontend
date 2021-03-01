@@ -49,6 +49,7 @@ function mapWorkshops(workshops) {
     return workshops.map(workshop => {
 
         workshop.path = `/w/${workshop._id}`;
+        workshop.organizer.fullName = workshop.organizer.firstName + " " + workshop.organizer.lastName;
 
         // add time strings
         workshop.events.forEach(event => {

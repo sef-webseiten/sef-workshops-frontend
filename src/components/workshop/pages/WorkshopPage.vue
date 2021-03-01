@@ -62,7 +62,7 @@
         />
         <div class="block ml-6 h-fit">
           <p class="text-xl mb-1">
-            {{ workshop.organizer.firstName }} {{ workshop.organizer.lastName }}, {{ age }}
+            {{ workshop.organizer.fullname }}, {{ age }}
           </p>
           <p>{{ workshop.organizer.occupation }}</p>
           <p>E-Mail: {{ workshop.organizer.email }}</p>
