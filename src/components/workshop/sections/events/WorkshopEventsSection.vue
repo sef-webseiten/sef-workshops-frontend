@@ -46,11 +46,11 @@
 
     <!-- cta -->
     <button
-        :disabled="!event.bookable"
-        class="p-4 text-white bg-primary disabled:bg-light disabled:cursor-not-allowed disabled:line-through font-lg font-bold rounded-r w-1/5"
+        :disabled="!event.bookable || this.$store.state.orders.orders.filter(o => o.event._id === event._id).length > 0"
+        class="p-4 text-white bg-primary disabled:bg-gray-300 disabled:cursor-not-allowed font-lg font-bold rounded-r w-1/5"
         @click=" $root.$emit('openCheckoutProcess',{ workshop, event })">
           <span class="transform origin-bottom-right -translate-x-1/4 -rotate-90 block md:inline">
-            Teilnehmen
+            {{ this.$store.state.orders.orders.filter(o => o.event._id === event._id).length > 0 ? 'Angemeldet' : 'Teilnehmen' }}
           </span>
     </button>
   </div>
