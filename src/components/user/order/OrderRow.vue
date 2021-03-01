@@ -55,23 +55,31 @@
         Kurs öffnen
       </g-link>
 
-      <!-- contact on whatsapp -->
-      <a :href="order.workshop.organizer.contact.whatsapp" v-if="order.workshop.organizer.contact.whatsapp"
-         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="WhatsApp">
-        {{ order.workshop.organizer.firstName }} auf WhatsApp kontaktieren
-      </a>
+      <div :class="numOfColumns" class="grid gap-1 mt-2 font-semibold text-center text-sm md:text-base">
 
-      <!-- contact on facebook messenger -->
-      <a :href="order.workshop.organizer.contact.messenger" v-if="order.workshop.organizer.contact.messenger"
-         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="Messenger">
-        {{ order.workshop.organizer.firstName }} beim Facebook Messenger kontaktieren
-      </a>
+        <!-- contact on whatsapp -->
+        <a v-if="order.workshop.organizer.contact.whatsapp" :href="order.workshop.organizer.contact.whatsapp"
+           class="rounded-sm text-white p-1 md:p-2 block"
+           rel="noopener" style="background-color: #25D366" target="_blank" title="WhatsApp">
+          <fa :icon="['fab', 'whatsapp']"/>
+          <br> WhatsApp
+        </a>
 
-      <!-- mailto button -->
-      <a :href="`mailto:${order.workshop.organizer.email}`"
-         class="primary-border-button mt-2 w-full block" target="_blank" rel="noopener" title="E-Mail">
-        {{ order.workshop.organizer.firstName }} eine E-Mail schreiben
-      </a>
+        <!-- contact on facebook messenger -->
+        <a v-if="order.workshop.organizer.contact.messenger" :href="order.workshop.organizer.contact.messenger"
+           class="rounded-sm text-white p-1 md:p-2 block"
+           rel="noopener" style="background-color: #0078FF" target="_blank" title="Messenger">
+          <fa :icon="['fab', 'facebook-messenger']"/>
+          <br> Messenger
+        </a>
+
+        <!-- mailto button -->
+        <a :href="`mailto:${order.workshop.organizer.email}`"
+           class="rounded-sm text-white bg-gray-700 p-1 md:p-2 block" rel="noopener" target="_blank" title="E-Mail">
+          <fa :icon="['fas', 'at']"/>
+          <br>E-Mail
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +89,16 @@ export default {
     order: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    numOfColumns() {
+      if (this.order.workshop.organizer.contact.whatsapp && this.order.workshop.organizer.contact.messenger)
+        return "grid-cols-3";
+      else if (this.order.workshop.organizer.contact.whatsapp || this.order.workshop.organizer.contact.messenger)
+        return "grid-cols-2";
+      else
+        return "grid-cols-1";
     }
   },
   data() {
