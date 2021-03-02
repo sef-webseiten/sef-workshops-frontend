@@ -84,7 +84,7 @@
       </div>
     </full-width-section>
 
-    <full-width-section class="bg-abi-background hidden">
+    <full-width-section class="bg-abi-background">
       <p class="max-w-4xl mx-auto mt-10">
         Nimm das Finale deiner letzten 12 Jahre nicht auf die leichte Schulter, sondern geh auf Nummer sicher. Mit einem
         Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
