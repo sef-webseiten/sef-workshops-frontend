@@ -14,20 +14,21 @@
             </h1>
 
             <p class="text-2xl md:text-4xl font-semibold">Einfacher geht's nicht. </p>
-            <button class="abi-button w-fit mt-8 text-xl" @click="scrollTo('newsletter')"><span class="px-6">Platz sichern</span></button>
+            <button class="abi-button w-fit mt-8 text-xl" @click="scrollTo('newsletter')"><span class="px-6">Platz sichern</span>
+            </button>
           </div>
         </div>
 
         <!-- torn sheet image -->
-        <g-image class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false" height="400"
-                 src="~/assets/img/kante.png" alt="Zerrissenes Blatt"/>
-        <g-image class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false" height="400" alt="Zerrissenes Blatt"
+        <g-image alt="Zerrissenes Blatt" class="hidden md:block tw-auto -mr-10 h-full z-10" draggable="false"
+                 height="400" src="~/assets/img/kante.png"/>
+        <g-image alt="Zerrissenes Blatt" class="w-full md:hidden mt-0 -mb-8 z-10" draggable="false" height="400"
                  src="~/assets/img/kante-gedreht.png"/>
 
         <!-- header image -->
         <div class="relative w-full md:w-1/2 md:h-full">
-          <g-image class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden" draggable="false"
-                   src="~/assets/img/abi/header.jpg" alt="Headerbild"
+          <g-image alt="Headerbild" class="object-cover w-full max-h-96 md:max-h-full md:h-full overflow-hidden"
+                   draggable="false" src="~/assets/img/abi/header.jpg"
                    style="transform: rotateY(180deg)"
                    width="960"/>
 
@@ -40,7 +41,29 @@
       </div>
     </full-width-section>
 
-    <full-width-section class="text-center bg-abi-background">
+    <full-width-section class="bg-abi-background">
+      <div class="max-w-4xl my-10 mx-auto">
+        <p class="h4 mb-4">Die Abiturprüfungen stehen vor der Tür. Bist du schon bereit?</p>
+
+        <p class="mb-4">
+          Du steckst bestimmt schon mitten im Endspurt deiner Schullaufbahn. Die nächsten Wochen hast du nochmal Zeit
+          alles zu wiederholen, damit du pünktlich zur Abi-Prüfung den gesamten Stoff der letzten zwei Jahre drauf hast.
+        </p>
+
+        <p class="mb-4">
+          Und jeder kennt's: Die Prüfung rückt näher und es gibt schon noch ein paar Themen, die dir echt noch
+          Bauchschmerzen machen.
+        </p>
+
+        <p>
+          Extra für den Abiturjahrgang in NRW dieses Jahr haben wir die Abi-Aktion ins Leben gerufen. Die beste
+          Möglichkeit nochmal die Lücken zu Füllen und Themen, die noch nicht richtig sitzen, zu wiederholen bis alles
+          sitzt.
+        </p>
+      </div>
+    </full-width-section>
+
+    <full-width-section class="text-center">
       <div class="md:grid my-10" style="grid-template-columns: 40% 60%">
         <TrainerImage class="mb-10 md:mb-0"/>
 
@@ -48,13 +71,66 @@
           <p class="h1">Mit unseren <span class="text-abi">ausgewählten</span></p>
           <p class="text-7xl font-bold text-text-gray tracking-wide my-5">Trainern</p>
           <p class="h1"><span class="text-abi">sorglos</span> durch's Abi</p>
+
+          <p class="max-w-2xl mx-auto text-left mt-10">
+            Mit denen kannst du 3 ganze Tage Aufgaben
+            üben, Themen wiederholen und am aller wichtigsten: Alle deine Fragen stellen. Nutz die letzte Chance für
+            deine
+            perfekte Vorbereitung mit der Unterstützung deines Trainers.
+          </p>
+
         </div>
 
       </div>
     </full-width-section>
 
+    <full-width-section class="bg-abi-background hidden">
+      <p class="max-w-4xl mx-auto mt-10">
+        Nimm das Finale deiner letzten 12 Jahre nicht auf die leichte Schulter, sondern geh auf Nummer sicher. Mit einem
+        Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
+      </p>
+      <p class="max-w-4xl mx-auto mt-8">
+        <span class="block h2 text-center mb-6">Schau dir unsere <span class="text-abi">Kurse</span> mal an</span>
+        - dauert nur 2 Minuten, und dann kannst du auch schon weiterlernen. Und falls du
+        gar nicht am lernen warst, dann schau dir unsere Kurse erst recht mal an!
+      </p>
+      <div class="mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8 mt-12">
+
+        <abi-subject-card bg-class="bg-blue-800" icon="square-root-alt" icon-class="text-blue-700"
+                          search="/kurse?s=Abikurs%20Mathe%20LK">
+          Mathematik LK
+        </abi-subject-card>
+
+        <abi-subject-card bg-class="bg-red-600" icon="book" icon-class="text-red-500" search="">
+          Deutsch LK
+        </abi-subject-card>
+
+        <abi-subject-card bg-class="bg-yellow-500" icon="comment" icon-class="text-yellow-400" search="">
+          Englisch LK
+        </abi-subject-card>
+
+        <abi-subject-card bg-class="bg-green-600" icon="microscope" icon-class="text-green-500" search="">
+          Biologie LK
+        </abi-subject-card>
+
+
+        <abi-subject-card bg-class="bg-blue-600" icon="square-root-alt" icon-class="text-blue-500" search="">
+          Mathematik GK
+        </abi-subject-card>
+
+      </div>
+
+      <!-- subject is not listed, request it -->
+      <p class="text-center">Ist dein Fach nicht dabei? Schreib uns
+        <button class="text-abi" @click="$root.$emit('openContactForm', { subject: `Abikurs anfragen`})">
+          hier
+        </button>.
+      </p>
+
+    </full-width-section>
+
     <!-- main usps -->
-    <full-width-section class="">
+    <full-width-section>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-20 my-10">
 
         <icon-section :icon="['fas', 'user-clock']" class="text-text-gray" huge icon-color-class="text-abi"
@@ -76,7 +152,7 @@
     </full-width-section>
 
     <!-- newsletter signup section -->
-    <full-width-section class="bg-abi-background" id="newsletter">
+    <full-width-section id="newsletter" class="bg-abi-background">
       <newsletter-signup-section class="my-10" color-name="abi"
                                  title="Die Plätze sind begrenzt - bleib auf dem Laufenden ">
         <p class="mt-6">
@@ -130,9 +206,11 @@ import NumberParagraph from "../components/gui-elements/NumberParagraph";
 import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
 import TrainerImage from "../components/landing-page/TrainerImage";
 import { scrollTo } from "../plugins/scroll-to";
+import AbiSubjectCard from "../components/gui-elements/AbiSubjectCard";
 
 export default {
   components: {
+    AbiSubjectCard,
     TrainerImage,
     NumberParagraph,
     NewsletterSignupSection,
