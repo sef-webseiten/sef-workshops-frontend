@@ -19,6 +19,11 @@
         <Spinner v-else class="mx-auto"/>
       </button>
 
+      <p class="text-sm text-center mt-4">
+        Mit dem Senden akzeptierst du unsere
+        <g-link to="/privacy" class="text-primary">Datenschutzerklärung</g-link>.
+      </p>
+
       <p v-if="error" class="mt-4 text-center font-bold">Es ist ein Fehler entstanden, bitte probier es nochmal. </p>
     </form>
   </Popup>
