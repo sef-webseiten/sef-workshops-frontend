@@ -40,6 +40,12 @@
           zuerst anmelden. Klicke dafür hier.
         </p>
 
+        <div class="text-sm text-center mb-4">
+          Es gelten unsere <g-link target="_blank" title="AGB" to="/agb" class="text-primary">allgemeinen Geschäftsbedingungen</g-link>
+          und unsere
+          <g-link target="_blank" title="Datenschutzerklärung" to="/privacy" class="text-primary">Datenschutzerklärung</g-link>.
+        </div>
+
         <!-- next button -->
         <button
             v-if="[1,2,4].includes(step)"
@@ -52,12 +58,6 @@
 
         <!-- paypal buttons -->
         <div v-show="step === 3" id="paypal-button-container"></div>
-
-        <div class="text-blue-800 text-center mt-2">
-          <g-link target="_blank" title="AGB" to="/agb">AGB</g-link>
-          ·
-          <g-link target="_blank" title="Datenschutzerklärung" to="/datenschutzerklaerung">Datenschutzerklärung</g-link>
-        </div>
 
       </div>
     </transition>
