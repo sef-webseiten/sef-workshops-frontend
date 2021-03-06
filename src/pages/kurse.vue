@@ -110,6 +110,7 @@ firstName
 lastName
 profilePicture
 }
+description
 path
 minPrice
 nextDate
