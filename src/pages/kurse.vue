@@ -60,7 +60,8 @@ export default {
     },
   },
   mounted() {
-    this.$store.commit("setSearchTerm", this.$router.currentRoute.query?.s)
+    if(this.$router.currentRoute.query?.s)
+      this.$store.commit("setSearchTerm", this.$router.currentRoute.query?.s)
   }
 };
 </script>
