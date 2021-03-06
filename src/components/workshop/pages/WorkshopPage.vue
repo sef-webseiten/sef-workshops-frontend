@@ -36,7 +36,7 @@
         <!-- "starting at" price box -->
         <div class="mt-2 p-2 box w-fit inline-block mr-4">
           <fa :icon="['fas', 'tags']" class="mr-1" size="lg"/>
-          ab {{ workshop.minPrice || '-' }} EUR
+          {{ workshop.allPricesTheSame ? '' : 'ab' }} {{ workshop.minPrice || '-' }} EUR
         </div>
 
         <!-- first event date -->

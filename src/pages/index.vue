@@ -151,6 +151,7 @@ minPrice
 nextDate
 nextDuration
 nextParticipants
+allPricesTheSame
 }
 }
 }

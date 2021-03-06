@@ -51,8 +51,14 @@ function mapWorkshops(workshops) {
         workshop.path = `/w/${workshop._id}`;
         workshop.organizer.fullName = workshop.organizer.firstName + " " + workshop.organizer.lastName;
 
+        const firstPrice = workshop.events.length === 0 ? 0 : workshop.events[0].price;
+        let allPricesTheSame = firstPrice !== 0;
+
         // add time strings
         workshop.events.forEach(event => {
+            if(firstPrice !== event.price)
+                allPricesTheSame = false;
+
             event.dates = event.dates.map(addDateTimeString);
             event.abiDate = calcAbiDate(event.dates)
             event.price = event.price / 100;
@@ -83,7 +89,7 @@ function mapWorkshops(workshops) {
         let averageRating = workshop.ratings.map(r => r.average).reduce((a, b) => a + b, 0) / workshop.ratings.length;
 
         return {
-            ...workshop, minPrice, nextDate, nextDuration, nextParticipants, averageRating
+            ...workshop, minPrice, nextDate, nextDuration, nextParticipants, averageRating, allPricesTheSame
         };
     });
 }

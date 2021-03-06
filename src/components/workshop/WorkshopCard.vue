@@ -16,14 +16,13 @@
         <div class="p-4 pt-4 pb-0 relative">
 
           <img
-              :src="workshop.organizer.profilePicture"
+              :src="workshop.organizer.profilePicture" alt="Profilbild"
               class="w-16 h-16 rounded-full absolute right-0 top-0 -mt-8 mr-4">
 
           <span class="block text-xs text-gray-400 mr-12">{{ workshop.organizer.fullName }}</span>
 
           <!-- title -->
           <h2 class="text-base font-medium mb-4">{{ workshop.title }}</h2>
-
 
           <!-- subtitle -->
           <p
@@ -59,15 +58,17 @@
 
         <!-- duration -->
         <div>
-          <fa :icon="['fas', 'clock']" class="mr-2"/>
+          <fa :icon="['fas', 'clock']" class="mr-1"/>
           <span v-if="workshop.nextDuration">{{ workshop.nextDuration }} Stunden</span>
           <span v-else>-</span>
         </div>
 
         <!-- min price -->
         <div>
-          <fa :icon="['fas', 'tags']" class="mr-2"/>
-          <span v-if="workshop.minPrice">ab {{ Math.round(workshop.minPrice) == workshop.minPrice ? `${workshop.minPrice},-` : `${workshop.minPrice} EUR` }}</span>
+          <fa :icon="['fas', 'tags']" class="mr-1"/>
+          <span v-if="workshop.minPrice">
+            {{ workshop.allPricesTheSame ? '' : 'ab' }} {{ workshop.minPrice }} EUR
+          </span>
           <span v-else>-</span>
         </div>
       </div>

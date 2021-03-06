@@ -57,6 +57,7 @@ takeaway
 content
 requirements
 
+allPricesTheSame
 minPrice
 nextDate
 averageRating
