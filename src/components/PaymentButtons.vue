@@ -46,7 +46,7 @@
             :disabled="[2,4].includes(step) || !firebaseUser"
             class="w-full bg-primary p-2 font-bold text-white active:bg-light disabled:bg-gray-400 disabled:cursor-default rounded-sm"
             @click="step++">
-          <span v-show="step === 1">Kaufen</span>
+          <span v-show="step === 1">Jetzt Kaufen</span>
           <Spinner v-show="[2,4].includes(step)" class="mx-auto"/>
         </button>
 
