@@ -88,7 +88,7 @@
         Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
       </p>
       <p class="h2 text-center my-6">Schau dir unsere <span class="text-abi">Kurse</span> an</p>
-      <div class="mb-10 mt-10 grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-6 md:gap-8">
+      <div class="mb-10 mt-10 grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 max-w-4xl mx-auto gap-6 md:gap-8">
 
         <abi-subject-card bg-class="bg-blue-800" icon="square-root-alt" icon-class="text-blue-700"
                           search="/kurse?s=Abikurs%20Mathe%20LK">
