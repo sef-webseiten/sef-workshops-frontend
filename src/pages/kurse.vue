@@ -104,9 +104,11 @@ title
 subTitle
 _id
 thumbnail
+categories
 organizer {
 firstName
 lastName
+profilePicture
 }
 path
 minPrice
