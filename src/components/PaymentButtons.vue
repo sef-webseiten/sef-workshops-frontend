@@ -14,7 +14,7 @@
         <!-- price -->
         <div class="between mb-4">
           <p>Gesamtbetrag </p>
-          <p class="font-bold text-right text-lg">{{ event.price }} EUR</p>
+          <p class="font-bold text-right text-lg">{{ event.price.toPriceFormat() }}</p>
         </div>
 
         <!-- workshop name -->

@@ -47,7 +47,7 @@
 
         <!-- ratings -->
         <div v-if="!isNaN(workshop.averageRating)">
-          <Stars class="mx-auto w-fit" :value="workshop.averageRating" />
+          <Stars :value="workshop.averageRating" class="mx-auto w-fit"/>
         </div>
         <!-- no ratings available -->
         <div v-else class="icons-gray">
@@ -67,7 +67,7 @@
         <div>
           <fa :icon="['fas', 'tags']" class="mr-1"/>
           <span v-if="workshop.minPrice">
-            {{ workshop.allPricesTheSame ? '' : 'ab' }} {{ workshop.minPrice }} EUR
+            {{ workshop.allPricesTheSame ? '' : 'ab' }} {{ workshop.minPrice.toPriceFormat() }}
           </span>
           <span v-else>-</span>
         </div>

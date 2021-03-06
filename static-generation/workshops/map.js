@@ -3,6 +3,14 @@ require("dayjs/locale/de");
 
 dayjs.locale('de');
 
+// extend the number prototype for default price formatting
+Number.prototype.toPriceFormat = function () {
+    return this.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }) + " EUR";
+};
+
 function minValue(array, attribute) {
     return Math.min.apply(Math, array.map(event => event[attribute]));
 }
