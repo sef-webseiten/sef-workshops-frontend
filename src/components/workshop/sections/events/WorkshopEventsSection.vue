@@ -24,9 +24,9 @@
       </div>
 
       <!-- dates -->
-      <div class="box flex flex-row justify-center md:col-span-3">
-        <fa :icon="['fas', 'calendar-day']" class="m-2" size="lg"/>
-        <div class="p-2">
+      <div class="box md:flex flex-row justify-center md:col-span-3">
+        <fa :icon="['fas', 'calendar-day']" class="mt-2 md:m-2" size="lg"/>
+        <div class="p-2 text-sm md:text-base">
               <span
                   v-for="date in event.dates"
                   :key="date.startTime"
