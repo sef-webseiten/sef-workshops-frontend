@@ -74,7 +74,11 @@ export default {
       return this.$store.state.search.searchTerm || "Alle Kurse"
     },
     workshops() {
-      return this.$store.state.workshops.workshops || this.$static.workshops.edges.map(({ node: workshop }) => workshop);
+      if(this.$store.state.workshops.workshops) {
+        const ids = this.$static.workshops.edges.map(({ node: workshop }) => workshop._id);
+        return this.$store.state.workshops.workshops.filter(w => ids.includes(w._id));
+      } else
+        return this.$static.workshops.edges.map(({ node: workshop }) => workshop);
     },
   },
   mounted() {
