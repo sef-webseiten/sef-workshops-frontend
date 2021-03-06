@@ -126,6 +126,7 @@ export default {
     setupPaypalButtons(orderID) {
 
       this.step = 3;
+      plausible('order-created');
 
       paypal.Buttons({
 
@@ -139,6 +140,7 @@ export default {
 
         onApprove: (data, actions) => {
           this.step = 4;
+          plausible('payment-success');
           return actions.order.capture().then(() => {
             this.$root.$emit("payment-successful");
           });
