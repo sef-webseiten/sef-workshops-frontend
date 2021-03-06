@@ -8,17 +8,17 @@
 
         <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-4">
           <label class="flex items-center">
-            <input :value="o1" @change="$store.commit('setO1')" class="h-5 w-5 text-primary" type="checkbox">
+            <input :value="o1" class="h-5 w-5 text-primary" type="checkbox" @change="$store.commit('setO1')">
             <span class="ml-2">1. Woche Osterferien</span>
           </label>
 
           <label class="flex items-center">
-            <input :value="o2" @change="$store.commit('setO2')"  class="h-5 w-5 text-primary" type="checkbox">
+            <input :value="o2" class="h-5 w-5 text-primary" type="checkbox" @change="$store.commit('setO2')">
             <span class="ml-2">2. Woche Osterferien</span>
           </label>
 
           <label class="flex items-center">
-            <input :value="d" @change="$store.commit('setD')" class="h-5 w-5 text-primary" type="checkbox">
+            <input :value="d" class="h-5 w-5 text-primary" type="checkbox" @change="$store.commit('setD')">
             <span class="ml-2">Woche nach Osterferien</span>
           </label>
         </div>
@@ -32,6 +32,10 @@
           class="italic text-primary">{{ this.$store.state.search.searchTerm }}</span></span>
       <span v-else>Alle Kurse</span>
     </h2-->
+
+    <div v-show="recommended" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-1">
+      <p class="text-center text-green-700">Empfohlener Kurs</p>
+    </div>
 
     <!-- results -->
     <div v-if="searchResults.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
@@ -74,12 +78,16 @@ export default {
       return this.$store.state.search.searchTerm || "Alle Kurse"
     },
     workshops() {
-      if(this.$store.state.workshops.workshops) {
+      if (this.$store.state.workshops.workshops) {
         const ids = this.$static.workshops.edges.map(({ node: workshop }) => workshop._id);
         return this.$store.state.workshops.workshops.filter(w => ids.includes(w._id));
       } else
         return this.$static.workshops.edges.map(({ node: workshop }) => workshop);
     },
+    recommended() {
+      return this.searchResults.length > 1 &&
+          ['Abikurs Mathe LK', 'Abikurs Mathe GK', 'Abikurs Englisch LK', 'Abikurs Biologie LK'].includes(this.$store.state.search.searchTerm)
+    }
   },
   mounted() {
     if (this.$router.currentRoute.query?.s)
