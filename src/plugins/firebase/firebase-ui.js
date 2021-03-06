@@ -8,8 +8,6 @@ export const uiConfig = {
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     signInFlow: 'popup',
-    tosUrl: '/agb',
-    privacyPolicyUrl: '/privacy',
 };
 
 export const ui = new firebaseui.auth.AuthUI(auth);
