@@ -20,7 +20,7 @@
 
       <div class="box p-2">
         <fa :icon="['fas', 'tags']" class="mr-2" size="lg"/>
-        {{ event.price }} EURO
+        {{ event.price }} EUR
       </div>
 
       <!-- dates -->

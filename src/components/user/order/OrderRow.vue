@@ -31,7 +31,7 @@
       <p class="text-center mb-2">Buchungsdetails</p>
       <div class="box block p-2">
         <span class="font-semibold">Preis</span>
-        {{ order.price / 100 }} EURO <br>
+        {{ order.price / 100 }} EUR <br>
         <span class="font-semibold mt-2">Datum</span>
         {{ order.timestamp }} <br>
         <span class="font-semibold mt-2">Status</span>

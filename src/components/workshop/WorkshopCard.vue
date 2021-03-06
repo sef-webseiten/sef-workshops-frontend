@@ -63,7 +63,7 @@
         <!-- min price -->
         <div>
           <fa :icon="['fas', 'tags']" class="mr-2"/>
-          <span v-if="workshop.minPrice">ab {{ Math.round(workshop.minPrice) == workshop.minPrice ? `${workshop.minPrice},-` : `${workshop.minPrice} EURO` }}</span>
+          <span v-if="workshop.minPrice">ab {{ Math.round(workshop.minPrice) == workshop.minPrice ? `${workshop.minPrice},-` : `${workshop.minPrice} EUR` }}</span>
           <span v-else>-</span>
         </div>
       </div>
