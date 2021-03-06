@@ -2,24 +2,27 @@
   <Layout>
 
     <!-- abi date selection -->
-    <full-width-section class="-mt-6 mb-8 bg-gray-100">
+    <full-width-section class="-mt-6 mb-8 bg-gray-100 select-none">
       <div>
-        <p class="h4">Bitte die Daten eingrenzen</p>
+        <p class="h4">Wann hast du Zeit?</p>
 
-        <label class="flex items-center mt-3">
-          <input :value="o1" @change="$store.commit('setO1')" class="h-5 w-5 text-primary" type="checkbox">
-          <span class="ml-2">Erste Woche der Osterferien</span>
-        </label>
+        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-4">
+          <label class="flex items-center">
+            <input :value="o1" @change="$store.commit('setO1')" class="h-5 w-5 text-primary" type="checkbox">
+            <span class="ml-2">1. Woche Osterferien</span>
+          </label>
 
-        <label class="flex items-center mt-3">
-          <input :value="o2" @change="$store.commit('setO2')"  class="h-5 w-5 text-primary" type="checkbox">
-          <span class="ml-2">Zweite Woche der Osterferien</span>
-        </label>
+          <label class="flex items-center">
+            <input :value="o2" @change="$store.commit('setO2')"  class="h-5 w-5 text-primary" type="checkbox">
+            <span class="ml-2">2. Woche Osterferien</span>
+          </label>
 
-        <label class="flex items-center mt-3">
-          <input :value="d" @change="$store.commit('setD')" class="h-5 w-5 text-primary" type="checkbox">
-          <span class="ml-2">Nach den Osterferien</span>
-        </label>
+          <label class="flex items-center">
+            <input :value="d" @change="$store.commit('setD')" class="h-5 w-5 text-primary" type="checkbox">
+            <span class="ml-2">Woche nach Osterferien</span>
+          </label>
+        </div>
+
       </div>
     </full-width-section>
 
