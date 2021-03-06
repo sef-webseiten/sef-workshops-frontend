@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-0 right-0 w-screen md:w-1/2 lg:w-1/3 select-none z-30">
+  <div class="fixed bottom-0 right-0 w-screen md:w-1/2 xl:w-1/3 select-none z-30">
     <transition
         enter-active-class="animate__animated animate__slideInUp"
         leave-active-class="animate__animated animate__slideOutDown"
@@ -35,7 +35,7 @@
           <p><span v-for="(date, index) in event.dates" :key="index" class="block text-right">{{ date.timeString }}</span></p>
         </div>
 
-        <p v-if="!firebaseUser" class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup'); scrollTo('navbar'); visible = false;">
+        <p v-if="!firebaseUser" class="text-primary mb-4 text-center" @click="$root.$emit('openAuthPopup'); scrollTo('header'); visible = false;">
           Damit du den Kurs buchen kannst, musst du dich
           zuerst anmelden. Klicke dafür hier.
         </p>
@@ -74,7 +74,6 @@ export default {
   components: { Spinner, Default },
   data() {
     return {
-      scrollTo,
       visible: false,
       step: 1, // 1 if showing selection; 2 if waiting for details creation; 3 when buttons are shown; 4 waiting for capture
       workshop: null,
@@ -101,6 +100,7 @@ export default {
     }
   },
   methods: {
+    scrollTo,
     resetPaymentButton() {
       this.visible = false;
       this.step = 1;
