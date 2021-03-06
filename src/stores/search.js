@@ -3,7 +3,11 @@ import abi from "../pages/abi";
 export const searchStore = {
     state: {
         searchTerm: "",
-        abiDate: "all"
+        abiDate: {
+            o1: false,
+            o2: false,
+            d: false
+        }
     },
     mutations: {
         setSearchTerm(state, searchTerm) {
@@ -14,7 +18,9 @@ export const searchStore = {
             else
                 if(this.state.router.currentRoute.fullPath !== "/kurse") this.state.router.push("/kurse");
         },
-        setAbiDate: (state, abiDate) => state.abiDate = abiDate
+        setO1: (state) => state.abiDate.o1 = !state.abiDate.o1,
+        setO2: (state) => state.abiDate.o2 = !state.abiDate.o2,
+        setD: (state) => state.abiDate.d = !state.abiDate.d,
     }
 }
 
@@ -43,8 +49,17 @@ export const searchStoreComputers = {
                     break;
             }
 
-            if (found && this.$store.state.search.abiDate !== "all") {
-                found &= workshop.events.some(e => e.abiDate === this.$store.state.search.abiDate)
+            if (found && Object.values(this.$store.state.search.abiDate).some(e => e)) {
+                let abiFound = false;
+
+                if (this.$store.state.search.abiDate.o1)
+                    abiFound = abiFound || workshop.events.some(e => e.abiDate === "o1")
+                if (this.$store.state.search.abiDate.o2)
+                    abiFound = abiFound || workshop.events.some(e => e.abiDate === "o2")
+                if (this.$store.state.search.abiDate.d)
+                    abiFound = abiFound || workshop.events.some(e => e.abiDate === "d")
+
+                found &= abiFound
             }
 
             return found;

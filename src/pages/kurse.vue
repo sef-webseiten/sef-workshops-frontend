@@ -1,16 +1,25 @@
 <template>
   <Layout>
 
-    <!-- abi dropdown -->
+    <!-- abi date selection -->
     <full-width-section class="-mt-6 mb-8 bg-gray-100">
       <div>
-        <label for="dates" class="block h4 mb-4">Termin wählen</label>
-        <select id="dates" class="rounded-sm border border-primary w-full p-1" name="dates" v-model="abiDate">
-          <option value="all">Bitte eine Option auswählen</option>
-          <option value="o1">Anfang der Osterferien (29. - 31. März)</option>
-          <option value="o2">Ende der Osterferien (9. - 11. April)</option>
-          <option value="d">Woche nach den Osterferien (13. - 15. April)</option>
-        </select>
+        <p class="h4">Bitte die Daten eingrenzen</p>
+
+        <label class="flex items-center mt-3">
+          <input :value="o1" @change="$store.commit('setO1')" class="h-5 w-5 text-primary" type="checkbox">
+          <span class="ml-2">Erste Woche der Osterferien</span>
+        </label>
+
+        <label class="flex items-center mt-3">
+          <input :value="o2" @change="$store.commit('setO2')"  class="h-5 w-5 text-primary" type="checkbox">
+          <span class="ml-2">Zweite Woche der Osterferien</span>
+        </label>
+
+        <label class="flex items-center mt-3">
+          <input :value="d" @change="$store.commit('setD')" class="h-5 w-5 text-primary" type="checkbox">
+          <span class="ml-2">Nach den Osterferien</span>
+        </label>
       </div>
     </full-width-section>
 
@@ -42,6 +51,7 @@ import WorkshopCard from "../components/workshop/WorkshopCard";
 import GhostWorkshopCard from "../components/workshop/GhostWorkshopCard";
 import FullWidthSection from "../components/gui-elements/FullWidthSection";
 import { searchStoreComputers } from "../stores/search";
+import { mapState } from "vuex";
 
 export default {
   components: { FullWidthSection, GhostWorkshopCard, WorkshopCard },
@@ -52,6 +62,11 @@ export default {
   },
   computed: {
     ...searchStoreComputers,
+    ...mapState({
+      o1: state => state.search.abiDate.o1,
+      o2: state => state.search.abiDate.o2,
+      d: state => state.search.abiDate.d,
+    }),
     title() {
       return this.$store.state.search.searchTerm || "Alle Kurse"
     },
@@ -60,7 +75,7 @@ export default {
     },
   },
   mounted() {
-    if(this.$router.currentRoute.query?.s)
+    if (this.$router.currentRoute.query?.s)
       this.$store.commit("setSearchTerm", this.$router.currentRoute.query?.s)
   }
 };
