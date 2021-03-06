@@ -8,10 +8,12 @@ export const uiConfig = {
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     signInFlow: 'popup',
-    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        if(authResult.additionalUserInfo.isNewUser)
-            plausible('register');
-        return false;
+    callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            if(authResult.additionalUserInfo.isNewUser)
+                plausible('register');
+            return false;
+        }
     }
 };
 
