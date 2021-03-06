@@ -46,7 +46,7 @@ title
 subTitle
 
 organizer {
-firstName
+fullName
 birthday
 occupation
 profilePicture
