@@ -43,22 +43,22 @@
 
     <full-width-section class="bg-abi-background">
       <div class="max-w-4xl my-10 mx-auto">
-        <p class="h4 mb-4">Die Abiturprüfungen stehen vor der Tür. Bist du schon bereit?</p>
+        <p class="h2 mb-4">Das Abitur steht vor der Tür</p>
+
+        <p class="mb-4">Bist du schon bereit?</p>
 
         <p class="mb-4">
-          Du steckst bestimmt schon mitten im Endspurt deiner Schullaufbahn. Die nächsten Wochen hast du nochmal Zeit
+          Du steckst schon mitten im Endspurt deiner Schullaufbahn. Die nächsten Wochen hast du nochmal Zeit
           alles zu wiederholen, damit du pünktlich zur Abi-Prüfung den gesamten Stoff der letzten zwei Jahre drauf hast.
         </p>
 
         <p class="mb-4">
-          Und jeder kennt's: Die Prüfung rückt näher und es gibt schon noch ein paar Themen, die dir echt noch
-          Bauchschmerzen machen.
+          Und jeder kennt's: Die Prüfung rückt näher und es gibt noch ein paar Themen, die dir Bauchschmerzen machen.
         </p>
 
         <p>
           Extra für den Abiturjahrgang in NRW dieses Jahr haben wir die Abi-Aktion ins Leben gerufen. Die beste
-          Möglichkeit nochmal die Lücken zu Füllen und Themen, die noch nicht richtig sitzen, zu wiederholen bis alles
-          sitzt.
+          Möglichkeit die Lücken zu Füllen und Inhalte zu wiederholen bis alles sitzt.
         </p>
       </div>
     </full-width-section>
@@ -73,10 +73,8 @@
           <p class="h1"><span class="text-abi">sorglos</span> durch's Abi</p>
 
           <p class="max-w-2xl mx-auto text-left mt-10">
-            Mit denen kannst du 3 ganze Tage Aufgaben
-            üben, Themen wiederholen und am aller wichtigsten: Alle deine Fragen stellen. Nutz die letzte Chance für
-            deine
-            perfekte Vorbereitung mit der Unterstützung deines Trainers.
+            Drei ganze Tage Aufgaben üben, Themen wiederholen und am aller wichtigsten: Alle deine Fragen stellen.
+            Nutze die letzte Chance: die perfekte Vorbereitung mit der Unterstützung deines Trainers.
           </p>
 
         </div>
@@ -89,16 +87,12 @@
         Nimm das Finale deiner letzten 12 Jahre nicht auf die leichte Schulter, sondern geh auf Nummer sicher. Mit einem
         Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
       </p>
-      <p class="max-w-4xl mx-auto mt-8">
-        <span class="block h2 text-center mb-6">Schau dir unsere <span class="text-abi">Kurse</span> mal an</span>
-        - dauert nur 2 Minuten, und dann kannst du auch schon weiterlernen. Und falls du
-        gar nicht am lernen warst, dann schau dir unsere Kurse erst recht mal an!
-      </p>
-      <div class="mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8 mt-12">
+      <p class="h2 text-center my-6">Schau dir unsere <span class="text-abi">Kurse</span> an</p>
+      <div class="mb-10 mt-10 grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-6 md:gap-8">
 
         <abi-subject-card bg-class="bg-blue-800" icon="square-root-alt" icon-class="text-blue-700"
                           search="/kurse?s=Abikurs%20Mathe%20LK">
-          Mathematik LK
+          Mathe LK
         </abi-subject-card>
 
         <abi-subject-card bg-class="bg-yellow-500" icon="comment" icon-class="text-yellow-400"
@@ -113,7 +107,7 @@
 
         <abi-subject-card bg-class="bg-blue-600" icon="square-root-alt" icon-class="text-blue-500"
                           search="/kurse?s=Abikurs%20Mathe%20GK">
-          Mathematik GK
+          Mathe GK
         </abi-subject-card>
 
       </div>
