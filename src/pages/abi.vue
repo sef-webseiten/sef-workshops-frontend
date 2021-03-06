@@ -84,7 +84,7 @@
       </div>
     </full-width-section>
 
-    <full-width-section class="bg-abi-background hidden">
+    <full-width-section class="bg-abi-background">
       <p class="max-w-4xl mx-auto mt-10">
         Nimm das Finale deiner letzten 12 Jahre nicht auf die leichte Schulter, sondern geh auf Nummer sicher. Mit einem
         Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
@@ -101,20 +101,18 @@
           Mathematik LK
         </abi-subject-card>
 
-        <abi-subject-card bg-class="bg-red-600" icon="book" icon-class="text-red-500" search="">
-          Deutsch LK
-        </abi-subject-card>
-
-        <abi-subject-card bg-class="bg-yellow-500" icon="comment" icon-class="text-yellow-400" search="">
+        <abi-subject-card bg-class="bg-yellow-500" icon="comment" icon-class="text-yellow-400"
+                          search="/kurse?s=Abikurs%20Englisch%20LK">
           Englisch LK
         </abi-subject-card>
 
-        <abi-subject-card bg-class="bg-green-600" icon="microscope" icon-class="text-green-500" search="">
+        <abi-subject-card bg-class="bg-green-600" icon="microscope" icon-class="text-green-500"
+                          search="/kurse?s=Abikurs%20Biologie%20LK">
           Biologie LK
         </abi-subject-card>
 
-
-        <abi-subject-card bg-class="bg-blue-600" icon="square-root-alt" icon-class="text-blue-500" search="">
+        <abi-subject-card bg-class="bg-blue-600" icon="square-root-alt" icon-class="text-blue-500"
+                          search="/kurse?s=Abikurs%20Mathe%20GK">
           Mathematik GK
         </abi-subject-card>
 
