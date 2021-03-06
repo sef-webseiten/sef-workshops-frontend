@@ -13,9 +13,13 @@
             draggable="false"
         />
 
-        <div class="p-4 pt-2 pb-0">
+        <div class="p-4 pt-4 pb-0 relative">
 
-          <span class="text-xs text-gray-400">{{ workshop.organizer.fullName }}</span>
+          <img
+              :src="workshop.organizer.profilePicture"
+              class="w-16 h-16 rounded-full absolute right-0 top-0 -mt-8 mr-4">
+
+          <span class="block text-xs text-gray-400 mr-12">{{ workshop.organizer.fullName }}</span>
 
           <!-- title -->
           <h2 class="text-base font-medium mb-4">{{ workshop.title }}</h2>
