@@ -217,8 +217,23 @@ export default {
       lehrerSteps: ["Bewerben", "Gespräch", "Vorbereitung"]
     }
   },
-  metaInfo: {
-    title: "Abikurse 2021",
+  metaInfo() {
+    const image = require(`!!assets-loader?width=1200!~/assets/img/abi/header.jpg`)
+
+    return {
+      title: "Abikurse 2021",
+      description: "Beschreibung",
+      meta: [
+        {property: 'og:title', content: 'Abikurse 2021'},
+        {property: 'og:type', content: 'article'},
+        {property: 'og:url', content: 'https://of.courz.de/abi'},// here it is just ngrok for my test
+        {property: 'og:description', content: 'Abikurse im Jahr 2021 für das Land NRW'},
+        {property: 'og:image', content: image.src},
+        {property: 'twitter:image:src', content: image.src},
+        {property: 'og:image:width', content: '1200'},
+        {property: 'og:site_name', content: 'of.courz'}
+      ]
+    }
   },
 };
 </script>
