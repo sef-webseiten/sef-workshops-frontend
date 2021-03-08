@@ -139,6 +139,7 @@ edges {
 node {
 title
 subTitle
+categories
 _id
 thumbnail
 organizer {
