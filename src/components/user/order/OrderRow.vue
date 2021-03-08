@@ -51,7 +51,7 @@
       </button>
 
       <!-- open workshop -->
-      <g-link :to="`/w/${order.workshop._id}`" class="block mt-2 primary-border-button w-full">
+      <g-link :to="`/w/${order.workshop._id}/`" class="block mt-2 primary-border-button w-full">
         Kurs öffnen
       </g-link>
 

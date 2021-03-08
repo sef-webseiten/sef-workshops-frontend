@@ -4,7 +4,7 @@
     <p class="h4 mt-2">Vielen Dank für deine Teilnahme! </p>
     <p class="mt-6">
       Alle Details zu deinen Buchungen findest du unter deinen
-      <g-link to="/account/orders" class="text-primary">Buchungen. </g-link>
+      <g-link to="/account/orders/" class="text-primary">Buchungen. </g-link>
     </p>
 
     <p class="mt-6">

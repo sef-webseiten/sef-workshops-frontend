@@ -29,7 +29,7 @@
         </div>
 
         <!-- abi ad -->
-        <g-link class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4" to="/abi">
+        <g-link class="block flex-grow bg-primary bg-opacity-10 rounded-sm md:bg-transparent p-4" to="/abi/">
           <g-image class="mx-auto" src="~/assets/img/abi/badge.png" width="400" alt="Abikurs Aktion"/>
         </g-link>
       </div>

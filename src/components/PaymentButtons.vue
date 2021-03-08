@@ -41,9 +41,9 @@
         </p>
 
         <div class="text-sm text-center mb-4">
-          Es gelten unsere <g-link target="_blank" title="AGB" to="/agb" class="text-primary">allgemeinen Geschäftsbedingungen</g-link>
+          Es gelten unsere <g-link target="_blank" title="AGB" to="/agb/" class="text-primary">allgemeinen Geschäftsbedingungen</g-link>
           und unsere
-          <g-link target="_blank" title="Datenschutzerklärung" to="/privacy" class="text-primary">Datenschutzerklärung</g-link>.
+          <g-link target="_blank" title="Datenschutzerklärung" to="/privacy/" class="text-primary">Datenschutzerklärung</g-link>.
         </div>
 
         <!-- next button -->

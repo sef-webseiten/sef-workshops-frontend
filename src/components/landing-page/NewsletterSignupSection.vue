@@ -14,7 +14,7 @@
         <input-template v-model="form.mail" :color-name="colorName" label="E-Mail-Adresse" required/>
         <input-template :color-name="colorName" label="Ich akzeptiere die Datenschutzerklärung" required
                         type="checkbox"/>
-        <g-link :class="colorName === 'abi' ? 'text-abi' : 'text-primary'" class="text-sm" to="/privacy">Klicke hier um
+        <g-link :class="colorName === 'abi' ? 'text-abi' : 'text-primary'" class="text-sm" to="/privacy/">Klicke hier um
           die Datenschutzerklärung
           einzusehen.
         </g-link>

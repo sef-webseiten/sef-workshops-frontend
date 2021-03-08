@@ -15,7 +15,7 @@
     </p>
     <p class="mb-6">
       Mit der Anmeldung als Kurseleiter akzeptierst du unsere
-      <g-link class="text-primary" to="/agb">Allgemeinen Geschäftsbedingungen</g-link>.
+      <g-link class="text-primary" to="/agb/">Allgemeinen Geschäftsbedingungen</g-link>.
     </p>
     <button class="primary-button w-full" @click="$emit('organizer')">Anmelden</button>
   </Popup>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <g-link
-        :to="workshop.path"
+        :to="`${workshop.path}/`"
         class="rounded shadow-lg bg-white transition duration-200 hover:shadow-2xl flex flex-col justify-between h-full"
     >
       <div>

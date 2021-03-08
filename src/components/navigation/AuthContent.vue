@@ -3,7 +3,7 @@
     <div ref="firebaseui"></div>
     <p class="text-text-gray p-1 text-center text-xs">
       Mit der Anmeldung akzeptierst du unsere
-      <g-link to="/privacy" class="text-primary">Datenschutzerklärung</g-link>.
+      <g-link to="/privacy/" class="text-primary">Datenschutzerklärung</g-link>.
     </p>
     <p v-if="badInitialized" class="text-black p-1">Seite bitte neuladen, es ist ein Fehler aufgetreten</p>
   </div>
