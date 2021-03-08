@@ -92,7 +92,7 @@
       </div>
     </full-width-section>
 
-    <newsletter-signup-section class="my-16" sub-title="Melde dich bei unserem Newsletter an"
+    <newsletter-signup-section class="my-16" sub-title="Melde dich zu unserem Newsletter an"
                                title="Dich interessiert unser Fortschritt?">
       <p class="mt-6">
         Aktuell befinden wir uns im Aufbau und arbeiten stetig an der optimalen Lösung, um dir die beste Lernerfahrung

@@ -4,6 +4,6 @@
     <div class="bg-gray-50 p-8 md:p-10 mx-auto w-full md:w-3/4 lg:w-3/4 max-w-3xl rounded-sm" @click.stop>
       <slot/>
     </div>
-    <button class="mx-auto block text-white text-sm mt-4">Tippe hier zum schließen.</button>
+    <button class="mx-auto block text-white select-none text-sm mt-4">Tippe hier zum schließen.</button>
   </div>
 </template>
