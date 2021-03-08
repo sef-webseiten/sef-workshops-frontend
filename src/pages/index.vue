@@ -57,11 +57,10 @@
     </full-width-section>
 
     <div id="kurse-finden" class="py-16">
-      <h2 class="h2 text-center mb-6">Kurse finden</h2>
-      <p class="h4 text-center mb-10">Mach dir einen Eindruck von der Plattform</p>
+      <h2 class="h2 text-center mb-10">Kurse finden</h2>
       <div class="max-w-5xl mx-auto block grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <WorkshopCard
-            v-for="workshop in workshops.slice(0,3)"
+            v-for="workshop in workshops.filter(w => !w.categories.includes('Demo')).slice(0,3)"
             :key="workshop._id"
             :workshop="workshop"
         />
