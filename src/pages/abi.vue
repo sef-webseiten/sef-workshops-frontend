@@ -58,7 +58,7 @@
 
         <p>
           Extra für den Abiturjahrgang in NRW dieses Jahr haben wir die Abi-Aktion ins Leben gerufen. Die beste
-          Möglichkeit die Lücken zu Füllen und Inhalte zu wiederholen bis alles sitzt.
+          Möglichkeit die Lücken zu füllen und Inhalte zu wiederholen bis alles sitzt.
         </p>
       </div>
     </full-width-section>
@@ -74,7 +74,7 @@
 
           <p class="max-w-2xl mx-auto text-left mt-10">
             Drei ganze Tage Aufgaben üben, Themen wiederholen und am aller wichtigsten: Alle deine Fragen stellen.
-            Nutze die letzte Chance: die perfekte Vorbereitung mit der Unterstützung deines Trainers.
+            Nutze die letzte Chance: Die perfekte Vorbereitung mit der Unterstützung deines Trainers.
           </p>
 
         </div>
@@ -221,13 +221,13 @@ export default {
     const image = require(`!!assets-loader?width=1200!~/assets/img/abi/header.jpg`), imgSrc = 'https://of.courz.de' + image.src;
 
     return {
-      title: "Abikurse 2021",
-      description: "Beschreibung",
+      title: "Günstige Vorbereitungskurse für das Abi 2021 in NRW",
       meta: [
-        {property: 'og:title', content: 'Abikurse 2021'},
+        {property: 'og:title', content: 'Günstige Vorbereitungskurse für das Abi 2021 in NRW'},
         {property: 'og:type', content: 'article'},
         {property: 'og:url', content: 'https://of.courz.de/abi'},
         {property: 'og:description', content: 'Abikurse im Jahr 2021 für das Land NRW'},
+        {name: 'description', content: 'Mit unseren Trainern wiederholen, üben und Fragen stellen bis alles sitzt. So einfach kann Abi sein.\n'},
         {property: 'og:image', content: imgSrc},
         {property: 'twitter:image:src', content: imgSrc},
         {property: 'og:image:width', content: '1200'},
