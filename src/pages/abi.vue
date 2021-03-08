@@ -218,7 +218,7 @@ export default {
     }
   },
   metaInfo() {
-    const image = require(`!!assets-loader?width=1200!~/assets/img/abi/header.jpg`)
+    const image = require(`!!assets-loader?width=1200!~/assets/img/abi/header.jpg`), imgSrc = 'https://of.courz.de' + image.src;
 
     return {
       title: "Abikurse 2021",
@@ -226,10 +226,10 @@ export default {
       meta: [
         {property: 'og:title', content: 'Abikurse 2021'},
         {property: 'og:type', content: 'article'},
-        {property: 'og:url', content: 'https://of.courz.de/abi'},// here it is just ngrok for my test
+        {property: 'og:url', content: 'https://of.courz.de/abi'},
         {property: 'og:description', content: 'Abikurse im Jahr 2021 für das Land NRW'},
-        {property: 'og:image', content: image.src},
-        {property: 'twitter:image:src', content: image.src},
+        {property: 'og:image', content: imgSrc},
+        {property: 'twitter:image:src', content: imgSrc},
         {property: 'og:image:width', content: '1200'},
         {property: 'og:site_name', content: 'of.courz'}
       ]
