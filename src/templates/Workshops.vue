@@ -29,6 +29,16 @@ export default {
   metaInfo() {
     return {
       title: this.workshop.title,
+      meta: [
+        {property: 'og:title', content: this.workshop.title},
+        {property: 'og:type', content: 'article'},
+        {property: 'og:url', content: "https://of.courz.de" + this.workshop.path},
+        {property: 'og:description', content: this.workshop.description},
+        {name: 'description', content: this.workshop.description},
+        {property: 'og:image', content: this.workshop.thumbnail},
+        {property: 'twitter:image:src', content: this.workshop.thumbnail},
+        {property: 'og:site_name', content: 'of.courz'}
+      ]
     }
   },
   computed: {
@@ -56,6 +66,8 @@ description
 takeaway
 content
 requirements
+
+path
 
 allPricesTheSame
 minPrice
