@@ -35,7 +35,8 @@ export default {
         {property: 'og:url', content: "https://of.courz.de" + this.workshop.path},
         {property: 'og:description', content: this.workshop.description},
         {name: 'description', content: this.workshop.description},
-        {property: 'og:image', content: this.workshop.thumbnail},
+        {property: 'og:image', itemprop: "image", content: this.workshop.thumbnail},
+        {property: 'og:image:secure_url', itemprop: "image", content: this.workshop.thumbnial},
         {property: 'twitter:image:src', content: this.workshop.thumbnail},
         {property: 'og:site_name', content: 'of.courz'}
       ]
