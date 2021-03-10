@@ -13,7 +13,7 @@
               Abikurse <span class="text-abi">2021</span>
             </h1>
 
-            <p class="text-2xl md:text-4xl font-semibold">Einfacher geht's nicht. </p>
+            <p class="text-2xl md:text-4xl font-semibold">So einfach kann Abi sein.</p>
             <button class="abi-button w-fit mt-8 text-xl" @click="scrollTo('platz-sichern')"><span class="px-6">Jetzt buchen</span>
             </button>
           </div>
@@ -76,17 +76,19 @@
         <p class="mb-4">Bist du schon bereit?</p>
 
         <p class="mb-4">
-          Du steckst schon mitten im Endspurt deiner Schullaufbahn. Die nächsten Wochen hast du nochmal Zeit
-          alles zu wiederholen, damit du pünktlich zur Abi-Prüfung den gesamten Stoff der letzten zwei Jahre drauf hast.
+          Du steckst schon mitten im Endspurt deiner Schulkarriere. Die nächsten Wochen hast du nochmal Zeit
+          alles zu wiederholen, damit du pünktlich zur deiner Prüfung den gesamten Stoff drauf hast.
         </p>
 
         <p class="mb-4">
-          Und jeder kennt's: Die Prüfung rückt näher und es gibt noch ein paar Themen, die dir Bauchschmerzen machen.
+          Aber dir geht's sicher wie allen Abiturienten: Die Prüfung rückt näher und so richtig "bereit" fühlst du dich
+          noch nicht. Es gibt noch ein paar Themen, die dir Bauchschmerzen machen.
         </p>
 
         <p>
-          Extra für den Abiturjahrgang in NRW dieses Jahr haben wir die Abi-Aktion ins Leben gerufen. Die beste
-          Möglichkeit die Lücken zu füllen und Inhalte zu wiederholen bis alles sitzt.
+          Wir von of.courz kennen das Problem und möchten Dir helfen. Als Start unseres Kursportals haben wir extra für
+          die Abiturprüfungen 2021 in NRW die ABI AKTION ins Leben gerufen. Mit einer Teilnahme an einem unserer
+          umfangreichen Vorbereitungskurse wirst du bestens auf die Prüfung vorbereitet - keine Frage bleibt offen!
         </p>
       </div>
     </full-width-section>
@@ -167,13 +169,23 @@
             Leistungen abgeschnitten haben. Daher können sie sich bestens in eure Lage hineinversetzen und wissen, wie
             ihr euch optimal vorbereitet.
           </div>
+          <div>
+            <h3 class="h4 mb-2">Welche Inhalte werden im Kurs behandelt? </h3>
+            Grundsätzlich gehen die Trainer mit euch den gesamten Abitur-relevanten Stoff ausführlich durch. Allerdings
+            richten sie sich auch nach euren Wünschen und Präferenzen und gehen auf Themen, die euch noch schwer fallen
+            gerne genauer ein.
+          </div>
+
+          <div class="md:flex justify-center items-center md:text-center">
+            <p>
+              Du hast weitere Fragen? <br> Schreib uns
+              <button class="text-abi" @click="$root.$emit('openContactForm')">hier.</button>
+            </p>
+          </div>
         </div>
 
         <!-- ask a question -->
-        <p class="text-center mt-10">
-          Du hast weitere Fragen? Schreib uns
-          <button class="text-abi" @click="$root.$emit('openContactForm')">hier.</button>
-        </p>
+
 
       </div>
     </full-width-section>
