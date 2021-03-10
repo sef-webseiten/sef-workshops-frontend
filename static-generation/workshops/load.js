@@ -25,7 +25,6 @@ const workshopsQuery = gql`
             }
             ratings {
                 text
-                improveable
                 author {_id firstName profilePicture}
                 organizerRating {friendly reliable knowledge patience rating}
                 workshopRating { recommendable content entertaining rating}

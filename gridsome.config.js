@@ -16,7 +16,7 @@ module.exports = {
     plugins: [{
         use: '@gridsome/plugin-sitemap',
         options: {
-            exclude: ['/privacy/', '/agb/', '/kurse/', '/account/orders/', '/account/details/'],
+            exclude: ['/privacy/', '/agb/', '/kurse/', '/account/orders/', '/account/details/', '/w/6048d3089a4ed8e449eab54c/'],
         }
     }, {
         use: 'gridsome-plugin-tailwindcss',
