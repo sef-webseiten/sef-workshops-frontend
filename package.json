@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@gridsome/plugin-sitemap": "^0.4.0",
     "animate.css": "^4.1.1",
     "apollo-boost": "^0.4.9",
     "babel-runtime": "^6.26.0",

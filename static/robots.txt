@@ -1,2 +1,8 @@
 User-agent: *
-Allow: *
+Disallow: /account/orders/
+Disallow: /account/details/
+Disallow: /kurse/
+Disallow: /agb/
+Disallow: /privacy/
+
+Sitemap: https://of.courz.de/sitemap.xml

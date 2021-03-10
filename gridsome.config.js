@@ -5,6 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
+    siteUrl: "https://of.courz.de",
     siteName: 'of.courz',
     titleTemplate: '%s – of.courz',
 
@@ -13,6 +14,11 @@ module.exports = {
     },
 
     plugins: [{
+        use: '@gridsome/plugin-sitemap',
+        options: {
+            exclude: ['/privacy/', '/agb/', '/kurse/', '/account/orders/', '/account/details/'],
+        }
+    }, {
         use: 'gridsome-plugin-tailwindcss',
         options: {
             tailwindConfig: 'tailwind.config.js'
