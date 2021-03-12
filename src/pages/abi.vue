@@ -90,6 +90,59 @@
           die Abiturprüfungen 2021 in NRW die ABI AKTION ins Leben gerufen. Mit einer Teilnahme an einem unserer
           umfangreichen Vorbereitungskurse wirst du bestens auf die Prüfung vorbereitet - keine Frage bleibt offen!
         </p>
+
+        <div class="relative grid gap-8 md:grid-cols-2 mt-16 text-center emoji-section">
+
+          <div class="hidden md:block h-full w-px absolute left-1/2 ml-2 bg-text-gray bg-opacity-20"></div>
+
+          <p class="h4">
+            OHNE <img alt="Logo" class="h-6 inline-block ml-2 mb-2" src="../assets/img/logo/logo-schwarzweiß.svg">
+          </p>
+          <p class="h4">
+            MIT <img alt="Logo" class="h-6 inline-block ml-2 mb-2" src="../assets/img/logo/logo-schwarzweiß.svg">
+          </p>
+
+          <div class="emoji-row negative">
+            <p class="emoji">🙁</p>
+            <p>Du lernst und googlest alles, was du nicht verstehst, und machst dir Stress wenn es
+              nicht klappt.</p>
+          </div>
+
+          <div class="emoji-row">
+            <p class="emoji">😊</p>
+            <p>Du lernst und schreibst auf, was du noch nicht verstehst.</p>
+          </div>
+
+          <div class="emoji-row negative">
+            <p class="emoji">😩</p>
+            <p>Du lernst weiter und machst dich verrückt mit den Themen, die du immer noch nicht
+              verstanden hast.</p>
+          </div>
+
+          <div class="emoji-row">
+            <p class="emoji">😁</p>
+            <p>Du wiederholst nochmal alles im Vorbereitungskurs und klärst deine Fragen mit dem
+              kompetenten Trainer, der dir in Ruhe alles erklärt.</p>
+          </div>
+
+          <div class="emoji-row negative">
+            <p class="emoji">🥴</p>
+            <p>Du gehst unsicher und unausgeschlafen in die Abi-Prüfung, weil du vor Aufregung
+              schlecht geschlafen hast.</p>
+          </div>
+
+          <div class="emoji-row">
+            <p class="emoji">😌</p>
+            <p>Du gehst gelassen und ausgeschlafen in die Abi-Prüfung, weil du gut vorbereitet bist
+              und deine Problem-Themen mit unseren Trainern geklärt hast.</p>
+          </div>
+
+        </div>
+
+        <button class="primary-border-button w-full md:w-2/3 block mx-auto mt-4 md:mt-8"
+                @click="scrollTo('platz-sichern')">Geh den leichten Weg
+        </button>
+
       </div>
     </full-width-section>
 
@@ -249,9 +302,11 @@ import FloatingInstagram from "../components/gui-elements/FloatingInstagram";
 import TrainerImage from "../components/landing-page/TrainerImage";
 import { scrollTo } from "../plugins/scroll-to";
 import AbiSubjectCard from "../components/gui-elements/AbiSubjectCard";
+import BurgerIcon from "../components/navigation/BurgerIcon";
 
 export default {
   components: {
+    BurgerIcon,
     AbiSubjectCard,
     TrainerImage,
     NumberParagraph,
@@ -297,6 +352,57 @@ export default {
 <style scoped>
 .pinselstrich {
   background-image: url("../assets/img/pinselstrich.svg");
+}
+
+.emoji {
+  @apply text-center text-4xl select-none;
+}
+
+.emoji-row {
+  @apply grid h-fit text-left;
+  grid-template-columns: 25% 75%;
+}
+
+.emoji-section > .h4:nth-child(2) {
+  order: -1
+}
+
+.emoji-section > .h4:nth-child(3) {
+  order: 4
+}
+
+.emoji-row:nth-child(4) {
+  order: 1
+}
+
+.emoji-row:nth-child(5) {
+  order: 4
+}
+
+.emoji-row:nth-child(6) {
+  order: 2
+}
+
+.emoji-row:nth-child(7) {
+  order: 6
+}
+
+.emoji-row:nth-child(8) {
+  order: 3
+}
+
+.emoji-row:nth-child(9) {
+  order: 7
+}
+
+@media (min-width: 1024px) {
+  .emoji-section > .h4 {
+    order: initial !important;
+  }
+
+  .emoji-row {
+    order: initial !important;
+  }
 }
 </style>
 <static-query>
