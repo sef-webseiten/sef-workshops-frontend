@@ -57,7 +57,7 @@
 
         <div>
           <fa :icon="['fas', 'user-friends']" class="mr-2" fixed-width size="lg"/>
-          kompetente Trainer
+          Kompetente Trainer
         </div>
 
         <div>
@@ -98,7 +98,7 @@
           <p class="h4">
             OHNE <img alt="Logo" class="h-6 inline-block ml-2 mb-2" src="../assets/img/logo/logo-schwarzweiß.svg">
           </p>
-          <p class="h4">
+          <p class="h4 mt-8 md:mt-0">
             MIT <img alt="Logo" class="h-6 inline-block ml-2 mb-2" src="../assets/img/logo/logo-schwarzweiß.svg">
           </p>
 
@@ -139,8 +139,8 @@
 
         </div>
 
-        <button class="primary-border-button w-full md:w-2/3 block mx-auto mt-4 md:mt-8"
-                @click="scrollTo('platz-sichern')">Geh den leichten Weg
+        <button class="abi-button w-full md:w-5/12 block ml-auto mt-8 md:mr-6"
+                @click="scrollTo('platz-sichern')">Geh diesen Weg
         </button>
 
       </div>
@@ -160,6 +160,10 @@
             Nutze die letzte Chance: Die perfekte Vorbereitung mit der Unterstützung deines Trainers.
           </p>
 
+          <p class="h2 italic mt-8 text-center">
+            „<span class="h4">[...]</span> besser als <span class="text-abi">10 Stunden</span> Nachhilfe.“
+          </p>
+
         </div>
 
       </div>
@@ -171,6 +175,7 @@
         Vorbereitungskurs unserer Trainer schläft es sich gleich viel ruhiger. Sogar am Tag vor der Prüfung.
       </p>
       <p class="h2 text-center my-6">Schau dir unsere Kurse an</p>
+
       <div class="mb-10 mt-10 grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 max-w-4xl mx-auto gap-6 md:gap-8">
 
         <abi-subject-card bg-class="bg-blue-800" icon="square-root-alt" icon-class="text-blue-700"
