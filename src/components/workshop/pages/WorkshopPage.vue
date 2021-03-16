@@ -72,32 +72,24 @@
       <!-- ToDo: enable and configure vue-markdown correctly -->
 
       <!-- takeaway -->
-      <div class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Das nimmst du mit</h2>
-        <span class="text-justify">{{ workshop.takeaway }}</span>
-        <!--vue-markdown :source="" class="text-justify"/-->
-      </div>
+      <details-box title="Das nimmst du mit">
+        {{ workshop.takeaway }}
+      </details-box>
 
       <!-- description -->
-      <div class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Beschreibung</h2>
-        <span class="text-justify">{{ workshop.description }}</span>
-        <!--vue-markdown :source="" class="text-justify"/-->
-      </div>
+      <details-box title="Beschreibung">
+        {{ workshop.description }}
+      </details-box>
 
       <!-- requirements -->
-      <div v-if="workshop.requirements" class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Voraussetzungen</h2>
-        <span class="text-justify">{{ workshop.requirements }}</span>
-        <!--vue-markdown :source="" class="text-justify"/-->
-      </div>
+      <details-box title="Voraussetzungen">
+        {{ workshop.requirements }}
+      </details-box>
 
       <!-- content -->
-      <div v-if="workshop.content" class="box mt-8 w-full p-4">
-        <h2 class="text-lg mb-4">Inhalte</h2>
-        <span class="text-justify">{{ workshop.content }}</span>
-        <!--vue-markdown :source="" class="text-justify"/-->
-      </div>
+      <details-box title="Inhalte">
+        {{ workshop.content }}
+      </details-box>
 
       <h2 class="h3 my-8">Veranstaltungen</h2>
     </div>
@@ -119,10 +111,12 @@ import Stars from "../../gui-elements/Stars";
 import PaymentButtons from "../../PaymentButtons";
 import WorkshopRatingSection from "../sections/ratings/WorkshopRatingSection";
 import WorkshopEventsSection from "../sections/events/WorkshopEventsSection";
+import DetailsBox from "../sections/details/DetailsBox";
 
 export default {
   props: ["workshop"],
   components: {
+    DetailsBox,
     WorkshopEventsSection,
     WorkshopRatingSection,
     Stars,
