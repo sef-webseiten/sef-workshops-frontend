@@ -7,10 +7,10 @@
         <p class="h4">Wann hast du Zeit?</p>
 
         <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-4">
-          <label class="flex items-center">
+          <!--label class="flex items-center">
             <input :value="o1" class="h-5 w-5 text-primary" type="checkbox" @change="$store.commit('setO1')">
             <span class="ml-2">1. Woche Osterferien</span>
-          </label>
+          </label-->
 
           <label class="flex items-center">
             <input :value="o2" class="h-5 w-5 text-primary" type="checkbox" @change="$store.commit('setO2')">
