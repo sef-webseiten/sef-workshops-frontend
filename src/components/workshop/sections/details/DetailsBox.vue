@@ -1,7 +1,7 @@
 <template>
-  <div class="box mt-8 w-full p-4 overflow-hidden select-none h-auto max-h-screen" :class="{'max-h-14-important': !extended}">
-    <div :class="{'-rotate-180' : extended}" class="float-right -m-2 p-2 transition-all duration-200 transform"
-         @click="extended = !extended">
+  <div :class="{'max-h-14-important': !extended}" class="cursor-pointer box mt-8 w-full p-4 overflow-hidden select-none h-auto max-h-screen"
+       @click="extended = !extended">
+    <div :class="{'-rotate-180' : extended}" class="float-right -m-2 p-2 transition-all duration-200 transform">
       <fa icon="chevron-down" size="lg"/>
     </div>
     <h2 class="text-lg mb-4">{{ title }}</h2>
