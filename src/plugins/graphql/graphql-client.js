@@ -50,6 +50,7 @@ export async function loadInitialData(store) {
                 occupation
                 birthday
                 profilePicture
+                email
             }
             orders: myOrders {
                 _id

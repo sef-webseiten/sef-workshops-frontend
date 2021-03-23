@@ -5,7 +5,7 @@
     <WorkshopPage v-if="!booked" :workshop="workshop"/>
 
     <!-- order successful card -->
-    <WorkshopBookedPage v-else :workshop="workshop"/>
+    <WorkshopBookedPage v-else :workshop="workshop" :event="event"/>
 
   </Layout>
 </template>
@@ -20,34 +20,42 @@ export default {
   },
   data() {
     return {
-      booked: false
+      booked: false,
+      event: null
     }
   },
   mounted() {
-    this.$root.$on("payment-successful", () => this.booked = true);
+    this.$root.$on("payment-successful", ([workshop, event]) => {
+      this.event = event;
+      this.booked = true
+    });
   },
   metaInfo() {
     return {
       title: this.workshop.title,
       meta: [
-        {property: 'og:title', content: this.workshop.title},
-        {property: 'og:type', content: 'article'},
-        {property: 'og:url', content: "https://of.courz.de" + this.workshop.path},
-        {property: 'og:description', content: this.workshop.description},
-        {name: 'description', content: this.workshop.description},
-        {property: 'og:image', itemprop: "image", content: this.workshop.thumbnail},
-        {property: 'og:image:secure_url', itemprop: "image", content: this.workshop.thumbnial},
-        {property: 'twitter:image:src', content: this.workshop.thumbnail},
-        {property: 'og:site_name', content: 'of.courz'}
+        { property: 'og:title', content: this.workshop.title },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: "https://of.courz.de" + this.workshop.path },
+        { property: 'og:description', content: this.workshop.description },
+        { name: 'description', content: this.workshop.description },
+        { property: 'og:image', itemprop: "image", content: this.workshop.thumbnail },
+        { property: 'og:image:secure_url', itemprop: "image", content: this.workshop.thumbnial },
+        { property: 'twitter:image:src', content: this.workshop.thumbnail },
+        { property: 'og:site_name', content: 'of.courz' }
       ]
     }
-  },
+  }
+  ,
   computed: {
     workshop() {
       return this.$store.state.workshops.workshops?.filter(workshop => workshop._id == this.$router.currentRoute.params._id)[0] || this.$page.workshop;
-    },
-  },
-};
+    }
+    ,
+  }
+  ,
+}
+;
 </script>
 <page-query>
 query Workshop ($id: ID!){

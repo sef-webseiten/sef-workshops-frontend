@@ -109,6 +109,10 @@ export default {
       document.querySelector("#paypal-button-container").innerHTML = "";
     },
     createOrder() {
+
+      this.$root.$emit("payment-successful", [this.workshop, this.event]);
+return;
+
       let mutation = `
             mutation createOrder ($workshopID: ObjectId!, $eventID: ObjectId!, $participants: Int!, $affiliate: String) {
               createOrder (workshopID: $workshopID, eventID: $eventID, participants: $participants, affiliate: $affiliate)
@@ -142,7 +146,7 @@ export default {
           this.step = 4;
           plausible('payment-success');
           return actions.order.capture().then(() => {
-            this.$root.$emit("payment-successful");
+            this.$root.$emit("payment-successful", this.event);
           });
         },
 

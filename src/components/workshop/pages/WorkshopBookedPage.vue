@@ -1,7 +1,7 @@
 <template>
   <div class="page-style-card">
     <WorkshopImageLarge :workshop="workshop"/>
-    <OrderSuccessful :workshop="workshop"/>
+    <OrderSuccessful :workshop="workshop" :event="event"/>
   </div>
 </template>
 <script>
@@ -13,6 +13,6 @@ export default {
     WorkshopImageLarge,
     OrderSuccessful
   },
-  props: ["workshop"]
+  props: ["workshop", "event"]
 }
 </script>
