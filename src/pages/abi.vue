@@ -188,11 +188,6 @@
           Englisch LK
         </abi-subject-card>
 
-        <abi-subject-card bg-class="bg-green-600" icon="microscope" icon-class="text-green-500"
-                          search="/kurse?s=Abikurs%20Biologie%20LK">
-          Biologie LK
-        </abi-subject-card>
-
         <abi-subject-card bg-class="bg-blue-600" icon="square-root-alt" icon-class="text-blue-500"
                           search="/kurse?s=Abikurs%20Mathe%20GK">
           Mathe GK
